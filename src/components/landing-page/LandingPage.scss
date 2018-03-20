@@ -1,0 +1,109 @@
+@import '../../styles/variables';
+
+.landing-page {
+  padding-bottom: 150px;
+
+  .lp-main-section {
+    align-items: center;
+    background-color: $color-black-5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 125px 20px;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      // desktop
+      padding: 175px 20px;
+    }
+
+    .lp-image-half {
+      display: inline-block;
+      margin-bottom: 50px;
+      width: 100%;
+
+      @media (min-width: 768px) {
+        // desktop
+        margin-bottom: 0;
+        width: 50%;
+      }
+
+      .lp-image {
+        background-image: url('../../images/example-box.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: inline-block;
+        height: 185px;
+        width: 250px;
+
+        @media (min-width: 768px) {
+          // desktop
+          height: 259px;
+          width: 351px;
+        }
+      }
+    }
+
+    .lp-cta-half {
+      display: inline-block;
+      width: 100%;
+
+      @media (min-width: 768px) {
+        // desktop
+        width: 50%;
+      }
+
+      .lp-cta-text {
+        display: inline-block;
+        font-size: $font-size-jumbo;
+        max-width: 450px;
+      }
+
+      .lp-cta-btn {
+        margin-top: 50px;
+
+        @media (min-width: 768px) {
+          // desktop
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+
+  .lp-how-it-works {
+    .lp-hiw-title {
+      font-size: $font-size-jumbo;
+      margin-top: 100px;
+      text-align: center;
+    }
+
+    .lp-hiw-contents {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-bottom: 75px;
+
+      .lp-hiw-step {
+        margin-top: 75px;
+        text-align: center;
+        max-width: 314px;
+
+        .lp-hiw-step-title {
+          font-size: $font-size-large;
+          font-weight: $font-weight-regular;
+          margin-bottom: 15px;
+        }
+
+        .lp-hiw-step-body {
+          font-size: $font-size-medium;
+        }
+      }
+    }
+
+    .lp-hiw-cta {
+      margin-top: 100px;
+      text-align: center;
+    }
+  }
+}

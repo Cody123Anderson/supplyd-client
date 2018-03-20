@@ -1,0 +1,15 @@
+@import '../../styles/variables';
+
+.top-bar {
+  background-color: $color-white !important;
+
+  .tb-sign-in-btn {
+    div {
+      span {
+        /* Button text */
+        color: $color-font;
+        font-weight: $font-weight-light;
+      }
+    }
+  }
+}

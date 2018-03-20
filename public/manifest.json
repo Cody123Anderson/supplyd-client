@@ -1,0 +1,15 @@
+{
+  "manifest_version": 1,
+  "short_name": "Supplyd",
+  "name": "Supplyd Official Website",
+  "description": "Supplyd Employee Care Packages",
+  "default_locale": "en",
+  "background_color": "white",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
