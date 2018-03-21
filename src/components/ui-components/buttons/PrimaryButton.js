@@ -31,7 +31,7 @@ export default class PrimaryButton extends PureComponent {
         onClick={this.props.onClick}
         buttonStyle={{
           height: '40px',
-          lineHeight: '37px'
+          lineHeight: '41px'
         }}
       />
     );
