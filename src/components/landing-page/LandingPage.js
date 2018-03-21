@@ -6,6 +6,7 @@ import PaletteIcon from 'material-ui/svg-icons/image/palette';
 import './LandingPage.scss';
 import { colorBlack80 } from '../../styles/variables';
 import PrimaryButton from '../ui-components/buttons/PrimaryButton';
+import routes from '../../constants/routes';
 
 const iconStyles = {
   color: colorBlack80,
@@ -29,7 +30,7 @@ export default class LandingPage extends Component {
               </div>
             </div>
             <div className="lp-cta-btn">
-              <PrimaryButton label="Get Started" />
+              <PrimaryButton label="Get Started" href={routes.register} />
             </div>
           </div>
         </section>
@@ -59,7 +60,7 @@ export default class LandingPage extends Component {
             </div>
           </div>
           <div className="lp-hiw-cta">
-            <PrimaryButton label="Create free account" />
+            <PrimaryButton label="Create free account" href={routes.register} />
           </div>
         </section>
       </div>

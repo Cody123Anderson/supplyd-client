@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { AppBar, FlatButton } from 'material-ui';
+import { withRouter } from "react-router-dom";
 
 import './TopBar.scss';
 import SettingsMenu from './SettingsMenu';
 import { colorPrimary, fontWeightLight } from '../../styles/variables';
+import routes from '../../constants/routes';
 
 class TopBar extends Component {
+  static propTypes = {
+    router: PropTypes.object
+  }
+
   state = {
     logged: true
   }
@@ -13,10 +20,15 @@ class TopBar extends Component {
   styles = {
     titleStyle: {
       color: colorPrimary,
+      cursor: 'pointer',
       fontSize: '22px',
       letterSpacing: '5.08px',
       fontWeight: fontWeightLight
     }
+  }
+
+  onTitleClick = () => {
+    this.props.history.push(routes.landingPage);
   }
 
   onToggleLogin = () => {
@@ -32,6 +44,7 @@ class TopBar extends Component {
         showMenuIconButton={false}
         title="SUPPLYD"
         titleStyle={this.styles.titleStyle}
+        onTitleClick={this.onTitleClick}
         iconElementRight={
           this.state.logged ?
           <SettingsMenu onLogoutClick={this.onToggleLogin} /> :
@@ -47,4 +60,4 @@ class TopBar extends Component {
   }
 }
 
-export default TopBar;
+export default withRouter(TopBar);

@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 
-import TopBar from '../top-bar/TopBar';
-import LandingPage from '../landing-page/LandingPage';
+import Router from './Router';
 
 class App extends Component {
   render() {
     return (
       <div className="app">
-        <TopBar />
-        <LandingPage />
+        <Router />
       </div>
     );
   }
