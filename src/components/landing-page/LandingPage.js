@@ -47,14 +47,14 @@ export default class LandingPage extends Component {
               <div><PaletteIcon style={iconStyles} /></div>
               <div className="lp-hiw-step-title">Customize your box</div>
               <div className="lp-hiw-step-body">
-                Armed with your brand images, our designers will create a stunning box for your new employees.
+                Arm us with your brand images and our designers will create a stunning box for your new employees.
               </div>
             </div>
             <div className="lp-hiw-step">
               <div><PersonAddIcon style={iconStyles} /></div>
               <div className="lp-hiw-step-title">Add a new hire</div>
               <div className="lp-hiw-step-body">
-                Just add a new hire’s name and email into our system and we’ll get their sizes, get their address, and send a custom box to their home.
+                Just add a new hire’s name and email into our system, and we’ll send a custom box to their home.
               </div>
             </div>
           </div>
