@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-snapshot';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import './index.scss';
@@ -14,6 +14,6 @@ const RenderedApp = () => {
   );
 }
 
-ReactDOM.render(<RenderedApp />, document.getElementById('root'));
+render(<RenderedApp />, document.getElementById('root'));
 
 registerServiceWorker();
