@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 
-import Router from './Router';
+import Router from '../Router';
+import * as Styled from './styled';
 
 class App extends Component {
   render() {
     return (
-      <div className="app">
+      <Styled.App>
         <Router />
-      </div>
+      </Styled.App>
     );
   }
 }

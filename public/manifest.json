@@ -4,7 +4,10 @@
   "name": "Supplyd Official Website",
   "description": "Supplyd Employee Care Packages",
   "default_locale": "en",
+  "display": "standalone",
   "background_color": "white",
+  "theme_color": "#50E3C2",
+  "start_url": "/",
   "icons": [
     {
       "src": "favicon.ico",
