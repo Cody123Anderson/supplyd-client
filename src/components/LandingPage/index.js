@@ -25,8 +25,9 @@ export default class LandingPage extends Component {
           </Styled.ImageHalf>
           <Styled.CTAHalf>
             <div>
+              <Styled.CTATextTitle>Swag as a Service</Styled.CTATextTitle>
               <Styled.CTAText>
-                Welcome your new hires with custom swag boxes
+                Get branded clothes (a.k.a. swag) to your employees and customers without worrying about getting their sizes, designing the clothes, ordering the right amount, or handing them out.
               </Styled.CTAText>
             </div>
             <Styled.CTAButton>
@@ -48,16 +49,16 @@ export default class LandingPage extends Component {
             </Styled.Step>
             <Styled.Step>
               <div><PaletteIcon style={iconStyles} /></div>
-              <Styled.StepTitle>Customize your box</Styled.StepTitle>
+              <Styled.StepTitle>Upload your art</Styled.StepTitle>
               <Styled.StepBody>
-                Arm us with your brand images and our designers will create a stunning box for your new employees.
+                Arm us with your brand images, and our designers will create custom swag for your employees (approved by you of course). You can also have your designers send us specific designs.
               </Styled.StepBody>
             </Styled.Step>
             <Styled.Step>
               <div><PersonAddIcon style={iconStyles} /></div>
               <Styled.StepTitle>Add a new hire</Styled.StepTitle>
               <Styled.StepBody>
-                Just add a new hire’s name and email into our system, and we’ll send a custom box to their home.
+                Just add a new hire’s email into our system, and we’ll send custom swag to their home in a beautiful box. Then, you can send them more swag at the touch of a button anytime you'd like.
               </Styled.StepBody>
             </Styled.Step>
           </Styled.HowContent>

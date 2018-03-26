@@ -15,7 +15,7 @@ exports.MainSection = glamorous.section({
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'center',
-  padding: '125px 20px',
+  padding: '75px 20px 100px',
   textAlign: 'center',
 
   [`@media (min-width: ${v.maxMobileWidth})`]: {
@@ -62,10 +62,15 @@ exports.CTAHalf = glamorous.div({
   }
 }, 'CTAHalf');
 
+exports.CTATextTitle = glamorous.div({
+  fontSize: v.fontSizeJumbo,
+}, 'CTATextTitle');
+
 exports.CTAText = glamorous.div({
   display: 'inline-block',
-  fontSize: v.fontSizeJumbo,
-  maxWidth: '450px'
+  fontSize: v.fontSizeLarge,
+  marginTop: '30px',
+  maxWidth: '475px'
 }, 'CTAText');
 
 exports.CTAButton = glamorous.div({
