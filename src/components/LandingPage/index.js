@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PersonAddIcon from 'material-ui-icons/PersonAdd';
 import AccountCircleIcon from 'material-ui-icons/AccountCircle';
 import PaletteIcon from 'material-ui-icons/Palette';
+import { Link } from 'react-router-dom';
 
 import { colorBlack80 } from '../../styles/variables';
 import Button from '../ui-components/Button';
@@ -31,9 +32,9 @@ export default class LandingPage extends Component {
               </Styled.CTAText>
             </div>
             <Styled.CTAButton>
-              <Button label="Get Started" href={routes.register} size="large">
-                Get Started
-              </Button>
+              <Link to={routes.register}>
+                <Button label="Get Started" size="large">Get Started</Button>
+              </Link>
             </Styled.CTAButton>
           </Styled.CTAHalf>
         </Styled.MainSection>
@@ -63,9 +64,11 @@ export default class LandingPage extends Component {
             </Styled.Step>
           </Styled.HowContent>
           <Styled.HowButtonContainer>
-            <Button label="Create free account" href={routes.register} size="large">
-              Create free account
-            </Button>
+            <Link to={routes.register}>
+              <Button label="Create Free Account" size="large">
+                Create Free Account
+              </Button>
+            </Link>
           </Styled.HowButtonContainer>
         </section>
       </Styled.Container>
