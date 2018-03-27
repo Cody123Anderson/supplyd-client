@@ -13,7 +13,7 @@ export const Register = glamorous.div({
 
 export const Title = glamorous.div({
   display: 'block',
-  fontSize: v.fontSizeXlarge,
+  fontSize: v.fontSizeLarge,
   marginBottom: '30px',
   textAlign: 'center',
   width: '100%'
