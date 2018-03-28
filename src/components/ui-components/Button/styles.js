@@ -5,15 +5,9 @@ import v from '../../../styles/variables';
 
 export const StyledButton = glamorous(Button)({
   '&.supplyd-raisedPrimary': {
-    backgroundColor: v.colorPrimary,
-    boxShadow: `0 2px 4px -1px ${v.colorBlack50}`,
     color: v.colorWhite,
-    fontWeight: v.fontWeightLight,
+    fontWeight: v.fontWeightRegular,
     paddingTop: '11px',
-
-    '&:hover': {
-      backgroundColor: v.colorPrimaryHover,
-    }
   },
   '&.supplyd-raisedSecondary': {
 
@@ -23,7 +17,7 @@ export const StyledButton = glamorous(Button)({
   '&.supplyd-flatSecondary': {
     backgroundColor: v.colorWhite,
     color: v.colorFont,
-    fontWeight: v.fontWeightLight,
+    fontWeight: v.fontWeightRegular,
 
     '&:hover': {
       backgroundColor: v.colorBlack5,

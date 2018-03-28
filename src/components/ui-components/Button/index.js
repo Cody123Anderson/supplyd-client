@@ -1,12 +1,14 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import { StyledButton } from './styles';
 
 export default class Button extends PureComponent {
   static propTypes = {
     ...StyledButton.propTypes,
-    href: PropTypes.string,
+    href: PropTypes.string, // Force rerender of new page
+    to: PropTypes.string, // pushState redirect (ideal!)
     onClick: PropTypes.func,
     size: PropTypes.string
   }
@@ -25,10 +27,15 @@ export default class Button extends PureComponent {
   }
 
   render() {
+    const { to, ...props } = this.props;
+
+    const btn = <StyledButton {...props}>{this.props.children}</StyledButton>;
+
     return (
-      <StyledButton {...this.props}>
-        {this.props.children}
-      </StyledButton>
+      <div>
+        { to && <Link to={to}>{btn}</Link> }
+        { !this.props.to && btn }
+      </div>
     );
   }
 }

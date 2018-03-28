@@ -11,8 +11,8 @@ export const colorBlack30 = lighten(0.7, colorBlack);
 export const colorBlack5 = lighten(0.95, colorBlack);
 export const colorFont = colorBlack80;
 export const colorPrimary = '#50E3C2';
-export const colorPrimaryHover = darken(0.1, colorPrimary);
-export const colorPrimaryDisabled = lighten(0.2, colorPrimary);
+export const colorPrimaryDark = darken(0.1, colorPrimary);
+export const colorPrimaryLight = lighten(0.1, colorPrimary);
 export const colorRed = 'red';
 export const colorWhite = '#fff';
 
@@ -44,8 +44,8 @@ export default {
   colorBlack5,
   colorFont,
   colorPrimary,
-  colorPrimaryHover,
-  colorPrimaryDisabled,
+  colorPrimaryDark,
+  colorPrimaryLight,
   colorRed,
   colorWhite,
 

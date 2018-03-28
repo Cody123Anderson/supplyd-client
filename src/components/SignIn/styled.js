@@ -2,7 +2,7 @@ import glamorous from 'glamorous';
 
 import v from '../../styles/variables';
 
-export const Register = glamorous.div({
+export const SignIn = glamorous.div({
   textAlign: 'center',
   marginTop: '50px',
 

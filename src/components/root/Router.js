@@ -5,6 +5,7 @@ import routes from '../../constants/routes';
 import TopBar from '../TopBar';
 import LandingPage from '../LandingPage';
 import Register from '../Register';
+import SignIn from '../SignIn';
 
 export default class Router extends Component {
   render() {
@@ -14,6 +15,7 @@ export default class Router extends Component {
           <TopBar foo="bar" />
           <Route exact path={routes.landingPage} component={LandingPage} />
           <Route path={routes.register} component={Register} />
+          <Route path={routes.signIn} component={SignIn} />
         </div>
       </BrowserRouter>
     );
