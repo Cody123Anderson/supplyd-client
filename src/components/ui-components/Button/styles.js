@@ -5,7 +5,6 @@ import v from '../../../styles/variables';
 
 export const StyledButton = glamorous(Button)({
   '&.supplyd-raisedPrimary': {
-    color: v.colorWhite,
     fontWeight: v.fontWeightRegular,
     paddingTop: '11px',
   },

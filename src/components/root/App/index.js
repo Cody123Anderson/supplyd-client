@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import { complement } from 'polished';
 
 import Router from '../Router';
 import * as Styled from './styled';
@@ -12,8 +11,20 @@ const theme = createMuiTheme({
       light: v.colorPrimaryLight,
       main: v.colorPrimary,
       dark: v.colorPrimaryDark,
-      contrastText: complement(v.colorPrimary),
-    }
+      contrastText: v.colorWhite,
+    },
+    //   secondary: {
+    //   light: palette.secondary.A200,
+    //   main: palette.secondary.A400,
+    //   dark: palette.secondary.A700,
+    //   contrastText: getContrastText(palette.secondary.A400),
+    // },
+    // error: {
+    //   light: palette.error[300],
+    //   main: palette.errorr[500],
+    //   dark: palette.error[700],
+    //   contrastText: getContrastText(palette.error[500]),
+    // },
   },
 });
 
