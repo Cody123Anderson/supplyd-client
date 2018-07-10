@@ -1,5 +1,8 @@
 import { darken, lighten } from 'polished';
 
+// Boders
+export const borderRadius = '4px';
+
 // Break Points
 export const maxMobileWidth = '768px';
 
@@ -8,6 +11,7 @@ export const colorBlack = '#000';
 export const colorBlack80 = lighten(0.2, colorBlack);
 export const colorBlack50 = lighten(0.5, colorBlack);
 export const colorBlack30 = lighten(0.7, colorBlack);
+export const colorBlack15 = lighten(0.85, colorBlack);
 export const colorBlack5 = lighten(0.95, colorBlack);
 export const colorFont = colorBlack80;
 export const colorPrimary = '#6AD1B0';
@@ -33,6 +37,9 @@ export const fontSizeXlarge = '28px';
 export const fontSizeJumbo = '32px';
 
 export default {
+  // Borders
+  borderRadius,
+  
   // Break Points
   maxMobileWidth,
 
@@ -41,6 +48,7 @@ export default {
   colorBlack80,
   colorBlack50,
   colorBlack30,
+  colorBlack15,
   colorBlack5,
   colorFont,
   colorPrimary,

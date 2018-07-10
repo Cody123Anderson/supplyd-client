@@ -1,5 +1,6 @@
 module.exports = {
   landingPage: '/',
   register: '/register',
-  signIn: '/sign-in'
+  signIn: '/sign-in',
+  swagProfile: '/swag-profile/:employeeId/:token'
 }
