@@ -3,10 +3,16 @@ import React, { PureComponent } from 'react';
 import * as Styled from './styled';
 
 export default class ButtonSelectOne extends PureComponent {
-    renderButtons = (values) => {
-        return values.map(value => {
+    renderButtons = () => {
+        return this.props.values.map(value => {
             return (
-                <Styled.Button key={value} active={value==='XS' ? true : false}>{value}</Styled.Button>
+                <Styled.Button 
+                    key={value} 
+                    active={value === this.props.selected ? true : false}
+                    onClick={() => this.props.onClick(value)}
+                >
+                    {value}
+                </Styled.Button>
             );
         });
     }
@@ -14,7 +20,7 @@ export default class ButtonSelectOne extends PureComponent {
     render() {
         return (
             <Styled.ButtonSelectOne>
-                {this.renderButtons(this.props.btnValues)}
+                {this.renderButtons()}
             </Styled.ButtonSelectOne>
         );
     }

@@ -7,6 +7,7 @@ import Button from '../ui-components/Button';
 import v from '../../styles/variables';
 import routes from '../../constants/routes';
 import * as Styled from './styled';
+import UIBoundary from '../ui-components/UIBoundary';
 
 const styles = {
   signInBtn: {
@@ -30,10 +31,14 @@ class TopBar extends Component {
   render() {
     return (
       <Styled.TopBar>
-        <Styled.Title onClick={this.onTitleClick}>SUPPLYD</Styled.Title>
-        <Button variant="flat" color="secondary" to={routes.signIn}>
-          Sign In
-        </Button>
+        <UIBoundary>
+          <Styled.Container>
+            <Styled.Title onClick={this.onTitleClick}>SUPPLYD</Styled.Title>
+            <Button variant="flat" color="secondary" to={routes.signIn}>
+              Sign In
+            </Button>
+          </Styled.Container>
+        </UIBoundary>
       </Styled.TopBar>
     );
   }

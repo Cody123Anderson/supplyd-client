@@ -16,8 +16,8 @@ export const Button = glamorous.div(props => {
     display: 'inline-block',
     textAlign: 'center',
     margin: '5px 10px 5px 0',
-    padding: '20px 0',
-    width: '100px',
+    padding: '20px',
+    minWidth: '100px',
 
     '&:last-of-type': {
       marginRight: '0',
