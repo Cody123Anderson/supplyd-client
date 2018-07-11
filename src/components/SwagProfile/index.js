@@ -6,6 +6,7 @@ import { API_URL, TEE_SHIRT_SIZES, SWEATSHIRT_SIZES, HAT_SIZES, PANT_SIZES } fro
 import ButtonSelectOne from '../ui-components/ButtonSelectOne';
 import UIBoundary from '../ui-components/UIBoundary';
 import Input from '../ui-components/Input';
+import Button from '../ui-components/Button';
 
 export default class SwagProfile extends Component {
     state = {
@@ -140,6 +141,9 @@ export default class SwagProfile extends Component {
                                         selected={employee.pantSize || 'none'}
                                         onClick={this.onPantSizeClick}
                                     />
+                                </Styled.FormField>
+                                <Styled.FormField>
+                                    <Button>Submit Information</Button>
                                 </Styled.FormField>
                             </Styled.Form>
                         </div>

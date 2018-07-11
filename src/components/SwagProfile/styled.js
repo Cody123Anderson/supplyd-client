@@ -24,6 +24,7 @@ export const SubTitle = glamorous.div({
 }, 'SubTitle')
 
 export const Form = glamorous.div({
+  marginBottom: '100px'
 }, 'Form');
 
 export const FormField = glamorous.div({
