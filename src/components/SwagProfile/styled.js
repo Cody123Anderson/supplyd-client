@@ -24,7 +24,7 @@ export const SubTitle = glamorous.div({
 }, 'SubTitle')
 
 export const Form = glamorous.div({
-  marginBottom: '100px'
+  marginBottom: '130px'
 }, 'Form');
 
 export const FormField = glamorous.div({
@@ -45,4 +45,13 @@ export const ContainInput = glamorous.div({
   marginTop: '20px',
   padding: '0 3px'
 }, 'ContainInput')
+
+export const ContainActions = glamorous.div({
+  marginTop: '80px'
+}, 'ContainActions')
+
+export const ErrorText = glamorous.div({
+  color: v.colorRed,
+  marginBottom: '20px'
+}, 'ErrorText');
 

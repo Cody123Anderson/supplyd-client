@@ -28,3 +28,8 @@ export const Button = glamorous.div(props => {
     }
   }
 }, 'ButtonSelectOne');
+
+export const Error = glamorous.div({
+  color: v.colorRed,
+  marginBottom: '20px'
+}, 'Error');

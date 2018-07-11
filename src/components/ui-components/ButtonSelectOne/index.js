@@ -20,6 +20,7 @@ export default class ButtonSelectOne extends PureComponent {
     render() {
         return (
             <Styled.ButtonSelectOne>
+                { this.props.error && <Styled.Error>Please select one</Styled.Error> }
                 {this.renderButtons()}
             </Styled.ButtonSelectOne>
         );
