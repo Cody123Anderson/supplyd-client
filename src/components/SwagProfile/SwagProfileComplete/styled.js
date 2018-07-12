@@ -3,14 +3,20 @@ import glamorous from 'glamorous';
 import v from '../../../styles/variables';
 
 export const SwagProfileComplete = glamorous.div({
-  padding: '100px 5px'
+  backgroundColor: v.colorPrimary,
+  height: '100vh',
+  padding: '100px 5px',
+  width: '100vw'
 }, 'SwagProfileComplete');
 
 export const SuccessTextTitle = glamorous.div({
-  fontSize: v.fontSizeLarge
+  color: v.colorWhite,
+  fontSize: v.fontSizeLarge,
+  marginTop: '10px'
 }, 'SuccessTextTitle');
 
 export const SuccessTextDescription = glamorous.div({
+  color: v.colorWhite,
   fontSize: v.fontSizeMedium,
   marginTop: '30px'
 }, 'SuccessTextDescription');
