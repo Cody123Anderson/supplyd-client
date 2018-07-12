@@ -3,7 +3,7 @@ import glamorous from 'glamorous';
 import v from '../../../styles/variables';
 
 export const SwagProfileComplete = glamorous.div({
-  backgroundColor: v.colorPrimary,
+  backgroundColor: v.colorPrimaryDark,
   height: '100vh',
   padding: '100px 5px',
   width: '100vw'
