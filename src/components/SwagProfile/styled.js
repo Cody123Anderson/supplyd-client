@@ -44,7 +44,12 @@ export const Label = glamorous.div({
 export const ContainInput = glamorous.div({
   marginTop: '20px',
   padding: '0 3px'
-}, 'ContainInput')
+}, 'ContainInput');
+
+export const Line = glamorous.hr({
+  borderColor: v.colorBlack5,
+  marginTop: '80px'
+}, 'Line')
 
 export const ContainActions = glamorous.div({
   marginTop: '80px'

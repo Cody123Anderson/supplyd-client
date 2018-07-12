@@ -8,8 +8,9 @@ import ButtonSelectOne from '../ui-components/ButtonSelectOne';
 import UIBoundary from '../ui-components/UIBoundary';
 import Input from '../ui-components/Input';
 import Button from '../ui-components/Button';
+import routes from '../../constants/routes';
 
-export default class SwagProfile extends Component {
+class SwagProfile extends Component {
     state = {
         employee: {
             firstName: '',
@@ -131,7 +132,6 @@ export default class SwagProfile extends Component {
                 this.setState({ [`${value}Error`]: true });
                 errors.push(`${value}Error`);
             } else {
-                console.log('here: ', value);
                 this.setState({ [`${value}Error`]: false });
             }
         });
@@ -140,6 +140,8 @@ export default class SwagProfile extends Component {
     }
 
     onSubmit = () => {
+        if (this.state.submitting) return; // Don't allow multiple submissions
+        this.setState({ submitting: true });
         const errors = this.validateFields();
 
         if (errors.length) {
@@ -156,10 +158,10 @@ export default class SwagProfile extends Component {
         data.status = 'Active';
 
         axios.put(`${API_URL}/employees/${this.props.match.params.employeeId}`, data).then(results => {
-            // Handle redirect here.
-            console.log('results: ', results);
+            this.props.history.push(routes.swagProfileComplete);
         }).catch(err => {
             console.error('error updating employee information: ', err);
+            this.setState({ submitting: false, errorText: 'Server error updating information - please try again.' });
         });
         
     }
@@ -313,9 +315,10 @@ export default class SwagProfile extends Component {
                                         error={this.state.genderError}
                                     />
                                 </Styled.FormField>
+                                <Styled.Line />
                                 <Styled.ContainActions>
                                     <Styled.ErrorText>{this.state.errorText}</Styled.ErrorText>
-                                    <Button onClick={this.onSubmit}>Submit Information</Button>
+                                    <Button disabled={this.state.submitting} onClick={this.onSubmit}>Submit Information</Button>
                                 </Styled.ContainActions>
                             </Styled.Form>
                         </div>
@@ -325,3 +328,5 @@ export default class SwagProfile extends Component {
         );
     }
 };
+
+export default SwagProfile;
