@@ -164,7 +164,7 @@ class SwagProfile extends Component {
 
         // Submit data to server
         axios.put(`${API_URL}/employees/${this.props.match.params.employeeId}`, data).then(results => {
-            this.props.history.push(routes.swagProfileComplete);
+            this.props.history.push(`/swag/${this.state.employee.businessName}/complete`);
         }).catch(err => {
             console.error('error updating employee information: ', err);
             this.setState({ submitting: false, errorText: 'Server error updating information - please try again.' });

@@ -1,7 +1,9 @@
 module.exports = {
+  employees: '/employees',
   landingPage: '/',
   register: '/register',
   signIn: '/sign-in',
-  swagProfile: '/swag-profile/employee/:employeeId/token/:token',
-  swagProfileComplete: '/swag-profile/complete'
+  swag: '/swag',
+  swagProfile: '/swag/:businessName/employee/:employeeId/token/:token',
+  swagProfileComplete: '/swag/:businessName/complete'
 }
