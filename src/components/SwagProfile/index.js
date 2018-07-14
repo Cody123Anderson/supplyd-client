@@ -140,16 +140,21 @@ class SwagProfile extends Component {
     }
 
     onSubmit = () => {
-        if (this.state.submitting) return; // Don't allow multiple submissions
+        // Don't allow multiple submissions
+        if (this.state.submitting) return;
+
         this.setState({ submitting: true });
+
+        // Check for form erros
         const errors = this.validateFields();
 
         if (errors.length) {
-            this.setState({ errorText: 'Please enter values for missing fields then resubmit' });
+            return this.setState({ errorText: 'Please enter values for missing fields then resubmit', submitting: false });
         } else {
             this.setState({ errorText: '' });
         }
 
+        // Modify the data to update necessary fields
         const data = _.cloneDeep(this.state.employee);
         delete data.businessId;
         delete data.id;
@@ -157,6 +162,7 @@ class SwagProfile extends Component {
         delete data.updatedAt;
         data.status = 'Active';
 
+        // Submit data to server
         axios.put(`${API_URL}/employees/${this.props.match.params.employeeId}`, data).then(results => {
             this.props.history.push(routes.swagProfileComplete);
         }).catch(err => {
