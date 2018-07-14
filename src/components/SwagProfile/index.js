@@ -8,7 +8,6 @@ import ButtonSelectOne from '../ui-components/ButtonSelectOne';
 import UIBoundary from '../ui-components/UIBoundary';
 import Input from '../ui-components/Input';
 import Button from '../ui-components/Button';
-import routes from '../../constants/routes';
 
 class SwagProfile extends Component {
     state = {

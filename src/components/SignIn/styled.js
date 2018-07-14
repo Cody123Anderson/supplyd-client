@@ -43,3 +43,13 @@ export const ContainActions = glamorous.div({
   marginTop: '40px',
   width: '100%'
 }, 'ContainActions')
+
+export const NeedAccount = glamorous.div({
+  marginTop: '30px',
+  textAlign: 'left'
+}, 'NeedAccount')
+
+export const Register = glamorous.span({
+  marginLeft: '5px',
+}, 'Register')
+
