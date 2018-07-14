@@ -23,7 +23,7 @@ export const SubTitle = glamorous.div({
   textAlign: 'center',
 }, 'SubTitle')
 
-export const Form = glamorous.div({
+export const Form = glamorous.form({
   marginBottom: '130px'
 }, 'Form');
 
