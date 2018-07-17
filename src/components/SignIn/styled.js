@@ -51,5 +51,11 @@ export const NeedAccount = glamorous.div({
 
 export const Register = glamorous.span({
   marginLeft: '5px',
-}, 'Register')
+}, 'Register');
+
+export const ErrorText = glamorous.div({
+  color: v.colorRed,
+  marginBottom: '10px',
+  textAlign: 'left'
+}, 'ErrorText')
 
