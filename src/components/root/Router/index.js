@@ -7,7 +7,7 @@ import LandingPage from '../../LandingPage';
 import Register from '../../Register';
 import SignIn from '../../SignIn';
 import SwagRoutes from './SwagRoutes';
-import EmployeeRoutes from './EmployeeRoutes';
+import DashboardRoutes from './DashboardRoutes';
 
 const history = createBrowserHistory()
 
@@ -20,7 +20,7 @@ export default class MyRouter extends Component {
           <Route path={routes.register} component={Register} />
           <Route path={routes.signIn} component={SignIn} />
           <Route path={routes.swag} component={SwagRoutes} />
-          <Route path={routes.employees} component={EmployeeRoutes} />
+          <Route path={routes.dasboard} component={DashboardRoutes} />
         </Switch>
       </Router>
     );

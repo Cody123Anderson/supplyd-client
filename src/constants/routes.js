@@ -1,4 +1,5 @@
 module.exports = {
+  dashboard: '/dashboard',
   employees: '/dashboard/employees',
   landingPage: '/',
   register: '/register',

@@ -4,7 +4,8 @@ import { darken, lighten } from 'polished';
 export const borderRadius = '4px';
 
 // Break Points
-export const maxMobileWidth = '768px';
+export const leftNavWidth = '275px';
+export const maxMobileWidth = '1000px';
 
 // Colors
 export const colorBlack = '#000';
@@ -41,6 +42,7 @@ export default {
   borderRadius,
   
   // Break Points
+  leftNavWidth,
   maxMobileWidth,
 
   // Colors

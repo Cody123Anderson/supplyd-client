@@ -4,7 +4,6 @@ import v from '../../styles/variables';
 
 export const Employees = glamorous.div({
   textAlign: 'center',
-  marginTop: '50px',
 }, 'Employees');
 
 export const Title = glamorous.div({
