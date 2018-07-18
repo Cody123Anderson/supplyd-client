@@ -8,6 +8,7 @@ import ButtonSelectOne from '../ui-components/ButtonSelectOne';
 import UIBoundary from '../ui-components/UIBoundary';
 import Input from '../ui-components/Input';
 import Button from '../ui-components/Button';
+import routes from '../../constants/routes';
 
 class SwagProfile extends Component {
     state = {
@@ -163,7 +164,8 @@ class SwagProfile extends Component {
 
         // Submit data to server
         axios.put(`${API_URL}/employees/${this.props.match.params.employeeId}`, data).then(results => {
-            this.props.history.push(`/swag/${this.state.employee.businessName}/complete`);
+            // Redirect to success page
+            this.props.history.push(routes.swagProfileComplete(this.state.employee.businessName));
         }).catch(err => {
             console.error('error updating employee information: ', err);
             this.setState({ submitting: false, errorText: 'Server error updating information - please try again.' });

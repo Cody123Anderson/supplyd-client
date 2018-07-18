@@ -10,8 +10,8 @@ export default class SwagProfileRoutes extends Component {
         return (
             <div className="SwagProfileRoutes">
                 <Switch>
-                    <Route path={routes.swagProfile} component={SwagProfile} />
-                    <Route path={routes.swagProfileComplete} component={SwagProfileComplete} />
+                    <Route path={routes.swagProfile()} component={SwagProfile} />
+                    <Route path={routes.swagProfileComplete()} component={SwagProfileComplete} />
                 </Switch>
             </div>
         );

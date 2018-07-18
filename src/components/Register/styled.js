@@ -52,3 +52,9 @@ export const HaveAccount = glamorous.div({
 export const SignIn = glamorous.span({
   marginLeft: '5px',
 }, 'SignIn')
+
+export const ErrorText = glamorous.div({
+  color: v.colorRed,
+  marginBottom: '10px',
+  textAlign: 'left'
+}, 'ErrorText')

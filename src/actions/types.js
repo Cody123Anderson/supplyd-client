@@ -1,3 +1,6 @@
+// Business Actions
+module.exports.CREATE_BUSINESS = 'CREATE_BUSINESS';
+
 // User Actions
 module.exports.AUTH_USER = 'AUTH_USER';
 module.exports.UNAUTH_USER = 'UNAUTH_USER';

@@ -8,24 +8,40 @@ import Button from '../ui-components/Button';
 import TopBar from '../TopBar';
 import routes from '../../constants/routes';
 import { loginUser } from '../../actions/userActions';
+import { isExpired } from '../../utils/jwtUtils';
 
 class SignIn extends Component {
   state = {
     password: '',
     passwordError: '',
     email: '',
-    emailError: ''
+    emailError: '',
+    submitting: false
   }
 
-  componentDidUpdate() {
-    if (this.props.userToken) {
+  componentDidMount() {
+    if (this.props.userToken && !isExpired(this.props.userToken)) {
       this.props.history.push(routes.employees); // Should be switched to dashboard once built
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.userToken) {
+      this.props.history.push(routes.employees); // Should be switched to dashboard once built
+    } else if (!prevProps.authError && this.props.authError) {
+      this.setState({ submitting: false });
+    }
+  }
+
   onFormSubmit = () => {
+    if (this.state.submitting) return;
+
+    this.setState({ submitting: true });
+
     this.validateForm((err) => {
-      if (err) return;
+      if (err) {
+        return this.setState({ submitting: false });
+      };
 
       // Log user in
       this.props.loginUser(this.state.email, this.state.password);
@@ -48,7 +64,7 @@ class SignIn extends Component {
       error = ' - this field is required';
       this.setState({ emailError: error });
     } else {
-      this.setState({ usernameError: '' });
+      this.setState({ emailError: '' });
     }
 
     // Validate password
@@ -98,7 +114,7 @@ class SignIn extends Component {
               </Styled.InputContainer>
               <Styled.ContainActions>
                 {this.renderErrors()}
-                <Button fullWidth={true} onClick={this.onFormSubmit}>Sign In</Button>
+                <Button disabled={this.state.submitting} fullWidth={true} onClick={this.onFormSubmit}>Sign In</Button>
               </Styled.ContainActions>
             </Styled.Form>
             <Styled.NeedAccount>
