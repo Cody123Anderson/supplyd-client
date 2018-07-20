@@ -3,7 +3,8 @@ import axios from 'axios';
 import _ from 'lodash';
 
 import * as Styled from './styled';
-import { API_URL, TEE_SHIRT_SIZES, SWEATSHIRT_SIZES, HAT_SIZES, PANT_SIZES, GENDERS } from '../../constants';
+import constants from '../../constants';
+import { API_URL } from '../../constants/env';
 import ButtonSelectOne from '../ui-components/ButtonSelectOne';
 import UIBoundary from '../ui-components/UIBoundary';
 import Input from '../ui-components/Input';
@@ -280,7 +281,7 @@ class SwagProfile extends Component {
                                 <Styled.FormField>
                                     <Styled.Label>Shirt Size</Styled.Label>
                                     <ButtonSelectOne 
-                                        values={TEE_SHIRT_SIZES} 
+                                        values={constants.teeShirtSizes} 
                                         selected={employee.shirtSize} 
                                         onClick={this.onShirtSizeClick}
                                         error={this.state.shirtSizeError}
@@ -289,7 +290,7 @@ class SwagProfile extends Component {
                                 <Styled.FormField>
                                     <Styled.Label>Sweatshirt Size</Styled.Label>
                                     <ButtonSelectOne
-                                        values={SWEATSHIRT_SIZES}
+                                        values={constants.sweatshirtSizes}
                                         selected={employee.sweatshirtSize}
                                         onClick={this.onSweatshirtSizeClick}
                                         error={this.state.sweatshirtSizeError}
@@ -298,7 +299,7 @@ class SwagProfile extends Component {
                                 <Styled.FormField>
                                     <Styled.Label>Hat Size</Styled.Label>
                                     <ButtonSelectOne
-                                        values={HAT_SIZES}
+                                        values={constants.hatSizes}
                                         selected={employee.hatSize}
                                         onClick={this.onHatSizeClick}
                                         error={this.state.hatSizeError}
@@ -307,7 +308,7 @@ class SwagProfile extends Component {
                                 <Styled.FormField>
                                     <Styled.Label>Pant Size</Styled.Label>
                                     <ButtonSelectOne
-                                        values={PANT_SIZES}
+                                        values={constants.pantSizes}
                                         selected={employee.pantSize}
                                         onClick={this.onPantSizeClick}
                                         error={this.state.pantSizeError}
@@ -316,7 +317,7 @@ class SwagProfile extends Component {
                                 <Styled.FormField>
                                     <Styled.Label>Gender of Clothing</Styled.Label>
                                     <ButtonSelectOne
-                                        values={GENDERS}
+                                        values={constants.genders}
                                         selected={employee.gender}
                                         onClick={this.onGenderClick}
                                         error={this.state.genderError}

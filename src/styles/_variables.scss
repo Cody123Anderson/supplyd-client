@@ -1,0 +1,42 @@
+// Boders
+$borderRadius: 4px;
+
+// Break Points
+$leftNavWidth: 275px;
+$maxMobileWidth: 1000px;
+
+// Colors
+$colorBlack: #000;
+$colorBlack80: lighten($colorBlack, 20);
+$colorBlack70: lighten($colorBlack, 30);
+$colorBlack50: lighten($colorBlack, 50);
+$colorBlack30: lighten($colorBlack, 70);
+$colorBlack15: lighten($colorBlack, 85);
+$colorBlack5: lighten($colorBlack, 95);
+$colorFont: $colorBlack80;
+$colorPrimary: #6AD1B0;
+$colorPrimaryDark: darken($colorPrimary, 10);
+$colorPrimaryLight: lighten($colorPrimary, 10);
+$colorRed: red;
+$colorWhite: #ffffff;
+
+// Font Weights
+$fontWeightBlack: 700;
+$fontWeightBold: 500;
+$fontWeightRegular: 400;
+$fontWeightLight: 300;
+$fontWeightThin: 100;
+
+// Font Sizes
+$fontSizeXsmall: 10px;
+$fontSizeSmall: 12px;
+$fontSizeBase: 14px;
+$fontSizeMedium: 18px;
+$fontSizeLarge: 22px;
+$fontSizeXlarge: 28px;
+$fontSizeJumbo: 32px;
+
+// Letter Spacing
+$letterSpacingBase: 1px;
+$letterSpacingMedium: 2px;
+$letterSpacingLarge: 3px;

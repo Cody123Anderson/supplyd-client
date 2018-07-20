@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import routes from '../../../../constants/routes';
 import Employees from '../../../Employees';
+import { setTab } from '../../../../actions/tabActions';
+import constants from '../../../../constants';
 
-export default class EmployeeRoutes extends Component {
+class EmployeeRoutes extends Component {
+    componentDidMount() {
+        this.props.setTab(constants.upperDashboardLinks.employees.name);
+    }
+
     render() {
         return (
             <Switch>
@@ -13,3 +20,11 @@ export default class EmployeeRoutes extends Component {
         );
     }
 }
+
+function mapStateToProps(state) {
+    return {
+
+    };
+}
+
+export default connect(mapStateToProps, { setTab })(EmployeeRoutes);

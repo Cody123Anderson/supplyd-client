@@ -1,0 +1,37 @@
+@import '../../styles/variables';
+
+$navPaddingLeft: 20px;
+
+.left-dashboard-nav {
+  background-color: $colorBlack80;
+  color: $colorBlack30;
+  width: $leftNavWidth;
+
+  @media (max-width: $maxMobileWidth) {
+      // don't show on smaller devices
+    display: none;
+  }
+
+  .title {
+    color: $colorPrimary;
+    letter-spacing: $letterSpacingLarge;
+    font-size: $fontSizeLarge;
+    margin-top: 30px;
+    padding-left: $navPaddingLeft;
+  }
+
+  .bus-name {
+    color: $colorWhite;
+    letter-spacing: $letterSpacingMedium;
+    font-size: $fontSizeSmall;
+    margin-top: 20px;
+    padding-left: $navPaddingLeft;
+  }
+
+  .sign-out {
+    letter-spacing: $letterSpacingMedium;
+    font-size: $fontSizeSmall;
+    margin: 10px 0 80px;
+    padding-left: $navPaddingLeft;
+  }
+}

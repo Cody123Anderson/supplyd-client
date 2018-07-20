@@ -37,6 +37,11 @@ export const fontSizeLarge = '22px';
 export const fontSizeXlarge = '28px';
 export const fontSizeJumbo = '32px';
 
+// Font Spacing
+export const fontSpacingBase = '1.0';
+export const fontSpacingMedium = '2.0';
+export const fontSpacingLarge = '3.0';
+
 export default {
   // Borders
   borderRadius,
@@ -74,4 +79,9 @@ export default {
   fontSizeLarge,
   fontSizeXlarge,
   fontSizeJumbo,
+
+  // Font Spacing
+  fontSpacingBase,
+  fontSpacingMedium,
+  fontSpacingLarge
 }

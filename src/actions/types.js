@@ -1,6 +1,9 @@
 // Business Actions
 module.exports.CREATE_BUSINESS = 'CREATE_BUSINESS';
 
+// Tab Actions
+module.exports.UPDATE_TAB = 'UPDATE_TAB';
+
 // User Actions
 module.exports.AUTH_USER = 'AUTH_USER';
 module.exports.UNAUTH_USER = 'UNAUTH_USER';

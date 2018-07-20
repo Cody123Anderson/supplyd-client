@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { API_URL } from '../constants';
+import { API_URL } from '../constants/env';
 import {
     AUTH_USER,
     AUTH_ERROR,
