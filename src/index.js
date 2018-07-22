@@ -9,6 +9,7 @@ import App from './components/root/App/index';
 import rootReducer from './reducers';
 import { AUTH_USER } from './actions/types';
 import { isExpired } from './utils/jwtUtils';
+import { getUser } from './actions/userActions';
 
 // Create Redux Store
 const store = createStore(rootReducer, applyMiddleware(thunk));
@@ -21,6 +22,9 @@ if (token) {
     if (!isExpired(token)) {
         // token is still valid
         store.dispatch({ type: AUTH_USER, payload: token });
+
+        // Get the user
+        store.dispatch(getUser(token));
     }
 }
 

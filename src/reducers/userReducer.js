@@ -12,6 +12,7 @@ const initialState = {
   authError: '',
   id: '',
   businessId: '',
+  businessName: '',
   email: '',
   firstName: '',
   lastName: '',

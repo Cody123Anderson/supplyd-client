@@ -52,7 +52,7 @@ class Register extends Component {
       this.props.createBusiness(this.state.businessName).then(results => {
         const { id } = results.data.business;
         // Now create the user as a Super Admin for the new business
-        this.props.registerUser(this.state.email, this.state.password, id);
+        this.props.registerUser(this.state.email, this.state.password, id, this.state.businessName);
       }).catch(err => {
         console.error('err: ', err);
         return this.setState({ submitting: false });

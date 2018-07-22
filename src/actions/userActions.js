@@ -46,9 +46,9 @@ export function loginUser(email, password) {
     };
 }
 
-export function registerUser(email, password, businessId) {
+export function registerUser(email, password, businessId, businessName) {
     return (dispatch) => {
-        const data = { email, password, businessId };
+        const data = { email, password, businessId, businessName };
 
         axios.post(`${API_URL}/users`, data)
             .then((response) => {
