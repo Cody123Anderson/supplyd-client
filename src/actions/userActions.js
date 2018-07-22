@@ -35,6 +35,9 @@ export function loginUser(email, password) {
                 // Save the token to local storage
                 localStorage.setItem('token', token);
 
+                // Get user from DB
+                dispatch(getUser(token));
+
                 // Clear existing error messages and user if any
                 dispatch(authError(''));
             })

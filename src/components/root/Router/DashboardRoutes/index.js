@@ -5,6 +5,7 @@ import * as Styled from './styled';
 import routes from '../../../../constants/routes';
 import LeftDashboardNav from '../../../leftNav/LeftNav';
 import EmployeeRoutes from './EmployeeRoutes';
+import RequireAuth from '../RequireAuth';
 
 export default class DashboardRoutes extends Component {
     render() {
@@ -13,7 +14,7 @@ export default class DashboardRoutes extends Component {
                 <LeftDashboardNav />
                 <Styled.DashboardContainer>
                     <Switch>
-                        <Route path={routes.employees} component={EmployeeRoutes} />
+                        <Route path={routes.employees} component={RequireAuth(EmployeeRoutes)} />
                     </Switch>
                 </Styled.DashboardContainer>
             </Styled.DashboardRoutes>

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import './LeftNav.scss';
 import LeftNavItems from './LeftNavItems';
 import constants from '../../constants';
+import { logoutUser } from '../../actions/userActions';
 
 class LeftDashboardNav extends Component {
     render() {
@@ -13,7 +14,11 @@ class LeftDashboardNav extends Component {
             <div className="left-dashboard-nav">
                 <div className="title">SUPPLYD</div>
                 <div className="bus-name">{user.businessName}</div>
-                <div className="sign-out">Sign Out</div>
+                <div className="sign-out">
+                    <span className="sign-out-button" onClick={this.props.logoutUser}>
+                        Sign Out
+                    </span>
+                </div>
                 <LeftNavItems items={constants.upperDashboardLinks} />
             </div>
         );
@@ -26,4 +31,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(LeftDashboardNav);
+export default connect(mapStateToProps, { logoutUser })(LeftDashboardNav);

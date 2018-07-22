@@ -33,5 +33,14 @@ $navPaddingLeft: 20px;
     font-size: $fontSizeSmall;
     margin: 10px 0 80px;
     padding-left: $navPaddingLeft;
+
+    .sign-out-button {
+      transition: color 400ms;
+      cursor: pointer;
+      
+      &:hover {
+        color: $colorWhite;
+      }
+    }
   }
 }
