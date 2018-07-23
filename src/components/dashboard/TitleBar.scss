@@ -7,7 +7,8 @@
   display: flex;
   flex-wrap: wrap;
   height: 92px;
-  padding: 0 30px;  
+  padding: 0 30px;
+  text-align: left;
 
   .title {
     font-weight: $fontWeightRegular;

@@ -1,18 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
 
 import './index.scss';
 import App from './components/root/App/index';
-import rootReducer from './reducers';
 import { AUTH_USER } from './actions/types';
 import { isExpired } from './utils/jwtUtils';
 import { getUser } from './actions/userActions';
-
-// Create Redux Store
-const store = createStore(rootReducer, applyMiddleware(thunk));
+import { store } from './reduxStore';
 
 // Get token if one exists
 const token = localStorage.getItem('token');

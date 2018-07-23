@@ -1,9 +1,19 @@
-@import '../../styles/variables';
+@import '../../../styles/variables';
 
-.employees {  
-  display: flex;
-  
-  @media (max-width: $maxMobileWidth) {
-    // mobile styles
+.employees {    
+  text-align: center;
+
+  .employees-table {
+    display: inline-block;
+    margin: 30px 0;
+    padding: 0 10px;
+    width: 100%;
+  }
+
+  @media (min-width: $maxMobileWidth) {
+    // desktop styles
+    .employees-table {
+      padding: 0 20px;
+    }
   }
 }
