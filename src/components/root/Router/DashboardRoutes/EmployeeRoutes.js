@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import routes from '../../../../constants/routes';
-import Employees from '../../../Employees';
+import Employees from '../../../dashboard/employees/Employees';
 import { setTab } from '../../../../actions/tabActions';
 import constants from '../../../../constants';
 

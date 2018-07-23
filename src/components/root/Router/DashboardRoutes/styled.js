@@ -10,9 +10,9 @@ export const DashboardRoutes = glamorous.div({
 }, 'DashboardRoutes');
 
 export const DashboardContainer = glamorous.div({
-  display: 'inline-flex',
+  display: 'inline-block',
   textAlign: 'left',
-  width: '100%',
+  width: '100vw',
 
   [`@media (min-width: ${v.maxMobileWidth})`]: {
     // desktop

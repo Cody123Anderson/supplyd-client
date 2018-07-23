@@ -4,6 +4,8 @@ $borderRadius: 4px;
 // Break Points
 $leftNavWidth: 275px;
 $maxMobileWidth: 1000px;
+$containerDesktopWidth: calc(100vw - #{$leftNavWidth});
+$containerMobileWidth: 100vw;
 
 // Colors
 $colorBlack: #000;
@@ -40,3 +42,6 @@ $fontSizeJumbo: 32px;
 $letterSpacingBase: 1px;
 $letterSpacingMedium: 2px;
 $letterSpacingLarge: 3px;
+
+// Box Shadow
+$boxShadow: 0px 1px 3px $colorBlack30;

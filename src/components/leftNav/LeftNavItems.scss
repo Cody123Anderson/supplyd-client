@@ -10,6 +10,7 @@ $navPaddingLeft: 20px;
             a {
                 background-color: $colorBlack70;
                 color: $colorWhite;
+                cursor: default;
                 outline: none;
                 
                 &::after {

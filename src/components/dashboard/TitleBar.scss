@@ -1,0 +1,37 @@
+@import '../../styles/variables';
+
+.title-bar {
+  align-content: center;
+  align-items: center;
+  box-shadow: $boxShadow;
+  display: flex;
+  flex-wrap: wrap;
+  height: 92px;
+  padding: 0 30px;  
+
+  .title {
+    font-weight: $fontWeightRegular;
+    letter-spacing: $letterSpacingMedium;
+    font-size: $fontSizeLarge;
+    width: $containerMobileWidth;
+  }
+
+  .subtitle {
+    font-size: $fontSizeSmall;
+    margin-top: 10px;
+    width: $containerMobileWidth;
+  }
+
+  @media (min-width: $maxMobileWidth) {
+    // desktop styles
+    width: $containerDesktopWidth;
+
+    .title {
+      width: $containerDesktopWidth;
+    }
+
+    .subtitle {
+      width: $containerDesktopWidth;
+    }
+  }
+}
