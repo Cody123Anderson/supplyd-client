@@ -38,10 +38,10 @@ class CreateEmployee extends Component {
         businessId: this.props.user.businessId,
         businessName: this.props.user.businessName,
         firstName: this.state.firstName,
-        lastName: this.state.lastName,
+        lastName: this.state.lastName || null,
         workEmail: this.state.workEmail,
         personalEmail: this.state.personalEmail,
-        phone: this.state.phone
+        phone: this.state.phone || null
       };
 
       // Log user in
