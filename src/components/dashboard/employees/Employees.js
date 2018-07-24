@@ -12,7 +12,7 @@ const columns = [
   {
     id: 'name',
     Header: 'Name',
-    accessor: d => `${d.firstName} ${d.lastName || ''}` // Custom value accessors!
+    accessor: d => `${d.firstName} ${d.lastName || ''}`
   }, {
     Header: 'Work Email',
     accessor: 'workEmail',
