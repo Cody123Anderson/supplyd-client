@@ -23,14 +23,14 @@ const columns = [
 
 class Employees extends Component {
   componentDidMount() {
-    this.props.getEmployees();
+    this.props.getEmployees(this.props.businessId);
   }
 
   onCreateClick = () => {
     this.props.history.push(routes.createEmployee);
   }
 
-  render() {
+  render() {    
     return (
       <div className="employees">
         <TitleBar title="Manage your employees" subtitle="Add a new employee to send them a new hire box"></TitleBar>
@@ -51,7 +51,8 @@ class Employees extends Component {
 
 function mapStateToProps(state) {
   return {
-    employees: state.employees.all
+    employees: state.employees.all,
+    businessId: state.user.businessId
   };
 }
 

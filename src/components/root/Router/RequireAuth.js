@@ -6,20 +6,20 @@ import routes from '../../../constants/routes';
 export default function(ComposedComponent) {
   class Authentication extends Component {
     componentWillMount() {
-      if (!this.props.authenticated) {
+      if (!this.props.isLoggedIn) {
         this.props.history.push(routes.signIn);
       }
     }
 
     componentWillUpdate(nextProps) {
-      if (!nextProps.authenticated) {
+      if (!nextProps.isLoggedIn) {
         this.props.history.push(routes.signIn);
       }
     }
 
     render() {
-      if (!this.props.authenticated) {
-        return <div>Not Authorized!</div>;
+      if (!this.props.isFetched) {
+        return <div>Loading...</div>;
       }
 
       return <ComposedComponent {...this.props} />;
@@ -27,7 +27,10 @@ export default function(ComposedComponent) {
   }
 
   function mapStateToProps(state) {
-    return { authenticated: state.user.isLoggedIn };
+    return {
+      isFetched: state.user.businessId ? true : false,
+      isLoggedIn: state.user.isLoggedIn
+    };
   }
 
   return connect(mapStateToProps)(Authentication);

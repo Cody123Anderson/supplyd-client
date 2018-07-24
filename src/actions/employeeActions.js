@@ -47,11 +47,11 @@ export function getEmployee(id) {
     };
 }
 
-export function getEmployees() {
+export function getEmployees(busId) {
     return (dispatch) => {
         const options = getOptions();
 
-        axios.get(`${API_URL}/employees`, options)
+        axios.get(`${API_URL}/employees/business/${busId}`, options)
             .then((response) => {
                 const { employees } = response.data;
 
