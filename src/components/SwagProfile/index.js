@@ -218,7 +218,7 @@ class SwagProfile extends Component {
                                             value={employee.personalEmail} 
                                             helperText="We use this email as another method to make sure you get your swag"
                                             error={this.state.personalEmailError}
-                                            onChange={(e) => this.onInputTextChange('personalEmail', e.target.value)}
+                                            onChange={(e) => this.onInputTextChange('personalEmail', _.toLower(e.target.value))}
                                         />
                                     </Styled.ContainInput>
                                     <Styled.ContainInput>
