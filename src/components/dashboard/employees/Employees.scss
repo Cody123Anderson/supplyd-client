@@ -3,15 +3,57 @@
 .employees {    
   text-align: center;
 
+  .contain-actions {
+    margin: 30px 20px 0;
+    text-align: center;
+
+    .create-button {
+      align-items: center;
+      cursor: pointer;
+      display: inline-flex;
+
+      .create-employee-text {
+        margin-right: 5px;
+        transition: color $transitionTime;
+      }
+
+      svg {
+        color: $colorPrimary;
+        font-size: 40px;
+        transition: color $transitionTime;
+      }
+
+      &:hover {
+        .create-employee-text {
+          color: $colorBlack;
+        }
+
+        svg {
+          color: $colorPrimaryDark;
+        }
+      }
+    }
+  }
+
   .employees-table {
     display: inline-block;
-    margin: 30px 0;
-    padding: 0 10px;
+    margin: 20px 0 30px;
+    padding: 0 1px;
     width: 100%;
+  }
+
+  .total-row {
+    margin-bottom: 100px;
+    text-align: right;
+    padding: 0 20px;
   }
 
   @media (min-width: $maxMobileWidth) {
     // desktop styles
+    .contain-actions {
+      text-align: right;
+    }
+
     .employees-table {
       padding: 0 20px;
     }

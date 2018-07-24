@@ -9,19 +9,24 @@ import {
     UPDATE_EMPLOYEE
 } from './types';
 
-export function createEmployee(email, password, businessId, businessName) {
+export function createEmployee(employee) {
     return (dispatch) => {
-        const data = { email, password, businessId, businessName };
+        return new Promise((resolve, reject) => {
+            axios.post(`${API_URL}/employees`, employee)
+                .then((response) => {
+                    const { employee } = response.data;
 
-        axios.post(`${API_URL}/employees`, data)
-            .then((response) => {
-                const { employee } = response.data;
+                    dispatch({ type: CREATE_EMPLOYEE, payload: employee });
 
-                dispatch({ type: CREATE_EMPLOYEE, payload: employee });
-            })
-            .catch((err) => {
-                console.error('error creating employee: ', err);
-            });
+                    resolve(employee);
+                })
+                .catch((err) => {
+                    console.error('general error creating employee: ', err);
+                    console.error('server error creating employee: ', err.response);
+
+                    reject(err.response);
+                });
+        });
     };
 }
 
@@ -37,7 +42,7 @@ export function getEmployee(id) {
                 dispatch({ type: GET_EMPLOYEE, payload: employee });
             })
             .catch((err) => {
-                console.error('error getting the employee: ', err);
+                console.error('error getting the employee: ', err.response);
             });
     };
 }
@@ -54,7 +59,7 @@ export function getEmployees() {
                 dispatch({ type: GET_EMPLOYEES, payload: employees });
             })
             .catch((err) => {
-                console.error('error getting the employees: ', err);
+                console.error('error getting the employees: ', err.response);
             });
     };
 }
@@ -71,7 +76,7 @@ export function updateEmployee(body) {
                 dispatch({ type: UPDATE_EMPLOYEE, payload: employee });
             })
             .catch((err) => {
-                console.error('error updating the employee: ', err);
+                console.error('error updating the employee: ', err.response);
             });
     };
 }

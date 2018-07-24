@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 
 import * as Styled from './styled';
 import Input from '../ui-components/Input';
@@ -137,13 +138,15 @@ class Register extends Component {
                 error={this.state.businessNameError ? true : false}
                 required={true}
                 onChange={(e) => this.onInputTextChange('businessName', e.target.value)}
+                value={this.state.businessName}
               />
               <Styled.InputContainer>
                 <Input
                   label={`Email${this.state.emailError}`}
                   error={this.state.emailError ? true : false}
                   required={true}
-                  onChange={(e) => this.onInputTextChange('email', e.target.value)}
+                  onChange={(e) => this.onInputTextChange('email', _.toLower(e.target.value))}
+                  value={this.state.email}
                 />
               </Styled.InputContainer>
               <Styled.InputContainer>
@@ -153,6 +156,7 @@ class Register extends Component {
                   error={this.state.passwordError ? true : false}
                   required={true}
                   onChange={(e) => this.onInputTextChange('password', e.target.value)}
+                  value={this.state.password}
                 />
               </Styled.InputContainer>
               <Styled.ContainActions>

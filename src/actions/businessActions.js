@@ -15,7 +15,7 @@ export function createBusiness(businessName) {
                     resolve(response);
                 })
                 .catch((err) => {
-                    console.error('error registering business: ', err);
+                    console.error('error registering business: ', err.response);
                     // businessName already exists
                     // Need to handle other cases still!!!
                     reject(err);
@@ -31,7 +31,7 @@ export function checkBusinessName(businessName) {
                 resolve(response.data.isUnique);
             })
             .catch((err) => {
-                console.error('error checking business name: ', err);
+                console.error('error checking business name: ', err.response);
                 reject(err);
             });
     });

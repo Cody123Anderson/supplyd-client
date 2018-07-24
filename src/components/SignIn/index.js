@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 
 import * as Styled from './styled';
 import Input from '../ui-components/Input';
@@ -48,7 +49,7 @@ class SignIn extends Component {
     });
   }
 
-  onInputTextChange = (key, value) => {
+  onInputTextChange = (key, value) => {    
     this.setState({
       [key]: value,
       [`${key}Error`]: ''
@@ -101,7 +102,8 @@ class SignIn extends Component {
                 label={`Email${this.state.emailError}`} 
                 error={this.state.emailError ? true : false} 
                 required={true}
-                onChange={(e) => this.onInputTextChange('email', e.target.value)}
+                onChange={(e) => this.onInputTextChange('email', _.toLower(e.target.value))}
+                value={this.state.email}
               />
               <Styled.InputContainer>
                 <Input 
@@ -110,6 +112,7 @@ class SignIn extends Component {
                   error={this.state.passwordError ? true : false} 
                   required={true}
                   onChange={(e) => this.onInputTextChange('password', e.target.value)}
+                  value={this.state.password}
                 />
               </Styled.InputContainer>
               <Styled.ContainActions>

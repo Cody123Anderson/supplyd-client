@@ -16,7 +16,7 @@ export function checkUserEmail(email) {
                 resolve(response.data.isUnique);
             })
             .catch((err) => {
-                console.error('error checking user email: ', err);
+                console.error('error checking user email: ', err.response);
                 reject(err);
             });
     });
@@ -42,7 +42,7 @@ export function loginUser(email, password) {
                 dispatch(authError(''));
             })
             .catch((err) => {
-                console.error('error logging in user: ', err);
+                console.error('error logging in user: ', err.response);
                 // Invalid Email or Password - Should actually check off of status code in the future
                 dispatch(authError('Incorrect email or password'));
             });
@@ -68,7 +68,7 @@ export function registerUser(email, password, businessId, businessName) {
                 dispatch(authError(''));
             })
             .catch((err) => {
-                console.error('error registering user: ', err);
+                console.error('error registering user: ', err.response);
                 // Email already exists
                 dispatch(authError('Server error registering user - please try again'));
             });
@@ -101,7 +101,7 @@ export function getUser(token) {
                 dispatch({ type: GET_USER, payload: user });
             })
             .catch((err) => {
-                console.error('error getting the user: ', err);
+                console.error('error getting the user: ', err.response);
             });
     };
 }
@@ -118,7 +118,7 @@ export function updateUser(body, token) {
                 dispatch({ type: UPDATE_USER, payload: user });
             })
             .catch((err) => {
-                console.error('error updating the user: ', err);
+                console.error('error updating the user: ', err.response);
             });
     };
 }

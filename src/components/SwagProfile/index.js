@@ -51,7 +51,7 @@ class SwagProfile extends Component {
 
     componentDidMount() {
         axios.get(`${API_URL}/employees/${this.props.match.params.employeeId}`).then(results => {
-            this.setState({ employee: results.data.employee });
+            this.setState(prevState => ({ employee: { ...prevState.employee, ...results.data.employee } }));
         }).catch(err => {
             console.error('error fetching employee information: ', err);
         });
