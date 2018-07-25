@@ -4,6 +4,7 @@ import _ from 'lodash';
 
 import './CreateEmployee.scss';
 import Input from '../../ui-components/Input';
+import Checkbox from '../../ui-components/Checkbox';
 import Button from '../../ui-components/Button';
 import routes from '../../../constants/routes';
 import { createEmployee } from '../../../actions/employeeActions';
@@ -20,6 +21,7 @@ class CreateEmployee extends Component {
     personalEmailError: '',
     phone: '',
     phoneError: '',
+    isNewHire: true,
     serverError: '',
     submitting: false
   }
@@ -41,7 +43,8 @@ class CreateEmployee extends Component {
         lastName: this.state.lastName || null,
         workEmail: this.state.workEmail,
         personalEmail: this.state.personalEmail,
-        phone: this.state.phone || null
+        phone: this.state.phone || null,
+        isNewHire: this.state.isNewHire
       };
 
       // Log user in
@@ -64,6 +67,10 @@ class CreateEmployee extends Component {
       [key]: value,
       [`${key}Error`]: ''
     });
+  }
+
+  onNewHireChange = (isNewHire) => {
+    this.setState({ isNewHire });
   }
 
   validateForm = (cb) => {    
@@ -158,6 +165,13 @@ class CreateEmployee extends Component {
                   error={this.state.phoneError ? true : false}
                   onChange={(e) => this.onInputTextChange('phone', e.target.value)}
                   value={this.state.phone}
+                />
+              </div>
+              <div className="input-container">
+                <Checkbox
+                  checked={this.state.isNewHire}
+                  label="Send this person a new hire box"
+                  onChange={this.onNewHireChange}
                 />
               </div>
               <div className="container-actions">
