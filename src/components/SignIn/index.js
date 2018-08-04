@@ -22,7 +22,7 @@ class SignIn extends Component {
 
   componentDidMount() {
     if (this.props.userToken && !isExpired(this.props.userToken)) {
-      this.props.history.push(routes.employees); // Should be switched to dashboard once built
+      this.props.history.push(routes.home); // Should be switched to dashboard once built
     }
   }
 

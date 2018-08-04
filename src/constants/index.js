@@ -10,13 +10,20 @@ const upperDashboardLinks = {
     employees: { name: 'Employees', to: routes.employees }
 };
 
+const lowerDashboardLinks = {
+    accountInfo: { name: 'Account Info', to: routes.accountInfo },
+    paymentInfo: { name: 'Payment Info', to: routes.paymentInfo },
+    supportCenter: { name: 'Support Center', to: routes.supportCenter }
+};
+
 const constants = {
     teeShirtSizes,
     sweatshirtSizes,
     hatSizes,
     pantSizes,
     genders,
-    upperDashboardLinks
-}
+    upperDashboardLinks,
+    lowerDashboardLinks
+};
 
 export default constants;

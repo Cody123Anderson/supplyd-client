@@ -1,4 +1,7 @@
 module.exports = {
+  accountInfo: '/dashboard/accountInfo',
+  paymentInfo: '/dashboard/paymentInfo',
+  supportCenter: '/dashboard/supportCenter',
   dashboard: '/dashboard',
   employees: '/dashboard/employees',
   home: '/dashboard/home',

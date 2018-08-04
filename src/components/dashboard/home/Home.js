@@ -1,79 +1,105 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
 import TitleBar from '../TitleBar';
 import constants from '../../../constants';
-import { setTab } from '../../../actions/tabActions';
+import {setTab} from '../../../actions/tabActions';
+import {getBusiness} from '../../../actions/businessActions';
 import Card from '../../ui-components/Card/Card';
+import Button from '../../ui-components/Button';
+
 import CreditCardIcon from 'material-ui-icons/CreditCard';
 import GiftCardIcon from 'material-ui-icons/CardGiftcard';
-import UploadIcon from 'material-ui-icons/CloudUpload';
 
 import './Home.scss'
 
 class Home extends React.Component {
-    componentDidMount() {
-        this.props.setTab(constants.upperDashboardLinks.home.name);
-    }
+  state = {
+    status: 'loading'
+  };
 
-    render() {
-        return (
-            <div>
-                <TitleBar title="Welcome to Supplyd Dashboard!"/>
-                <div className="home-card-container">
-                    <Card className="home-card">
-                        <div className="home-row-light">
-                            <div className="home-card-header">
-                                Finish setting up your account to get swag to your employees
-                            </div>
-                        </div>
-                        <div className="home-row-dark">
-                            <div className="home-action-icon-section">
-                                <CreditCardIcon/>
-                            </div>
-                            <div className="home-action-description">
-                                <div className="home-action-description-title">
-                                    Add a payment source
-                                </div>
-                                <div className="home-action-description-paragraph">
-                                </div>
-                            </div>
-                            <div className="home-action-button">
-                            </div>
-                        </div>
-                        <div className="home-row-light">
-                            <div className="home-action-icon-section">
-                                <UploadIcon/>
-                            </div>
-                            <div className="home-action-description">
-                                <div className="home-action-description-title">
-                                    Upload company logo/artwork so we can design your swag!
-                                </div>
-                                <div className="home-action-description-paragraph">
-                                </div>
-                            </div>
-                            <div className="home-action-button">
-                            </div>
-                        </div>
-                        <div className="home-row-dark">
-                            <div className="home-action-icon-section">
-                                <GiftCardIcon/>
-                            </div>
-                            <div className="home-action-description">
-                                <div className="home-action-description-title">
-                                    Start sending new hire boxes!
-                                </div>
-                                <div className="home-action-description-paragraph">
-                                </div>
-                            </div>
-                            <div className="home-action-button">
-                            </div>
-                        </div>
-                    </Card>
+  componentDidMount() {
+    this.props.setTab(constants.upperDashboardLinks.home.name);
+    this.props.getBusiness(this.props.businessId)
+      .then(() => this.setState({status: 'done'}));
+  }
+
+  renderStats() {
+    return (
+      <div>Stats</div>
+    )
+  }
+
+  renderRequirements = () => (
+    <div>
+      <TitleBar title="Welcome to Supplyd Dashboard!"/>
+      <div className="home-card-container">
+        <Card className="home-card">
+          <div className="home-card-header">
+            Finish setting up your account to get swag to your employees
+          </div>
+          <div className="home-row-dark">
+            <div className="home-row-left">
+              <div className="home-action-icon-section">
+                <CreditCardIcon/>
+              </div>
+              <div className="home-action-description">
+                <div className="home-action-description-title">
+                  Add a payment source
                 </div>
+                <div className="home-action-description-paragraph">
+                </div>
+              </div>
             </div>
-        );
+            <div className="home-row-right">
+              <div className="home-action-button">
+                <Button to="/dashboard/paymentInfo">
+                  Add Payment Info
+                </Button>
+              </div>
+            </div>
+          </div>
+          <div className="home-row-light">
+            <div className="home-row-left">
+              <div className="home-action-icon-section">
+                <GiftCardIcon/>
+              </div>
+              <div className="home-action-description">
+                <div className="home-action-description-title">
+                  Start sending new hire boxes!
+                </div>
+                <div className="home-action-description-paragraph">
+                </div>
+              </div>
+            </div>
+            <div className="home-row-right">
+              <div className="home-action-button">
+              </div>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </div>
+  );
+
+  render() {
+    const {stripeId} = this.props;
+    const {status} = this.state;
+    switch (status) {
+      case 'loading':
+        return null;
+      case 'done':
+        if (stripeId) return this.renderStats();
+        return this.renderRequirements();
+      default:
+        return
     }
+  }
 }
 
-export default connect(null, { setTab })(Home);
+const mapStateToProps = (state) => ({
+  businessId: state.user.businessId,
+  stripeId: state.business.stripeId
+});
+
+export default connect(mapStateToProps, {setTab, getBusiness})(Home);

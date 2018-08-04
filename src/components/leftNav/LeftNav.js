@@ -9,6 +9,10 @@ import { logoutUser } from '../../actions/userActions';
 class LeftDashboardNav extends Component {
     render() {
         const { user } = this.props;
+        const items = {
+            top: constants.upperDashboardLinks,
+            bottom: constants.lowerDashboardLinks
+        };
 
         return (
             <div className="left-dashboard-nav">
@@ -19,7 +23,7 @@ class LeftDashboardNav extends Component {
                         Sign Out
                     </span>
                 </div>
-                <LeftNavItems items={constants.upperDashboardLinks} />
+                <LeftNavItems items={items}/>
             </div>
         );
     }

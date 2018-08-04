@@ -28,9 +28,12 @@ class LeftNavItems extends Component {
     }
 
     render() {
+        const { items } = this.props;
         return (
             <div className="left-nav-items">
-                {this.renderItems(this.props.items)}
+                {this.renderItems(items.top)}
+                <div className="left-nav-divider"/>
+                {this.renderItems(items.bottom)}
             </div>
         );
     }
