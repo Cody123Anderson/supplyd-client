@@ -1,17 +1,17 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
-import { setTab } from '../../../actions/tabActions';
+import {setTab} from '../../../actions/tabActions';
 import constants from '../../../constants';
 
 class PaymentInfo extends React.Component {
-    componentDidMount() {
-        this.props.setTab(constants.lowerDashboardLinks.paymentInfo.name);
-    }
+  componentDidMount() {
+    this.props.setTab(constants.lowerDashboardLinks.paymentInfo.name);
+  }
 
-    render() {
-        return <div>Payment Info</div>
-    }
+  render() {
+    return <div>Payment Info</div>
+  }
 }
 
-export default connect(null, { setTab })(PaymentInfo);
+export default connect(null, {setTab})(PaymentInfo);
