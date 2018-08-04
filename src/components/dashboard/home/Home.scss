@@ -1,3 +1,5 @@
+@import '../../../styles/variables';
+
 .home-card-container {
   padding: 50px;
 
@@ -27,7 +29,7 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      background: #EEF4F2;
+      background: $colorPrimary65;
       padding: 15px 30px;
     }
 
