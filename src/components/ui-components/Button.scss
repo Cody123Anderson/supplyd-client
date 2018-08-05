@@ -1,0 +1,26 @@
+@import '../../styles/variables';
+
+.button {
+  button {
+    &.supplyd-raisedPrimary {
+      font-weight: $fontWeightRegular;
+      padding-top: 11px;
+    }
+
+    &.supplyd-raisedSecondary {
+    }
+
+    &.supplyd-flatPrimary {
+    }
+
+    &.supplyd-flatSecondary {
+      background-color: $colorWhite;
+      color: $colorFont;
+      font-weight: $fontWeightRegular;
+
+      &:hover {
+        background-color: $colorBlack5;
+      }
+    }
+  }
+}

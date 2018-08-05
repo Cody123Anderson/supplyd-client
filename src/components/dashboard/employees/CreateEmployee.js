@@ -56,7 +56,7 @@ class CreateEmployee extends Component {
         if (_.get(err, 'status', 500) === 409) {
           serverError = 'User already exists - please see the employees page to find the user there'
         }
-         
+
         this.setState({ submitting: false, serverError });
       });
     });
@@ -73,7 +73,7 @@ class CreateEmployee extends Component {
     this.setState({ isNewHire });
   }
 
-  validateForm = (cb) => {    
+  validateForm = (cb) => {
     let error = '';
 
     // Validate firstName
@@ -147,12 +147,12 @@ class CreateEmployee extends Component {
                   onChange={(e) => this.onInputTextChange('workEmail', _.toLower(e.target.value))}
                   value={this.state.workEmail}
                 />
-              </div>    
+              </div>
               <div className="input-container">
-                <Input 
-                  label={`Personal Email${this.state.personalEmailError}`} 
+                <Input
+                  label={`Personal Email${this.state.personalEmailError}`}
                   helperText={'this allows us to contact the new employee before they start using their work email'}
-                  error={this.state.personalEmailError ? true : false} 
+                  error={this.state.personalEmailError ? true : false}
                   required={true}
                   onChange={(e) => this.onInputTextChange('personalEmail', _.toLower(e.target.value))}
                   value={this.state.personalEmail}

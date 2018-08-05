@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { CreditCard, CardGiftcard } from '@material-ui/icons';
 
 import TitleBar from '../TitleBar';
 import constants from '../../../constants';
@@ -7,9 +8,6 @@ import {setTab} from '../../../actions/tabActions';
 import {getBusiness} from '../../../actions/businessActions';
 import Card from '../../ui-components/Card/Card';
 import Button from '../../ui-components/Button';
-
-import CreditCardIcon from 'material-ui-icons/CreditCard';
-import GiftCardIcon from 'material-ui-icons/CardGiftcard';
 
 import './Home.scss'
 
@@ -41,7 +39,7 @@ class Home extends React.Component {
           <div className="home-row-dark">
             <div className="home-row-left">
               <div className="home-action-icon-section">
-                <CreditCardIcon/>
+                <CreditCard />
               </div>
               <div className="home-action-description">
                 <div className="home-action-description-title">
@@ -62,7 +60,7 @@ class Home extends React.Component {
           <div className="home-row-light">
             <div className="home-row-left">
               <div className="home-action-icon-section">
-                <GiftCardIcon/>
+                <CardGiftcard />
               </div>
               <div className="home-action-description">
                 <div className="home-action-description-title">
