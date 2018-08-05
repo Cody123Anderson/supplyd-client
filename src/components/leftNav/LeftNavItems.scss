@@ -5,6 +5,12 @@ $navPaddingLeft: 20px;
 .left-nav-items {
     margin-top: 50px;
 
+    .left-nav-divider {
+        margin: 50px 0;
+        width: 220px;
+        border-bottom: 1px solid $colorBlack70;
+    }
+
     .left-nav-item {
         &.active {
             a {

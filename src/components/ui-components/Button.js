@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Button } from '@material-ui/core';
 
-import { StyledButton } from './styles';
+import './Button.scss';
 
-export default class Button extends PureComponent {
+export default class _Button extends PureComponent {
   static propTypes = {
-    ...StyledButton.propTypes,
     href: PropTypes.string, // Force rerender of new page
     to: PropTypes.string, // pushState redirect (ideal!)
     onClick: PropTypes.func,
@@ -14,7 +14,6 @@ export default class Button extends PureComponent {
   }
 
   static defaultProps = {
-    ...StyledButton.defaultProps,
     variant: 'raised',
     color: 'primary',
     classes: {
@@ -29,10 +28,10 @@ export default class Button extends PureComponent {
   render() {
     const { to, ...props } = this.props;
 
-    const btn = <StyledButton {...props}>{this.props.children}</StyledButton>;
+    const btn = <Button {...props}>{this.props.children}</Button>;
 
     return (
-      <div>
+      <div className="button">
         { to && <Link to={to}>{btn}</Link> }
         { !this.props.to && btn }
       </div>

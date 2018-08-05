@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
-import { IconButton, Menu } from 'material-ui';
-import { MenuItem } from 'material-ui/Menu';
-import MoreVertIcon from 'material-ui-icons/MoreVert';
+import { IconButton, Menu } from '@material-ui/core';
+import { MenuItem } from '@material-ui/core/Menu';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const ITEM_HEIGHT = 48;
 

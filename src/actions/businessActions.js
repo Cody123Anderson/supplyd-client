@@ -1,9 +1,7 @@
 import axios from 'axios';
 
 import { API_URL } from '../constants/env';
-// import {
-//     CREATE_BUSINESS,
-// } from './types';
+import { SET_BUSINESS_INFO } from "./types";
 
 export function createBusiness(businessName) {
     return (dispatch) => {
@@ -35,4 +33,19 @@ export function checkBusinessName(businessName) {
                 reject(err);
             });
     });
+}
+
+export function getBusiness(id) {
+    return (dispatch) => {
+        return axios.get(`${API_URL}/businesses/${id}`)
+            .then(response => dispatch(setBusiness(response.data)))
+            .catch(err => console.log(err));
+    }
+}
+
+function setBusiness(business) {
+    return {
+        type: SET_BUSINESS_INFO,
+        payload: business
+    };
 }

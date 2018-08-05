@@ -1,0 +1,76 @@
+@import '../../../styles/variables';
+
+.home-card-container {
+  padding: 50px;
+
+  .home-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .home-card-header {
+      display: flex;
+      align-items: center;
+      padding: 20px 30px;
+    }
+
+    .home-row-light {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+
+    .home-row-dark {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      background: $colorPrimary65;
+      padding: 15px 30px;
+    }
+
+    .home-row-left {
+      display: flex;
+      flex-direction: row;
+      flex-shrink: 3;
+    }
+
+    .home-row-right {
+      display: flex;
+      flex-direction: row;
+      flex-shrink: 1;
+    }
+
+    .home-action-icon-section {
+      display: flex;
+      align-items: center;
+      height: 50px;
+    }
+
+    .home-action-description {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 50px;
+      padding: 10px;
+
+      .home-action-description-title {
+        font-weight: 400;
+      }
+
+      .home-action-description-paragraph {
+
+      }
+    }
+
+    .home-action-button {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+    }
+  }
+}

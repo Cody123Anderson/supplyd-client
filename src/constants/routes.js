@@ -1,6 +1,10 @@
 module.exports = {
+  accountInfo: '/dashboard/accountInfo',
+  paymentInfo: '/dashboard/paymentInfo',
+  supportCenter: '/dashboard/supportCenter',
   dashboard: '/dashboard',
   employees: '/dashboard/employees',
+  home: '/dashboard/home',
   createEmployee: '/dashboard/employees/create',
   landingPage: '/',
   register: '/register',

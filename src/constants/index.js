@@ -6,7 +6,14 @@ const hatSizes = ['Small/Medium: 6 3/4 - 7 1/4 in.', 'Large/X-Large 7 1/8 - 7 5/
 const pantSizes = ['S', 'M', 'L', 'XL', '2XL'];
 const genders = ['Female', 'Male'];
 const upperDashboardLinks = {
+    home: { name: 'Home', to: routes.home },
     employees: { name: 'Employees', to: routes.employees }
+};
+
+const lowerDashboardLinks = {
+    accountInfo: { name: 'Account Info', to: routes.accountInfo },
+    paymentInfo: { name: 'Payment Info', to: routes.paymentInfo },
+    supportCenter: { name: 'Support Center', to: routes.supportCenter }
 };
 
 const constants = {
@@ -15,7 +22,8 @@ const constants = {
     hatSizes,
     pantSizes,
     genders,
-    upperDashboardLinks
-}
+    upperDashboardLinks,
+    lowerDashboardLinks
+};
 
 export default constants;

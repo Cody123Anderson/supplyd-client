@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { TextField } from 'material-ui';
+import { TextField } from '@material-ui/core';
 
 export default class TextInput extends Component {
   static propTypes = {

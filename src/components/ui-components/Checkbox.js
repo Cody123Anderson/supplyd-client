@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { FormControlLabel, Checkbox } from 'material-ui';
+import { FormControlLabel, Checkbox } from '@material-ui/core';
 
 export default class MyCheckbox extends Component {
   static propTypes = {
