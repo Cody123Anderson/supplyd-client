@@ -1,0 +1,25 @@
+[build]
+  # This is the directory that you are publishing from (relative to root of your repo)
+  publish = "build"
+  # Default build command
+  command = "npm run build"
+
+# Don't allow use of netlify subdomain supplyd.netlify.com for SEO purposes
+[[redirects]]
+  from = "https://supplyd.netlify.com/*"
+  to = "https://www.getsupplyd.com/:splat"
+  status = 301
+  force = true
+
+# Don't allow use of netlify subdomain dev-supplyd.netlify.com for SEO purposes
+[[redirects]]
+  from = "https://dev-supplyd.netlify.com/*"
+  to = "https://dev.getsupplyd.com/:splat"
+  status = 301
+  force = true
+
+# SPA redirect that allows internal route handling
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
