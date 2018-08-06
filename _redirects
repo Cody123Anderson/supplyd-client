@@ -1,4 +1,0 @@
-/*  /index.html  200
-
-# Redirect default Netlify subdomain to primary domain
-https://supplyd.netlify.com/* https://www.getsupplyd.com/:splat 301!

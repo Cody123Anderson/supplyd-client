@@ -1,0 +1,18 @@
+[build]
+  # This is the directory that you are publishing from (relative to root of your repo)
+  publish = "build"
+  # Default build command
+  command = "npm run build"
+
+# The following show an example redirects rule with all the supported properties
+[[redirects]]
+  from = "https://supplyd.netlify.com/*"
+  to = "https://www.getsupplyd.com/:splat"
+  status = 301
+  force = true
+
+# SPA redirect that allows internal route handling
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
