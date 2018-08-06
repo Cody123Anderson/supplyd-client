@@ -4,10 +4,17 @@
   # Default build command
   command = "npm run build"
 
-# The following show an example redirects rule with all the supported properties
+# Don't allow use of netlify subdomain supplyd.netlify.com for SEO purposes
 [[redirects]]
   from = "https://supplyd.netlify.com/*"
   to = "https://www.getsupplyd.com/:splat"
+  status = 301
+  force = true
+
+# Don't allow use of netlify subdomain dev-supplyd.netlify.com for SEO purposes
+[[redirects]]
+  from = "https://dev-supplyd.netlify.com/*"
+  to = "https://dev.getsupplyd.com/:splat"
   status = 301
   force = true
 
