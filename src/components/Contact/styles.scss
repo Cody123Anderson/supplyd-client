@@ -1,0 +1,10 @@
+.supplyd-contact {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  height: calc(100vh - 66px);
+
+  .supplyd-contact-row {
+    height: 20px;
+  }
+}

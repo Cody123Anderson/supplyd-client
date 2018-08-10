@@ -4,6 +4,8 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Router from '../Router';
 import * as Styled from './styled';
 import v from '../../../styles/variables';
+import Footer from '../../Footer/Footer';
+import constants from '../../../constants';
 
 const theme = createMuiTheme({
   palette: {
@@ -34,6 +36,7 @@ class App extends Component {
       <MuiThemeProvider theme={theme}>
         <Styled.App>
           <Router />
+          <Footer links={constants.footerLinks}/>
         </Styled.App>
       </MuiThemeProvider>
     );

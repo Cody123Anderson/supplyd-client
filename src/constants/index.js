@@ -16,6 +16,10 @@ const lowerDashboardLinks = {
     supportCenter: { name: 'Support Center', to: routes.supportCenter }
 };
 
+const footerLinks = [
+    { name: 'Contact Us', to: routes.contactUs }
+];
+
 const constants = {
     teeShirtSizes,
     sweatshirtSizes,
@@ -23,7 +27,8 @@ const constants = {
     pantSizes,
     genders,
     upperDashboardLinks,
-    lowerDashboardLinks
+    lowerDashboardLinks,
+    footerLinks
 };
 
 export default constants;
