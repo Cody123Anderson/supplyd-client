@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import * as Styled from './styled';
 import routes from '../../../../constants/routes';
-import LeftDashboardNav from '../../../leftNav/LeftNav';
+import Navigation from '../../../Navigation';
 import EmployeeRoutes from './EmployeeRoutes';
 import Home from '../../../dashboard/home/Home';
 import PaymentInfo from '../../../dashboard/paymentInfo/PaymentInfo';
@@ -15,7 +15,7 @@ export default class DashboardRoutes extends Component {
     render() {
         return (
             <Styled.DashboardRoutes>
-                <LeftDashboardNav />
+                <Navigation />
                 <Styled.DashboardContainer>
                     <Switch>
                         <Route path={routes.employees} component={RequireAuth(EmployeeRoutes)} />
