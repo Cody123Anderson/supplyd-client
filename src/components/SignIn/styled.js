@@ -5,6 +5,7 @@ import v from '../../styles/variables';
 export const SignIn = glamorous.div({
   textAlign: 'center',
   marginTop: '50px',
+  marginBottom: '50px',
 
   [`@media (min-width: ${v.maxMobileWidth})`]: {
     marginTop: '80px'
