@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom';
 
 import v from '../../../styles/variables';
 
+export const MobileNav = glamorous.div({
+  '@media (min-width: 1000px)': {
+    display: 'none',
+  }
+}, 'MobileNav');
+
 export const NavLink = glamorous(Link)(
   {
     color: v.colorWhite,

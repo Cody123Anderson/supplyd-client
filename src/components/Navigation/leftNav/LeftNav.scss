@@ -7,6 +7,10 @@ $navPaddingLeft: 20px;
   color: $colorBlack30;
   width: $leftNavWidth;
 
+  @media (max-width: $maxMobileWidth - 1) {
+    display: none;
+  }
+
   .title {
     color: $colorPrimary;
     letter-spacing: $letterSpacingLarge;

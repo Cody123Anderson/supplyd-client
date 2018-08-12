@@ -2,13 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import MenuItem from '@material-ui/core/MenuItem';
+import { AppBar, IconButton, MenuItem, Menu, Toolbar, Typography } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import Menu from '@material-ui/core/Menu';
-import Typography from '@material-ui/core/Typography';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import constants from '../../../constants';
 import { logoutUser } from '../../../actions/userActions';
@@ -24,6 +19,7 @@ const theme = createMuiTheme({
     MuiTypography: {
       colorPrimary: {
         color: '#6AD1B0',
+        fontWeight: 300,
       },
       root: {
         flexGrow: 1,
@@ -99,46 +95,48 @@ class MobileNav extends Component {
     };
 
     return (
-      <MuiThemeProvider theme={theme}>
-        <AppBar position="fixed" color="default">
-          <Toolbar>
-            <Typography variant="title" color="primary">
-              SUPPLYD
-            </Typography>
-            <IconButton
-              aria-owns={menuOpen ? 'menu-appbar' : null}
-              aria-haspopup="true"
-              onClick={this.handleOpen}
-              color="primary"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={menuOpen}
-              onClose={this.handleClose}
-              classes={{ paper: 'menu-styling' }}
-            >
-              {this.renderItems(items.top)}
-              <Styled.Divider />
-              {this.renderItems(items.bottom)}
-              <br />
-              <Styled.SignOut onClick={this.props.logoutUser} key="sign out">
-                Sign Out
-              </Styled.SignOut>
-            </Menu>
-          </Toolbar>
-        </AppBar>
-      </MuiThemeProvider>
+      <Styled.MobileNav>
+        <MuiThemeProvider theme={theme}>
+          <AppBar position="fixed" color="default">
+            <Toolbar>
+              <Typography variant="title" color="primary">
+                SUPPLYD
+              </Typography>
+              <IconButton
+                aria-owns={menuOpen ? 'menu-appbar' : null}
+                aria-haspopup="true"
+                onClick={this.handleOpen}
+                color="primary"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={menuOpen}
+                onClose={this.handleClose}
+                classes={{ paper: 'menu-styling' }}
+              >
+                {this.renderItems(items.top)}
+                <Styled.Divider />
+                {this.renderItems(items.bottom)}
+                <br />
+                <Styled.SignOut onClick={this.props.logoutUser} key="sign out">
+                  Sign Out
+                </Styled.SignOut>
+              </Menu>
+            </Toolbar>
+          </AppBar>
+        </MuiThemeProvider>
+      </Styled.MobileNav>
     );
   }
 }
