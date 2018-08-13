@@ -3,7 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 
 import * as Styled from './styled';
 import routes from '../../../../constants/routes';
-import LeftDashboardNav from '../../../leftNav/LeftNav';
+import MobileNav from '../../../Navigation/MobileNav';
+import LeftDashboardNav from '../../../Navigation/leftNav';
 import EmployeeRoutes from './EmployeeRoutes';
 import Home from '../../../dashboard/home/Home';
 import PaymentInfo from '../../../dashboard/paymentInfo/PaymentInfo';
@@ -15,6 +16,7 @@ export default class DashboardRoutes extends Component {
     render() {
         return (
             <Styled.DashboardRoutes>
+                <MobileNav />
                 <LeftDashboardNav />
                 <Styled.DashboardContainer>
                     <Switch>

@@ -17,5 +17,10 @@ export const DashboardContainer = glamorous.div({
   [`@media (min-width: ${v.maxMobileWidth})`]: {
     // desktop
     width: `calc(100vw - ${v.leftNavWidth})`,
+  },
+
+  [`@media (max-width: ${v.maxMobileWidth})`]: {
+    // mobile
+    marginTop: 60,
   }
 }, 'DashboardContainer');
