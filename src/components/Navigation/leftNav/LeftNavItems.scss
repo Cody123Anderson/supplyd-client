@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@import '../../../styles/variables';
 
 $navPaddingLeft: 20px;
 
@@ -18,7 +18,7 @@ $navPaddingLeft: 20px;
                 color: $colorWhite;
                 cursor: default;
                 outline: none;
-                
+
                 &::after {
                     content: '';
                     position: absolute;

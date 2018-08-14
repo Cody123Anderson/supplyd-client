@@ -8,11 +8,6 @@ export const LeftDashboardNav = glamorous.div({
   backgroundColor: v.colorBlack80,
   color: v.colorBlack30,
   width: v.leftNavWidth,
-
-  [`@media (max-width: ${v.maxMobileWidth})`]: {
-    // don't show on smaller devices
-    display: 'none'
-  }
 }, 'LeftDashboardNav');
 
 export const Title = glamorous.div({
