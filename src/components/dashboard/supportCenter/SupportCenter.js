@@ -3,6 +3,9 @@ import {connect} from 'react-redux'
 
 import {setTab} from '../../../actions/tabActions';
 import constants from '../../../constants';
+import Footer from "../../Footer/Footer";
+
+import './styles.scss';
 
 class SupportCenter extends React.Component {
   componentDidMount() {
@@ -10,7 +13,14 @@ class SupportCenter extends React.Component {
   }
 
   render() {
-    return <div>Support Center</div>
+    return(
+      <div>
+        <div className="support-center-container">
+        Support Center
+        </div>
+        <Footer links={constants.footerLinks}/>
+      </div>
+    )
   }
 }
 

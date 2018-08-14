@@ -7,6 +7,8 @@ import TitleBar from '../TitleBar';
 import Table from '../../ui-components/Table';
 import { getEmployees } from '../../../actions/employeeActions';
 import routes from '../../../constants/routes';
+import Footer from "../../Footer/Footer";
+import constants from '../../../constants';
 
 const columns = [
   {
@@ -33,17 +35,20 @@ class Employees extends Component {
   render() {    
     return (
       <div className="employees">
-        <TitleBar title="Manage your employees" subtitle="Add a new employee to send them a new hire box"></TitleBar>
-        <div className="contain-actions">
-          <span className="create-button" onClick={this.onCreateClick}>
-            <span className="create-employee-text">Add Employee</span>
-            <MdAddCircle />
-          </span>
+        <div className="employees-container">
+          <TitleBar title="Manage your employees" subtitle="Add a new employee to send them a new hire box" />
+          <div className="contain-actions">
+            <span className="create-button" onClick={this.onCreateClick}>
+              <span className="create-employee-text">Add Employee</span>
+              <MdAddCircle />
+            </span>
+          </div>
+          <div className="employees-table">
+            <Table data={this.props.employees} columns={columns} />
+          </div>
+          <div className="total-row">Total Employees: {this.props.employees.length}</div>
         </div>
-        <div className="employees-table">
-          <Table data={this.props.employees} columns={columns} />
-        </div>
-        <div className="total-row">Total Employees: {this.props.employees.length}</div>
+        <Footer links={constants.footerLinks}/>
       </div>
     );
   }

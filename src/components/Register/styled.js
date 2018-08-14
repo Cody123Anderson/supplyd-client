@@ -5,6 +5,7 @@ import v from '../../styles/variables';
 export const Register = glamorous.div({
   textAlign: 'center',
   marginTop: '50px',
+  minHeight: '100vh',
 
   [`@media (min-width: ${v.maxMobileWidth})`]: {
     marginTop: '80px'

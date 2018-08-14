@@ -11,6 +11,8 @@ import routes from '../../constants/routes';
 import { isExpired } from '../../utils/jwtUtils';
 import { createBusiness, checkBusinessName } from '../../actions/businessActions';
 import { registerUser, checkUserEmail } from '../../actions/userActions';
+import Footer from "../Footer/Footer";
+import constants from "../../constants";
 
 class Register extends Component {
   state = {
@@ -172,6 +174,7 @@ class Register extends Component {
             </Styled.HaveAccount>
           </Styled.FormContainer>
         </Styled.Register>
+        <Footer links={constants.footerLinks}/>
       </div>
     );
   }
