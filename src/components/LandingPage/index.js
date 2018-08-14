@@ -10,6 +10,8 @@ import TopBar from '../TopBar';
 import Button from '../ui-components/Button';
 import routes from '../../constants/routes';
 import Styled from './styled';
+import Footer from "../Footer/Footer";
+import constants from "../../constants";
 
 const iconStyles = {
   color: colorBlack80,
@@ -74,6 +76,7 @@ export default class LandingPage extends Component {
             </Styled.HowButtonContainer>
           </section>
         </Styled.Container>
+        <Footer links={constants.footerLinks}/>
       </div>
     );
   }

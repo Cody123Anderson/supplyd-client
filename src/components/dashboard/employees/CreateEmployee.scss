@@ -4,40 +4,44 @@
   margin-top: 50px;
   text-align: center;
 
-  .title {
-    display: block;
-    font-size: $fontSizeLarge;
-    margin-bottom: 30px;
-    text-align: center;
-    width: 100%;
-  }
+  .create-employee-container {
+    min-height: 100vh;
 
-  .form-container {
-    display: inline-block;
-    width: 90%;
+    .title {
+      display: block;
+      font-size: $fontSizeLarge;
+      margin-bottom: 30px;
+      text-align: center;
+      width: 100%;
+    }
 
-    .form {
-      display: flex;
-      flex-wrap: wrap;
+    .form-container {
+      display: inline-block;
+      width: 90%;
 
-      .input-container {
+      .form {
         display: flex;
-        margin-top: 20px;
-        width: 100%;
+        flex-wrap: wrap;
 
-        &:first-of-type {
-          margin-top: 0;
+        .input-container {
+          display: flex;
+          margin-top: 20px;
+          width: 100%;
+
+          &:first-of-type {
+            margin-top: 0;
+          }
         }
-      }
 
-      .container-actions {
-        margin-top: 40px;
-        width: 100%;
+        .container-actions {
+          margin-top: 40px;
+          width: 100%;
 
-        .error-text {
-          color: $colorRed;
-          margin-bottom: 10px;
-          text-align: left;
+          .error-text {
+            color: $colorRed;
+            margin-bottom: 10px;
+            text-align: left;
+          }
         }
       }
     }

@@ -6,7 +6,8 @@ import boxImage from '../../images/example-box.png';
 const exports = {};
 
 exports.Container = glamorous.div({
-  paddingBottom: '150px'
+  paddingBottom: '150px',
+  minHeight: '100vh'
 }, 'Container');
 
 exports.MainSection = glamorous.section({
