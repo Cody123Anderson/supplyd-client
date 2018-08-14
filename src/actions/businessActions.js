@@ -39,7 +39,7 @@ export function getBusiness(id) {
     return (dispatch) => {
         return axios.get(`${API_URL}/businesses/${id}`)
             .then(response => dispatch(setBusiness(response.data)))
-            .catch(err => console.log(err));
+            .catch(err => console.error(err));
     }
 }
 

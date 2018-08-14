@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import routes from '../../../constants/routes';
-import SwagProfile from '../../SwagProfile';
+import SwagProfile from '../../SwagProfile/SwagProfile';
 import SwagProfileComplete from '../../SwagProfile/SwagProfileComplete';
 
 export default class SwagProfileRoutes extends Component {
