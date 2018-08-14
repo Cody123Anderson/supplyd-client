@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import _ from 'lodash';
 import moment from 'moment';
+import autofill from 'react-autofill';
 
 import './SwagProfile.scss';
 import constants from '../../constants';
@@ -364,4 +365,4 @@ class SwagProfile extends Component {
     }
 };
 
-export default SwagProfile;
+export default autofill(SwagProfile);
