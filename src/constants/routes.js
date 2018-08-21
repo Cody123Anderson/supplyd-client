@@ -1,4 +1,5 @@
 module.exports = {
+  contactUs: '/contact',
   accountInfo: '/dashboard/accountInfo',
   paymentInfo: '/dashboard/paymentInfo',
   supportCenter: '/dashboard/supportCenter',

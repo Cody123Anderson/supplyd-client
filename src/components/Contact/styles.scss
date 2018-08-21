@@ -1,0 +1,9 @@
+.supplyd-contact {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  min-height: 100vh;
+  .supplyd-contact-row {
+    height: 20px;
+  }
+}

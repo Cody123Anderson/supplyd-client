@@ -3,6 +3,9 @@ import {connect} from 'react-redux'
 
 import {setTab} from '../../../actions/tabActions';
 import constants from '../../../constants';
+import Footer from "../../Footer/Footer";
+
+import './styles.scss';
 
 class PaymentInfo extends React.Component {
   componentDidMount() {
@@ -10,7 +13,14 @@ class PaymentInfo extends React.Component {
   }
 
   render() {
-    return <div>Payment Info</div>
+    return (
+      <div>
+        <div className="payment-info-container">
+          Payment Info
+        </div>
+        <Footer links={constants.footerLinks}/>
+      </div>
+    );
   }
 }
 

@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import './LeftNav.scss';
 import LeftNavItems from './LeftNavItems';
-import constants from '../../constants';
-import { logoutUser } from '../../actions/userActions';
+import constants from '../../../constants';
+import { logoutUser } from '../../../actions/userActions';
 
 class LeftDashboardNav extends Component {
     render() {

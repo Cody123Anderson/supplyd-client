@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@import '../../../styles/variables';
 
 $navPaddingLeft: 20px;
 
@@ -7,8 +7,7 @@ $navPaddingLeft: 20px;
   color: $colorBlack30;
   width: $leftNavWidth;
 
-  @media (max-width: $maxMobileWidth) {
-      // don't show on smaller devices
+  @media (max-width: $maxMobileWidth - 1) {
     display: none;
   }
 
@@ -37,7 +36,7 @@ $navPaddingLeft: 20px;
     .sign-out-button {
       transition: color 400ms;
       cursor: pointer;
-      
+
       &:hover {
         color: $colorWhite;
       }

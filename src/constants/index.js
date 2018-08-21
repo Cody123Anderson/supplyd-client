@@ -11,10 +11,14 @@ const upperDashboardLinks = {
 };
 
 const lowerDashboardLinks = {
-    accountInfo: { name: 'Account Info', to: routes.accountInfo },
-    paymentInfo: { name: 'Payment Info', to: routes.paymentInfo },
-    supportCenter: { name: 'Support Center', to: routes.supportCenter }
+    // accountInfo: { name: 'Account Info', to: routes.accountInfo },
+    // paymentInfo: { name: 'Payment Info', to: routes.paymentInfo },
+    // supportCenter: { name: 'Support Center', to: routes.supportCenter }
 };
+
+const footerLinks = [
+    { name: 'Contact Us', to: routes.contactUs }
+];
 
 const constants = {
     teeShirtSizes,
@@ -23,7 +27,8 @@ const constants = {
     pantSizes,
     genders,
     upperDashboardLinks,
-    lowerDashboardLinks
+    lowerDashboardLinks,
+    footerLinks
 };
 
 export default constants;

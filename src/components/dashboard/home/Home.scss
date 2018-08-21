@@ -1,6 +1,7 @@
 @import '../../../styles/variables';
 
 .home-card-container {
+  min-height: 100vh;
   padding: 50px;
 
   .home-card {

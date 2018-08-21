@@ -10,6 +10,8 @@ import TopBar from '../TopBar';
 import routes from '../../constants/routes';
 import { loginUser } from '../../actions/userActions';
 import { isExpired } from '../../utils/jwtUtils';
+import Footer from "../Footer/Footer";
+import constants from "../../constants";
 
 class SignIn extends Component {
   state = {
@@ -128,6 +130,7 @@ class SignIn extends Component {
             </Styled.NeedAccount>
           </Styled.FormContainer>
         </Styled.SignIn>
+        <Footer links={constants.footerLinks}/>
       </div>
     );
   }

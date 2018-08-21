@@ -1,0 +1,20 @@
+@import '../../styles/variables';
+
+.swag-profile-complete {
+  background-color: $colorPrimaryDark;
+  height: 100vh;
+  padding: 100px 5px;
+  width: 100vw;
+}
+
+.success-text-title {
+  color: $colorWhite;
+  font-size: $fontSizeLarge;
+  margin-top: 10px;
+}
+
+.success-text-description {
+  color: $colorWhite;
+  font-size: $fontSizeMedium;
+  margin-top: 30px;
+}
