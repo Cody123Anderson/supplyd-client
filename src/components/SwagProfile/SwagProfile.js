@@ -200,7 +200,7 @@ class SwagProfile extends Component {
                     {
                         employee &&
                         <div>
-                            <div className="title">{employee.businessName} Swag Profile</div>
+                            <div className="sp-title">{employee.businessName} Swag Profile</div>
                             <div className="subtitle">Please fill out this form so we can get your swag created and sent out to you. Please note - some information may not be used in this round of swag, but could potentially be used in the future.</div>
                             <form className="swag-profile-form">
                                 <div className="form-field">
@@ -258,6 +258,9 @@ class SwagProfile extends Component {
                                           onChange={(e) => this.onInputTextChange('birthday', e.target.value)}
                                       />
                                     </div>
+                                </div>
+                                <div className="form-field">
+                                    <div className="label">Shipping Information</div>
                                     <div className="contain-input">
                                         <Input
                                             label="Address *"
@@ -351,7 +354,6 @@ class SwagProfile extends Component {
                                         error={this.state.genderError}
                                     />
                                 </div>
-                                <hr className="line" />
                                 <div className="contain-actions">
                                     <div className="error-text">{this.state.errorText}</div>
                                     <Button disabled={this.state.submitting} onClick={this.onSubmit}>Submit Information</Button>

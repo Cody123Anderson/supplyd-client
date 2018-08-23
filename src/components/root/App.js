@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
-import Router from '../Router';
-import * as Styled from './styled';
-import v from '../../../styles/variables';
+import './App.scss';
+import Routes from './routes/Routes';
+import v from '../../styles/variables';
 
 const theme = createMuiTheme({
   palette: {
@@ -32,9 +32,9 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider theme={theme}>
-        <Styled.App>
-          <Router />
-        </Styled.App>
+        <div className="app">
+          <Routes />
+        </div>
       </MuiThemeProvider>
     );
   }

@@ -8,6 +8,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import constants from '../../../constants';
 import { logoutUser } from '../../../actions/userActions';
 import * as Styled from './styled';
+import v from '../../../styles/variables';
 
 const theme = createMuiTheme({
   overrides: {
@@ -18,7 +19,8 @@ const theme = createMuiTheme({
     },
     MuiTypography: {
       colorPrimary: {
-        color: '#6AD1B0',
+        color: '#FFFFFF',
+        letterSpacing: v.letterSpacingMedium,
         fontWeight: 300,
       },
       root: {
@@ -46,7 +48,7 @@ const theme = createMuiTheme({
     },
     MuiIconButton: {
       colorPrimary: {
-        color: '#6AD1B0',
+        color: '#FFFFFF',
       },
     },
   },
