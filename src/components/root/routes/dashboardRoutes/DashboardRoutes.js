@@ -8,9 +8,9 @@ import MobileNav from '../../../Navigation/MobileNav';
 import LeftDashboardNav from '../../../Navigation/leftNav';
 import EmployeeRoutes from './EmployeeRoutes';
 import Home from '../../../dashboard/home/Home';
-import PaymentInfo from '../../../dashboard/paymentInfo/PaymentInfo';
-import AccountInfo from '../../../dashboard/accountInfo/AccountInfo';
-import SupportCenter from '../../../dashboard/supportCenter/SupportCenter';
+// import PaymentInfo from '../../../dashboard/paymentInfo/PaymentInfo';
+// import AccountInfo from '../../../dashboard/accountInfo/AccountInfo';
+// import SupportCenter from '../../../dashboard/supportCenter/SupportCenter';
 import { getBusiness } from '../../../../actions/businessActions';
 
 class DashboardRoutes extends Component {
@@ -25,17 +25,11 @@ class DashboardRoutes extends Component {
     componentDidUpdate() {
       const { business } = this.props;
 
-      console.log('business: ', business);
-
       if (business.id && !business.numEmployees) {
-        console.log('!business.numEmployees: ');
-        console.log('routes.onboardingNumEmployees: ', routes.onboardingNumEmployees);
         this.props.history.push(routes.onboardingNumEmployees);
       } else if (business.id && !business.newHiresPerMonth) {
-        console.log('!business.newHiresPerMonth: ');
         this.props.history.push(routes.onboardingNewHires);
       } else {
-        console.log('else: ');
         if (!this.state.loaded) {
           this.setState({ loaded: true });
         }
@@ -55,9 +49,9 @@ class DashboardRoutes extends Component {
                     <Switch>
                         <Route path={routes.employees} component={EmployeeRoutes} />
                         <Route exact path={routes.home} component={Home} />
-                        <Route exact path={routes.paymentInfo} component={PaymentInfo} />
-                        <Route exact path={routes.accountInfo} component={AccountInfo} />
-                        <Route exact path={routes.supportCenter} component={SupportCenter} />
+                          {/* <Route exact path={routes.paymentInfo} component={RequireAuth(PaymentInfo)}/> */}
+                          {/* <Route exact path={routes.accountInfo} component={RequireAuth(AccountInfo)}/> */}
+                          {/* <Route exact path={routes.supportCenter} component={RequireAuth(SupportCenter)}/> */}
                     </Switch>
                 </div>
             </div>
