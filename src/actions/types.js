@@ -1,6 +1,7 @@
 // Business Actions
 module.exports.CREATE_BUSINESS = 'CREATE_BUSINESS';
 module.exports.SET_BUSINESS_INFO = 'SET_BUSINESS_INFO';
+module.exports.SET_STRIPE_INFO = 'SET_STRIPE_INFO';
 
 // Employee Actions
 module.exports.CREATE_EMPLOYEE = 'CREATE_EMPLOYEE';

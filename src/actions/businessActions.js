@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 import { API_URL } from '../constants/env';
-import { SET_BUSINESS_INFO } from "./types";
+import { SET_BUSINESS_INFO, SET_STRIPE_INFO } from "./types";
+import { getToken } from '../utils/jwtUtils';
 
 export function createBusiness(businessName) {
     return (dispatch) => {
@@ -19,6 +20,23 @@ export function createBusiness(businessName) {
                     reject(err);
                 });
         });
+    };
+}
+
+export function createStripeCustomer(cardInfo, user) {
+    return (dispatch) => {
+        const options = { headers: { Authorization: getToken() } };
+        const url = `${API_URL}/businesses/stripe/create/${user.businessId}`;
+        const data = { card: { cardInfo }, email: user.email }
+
+        axios.put(url, data, options)
+        .then((response) => {
+            dispatch(setStripeInfo({cards: [cardInfo], stripeId: response.data}));
+        })
+        .catch((err) => {
+            console.error('error creating stripe customer: ', err.response);
+        });
+        console.log('SUCCESS', data)
     };
 }
 
@@ -41,6 +59,13 @@ export function getBusiness(id) {
             .then(response => dispatch(setBusiness(response.data)))
             .catch(err => console.error(err));
     }
+}
+
+export function setStripeInfo(data) {
+    return {
+        type: SET_STRIPE_INFO,
+        payload: data
+    };
 }
 
 function setBusiness(business) {

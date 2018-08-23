@@ -1,7 +1,7 @@
 module.exports = {
   contactUs: '/contact',
   accountInfo: '/dashboard/accountInfo',
-  paymentInfo: '/dashboard/paymentInfo',
+  paymentInfo: '/dashboard/PaymentInfo',
   supportCenter: '/dashboard/supportCenter',
   dashboard: '/dashboard',
   employees: '/dashboard/employees',
@@ -15,7 +15,7 @@ module.exports = {
     if (!busName || !id || !token) {
       return '/swag/:businessName/employee/:employeeId/token/:token';
     }
-    
+
     return `/swag/${busName}/employee/${id}/token/${token}`;
   },
   swagProfileComplete: (busName) => {

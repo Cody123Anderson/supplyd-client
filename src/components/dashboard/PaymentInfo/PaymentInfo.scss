@@ -1,0 +1,42 @@
+@import '../../../styles/variables';
+
+.payment-info-container {
+  min-height: 100vh;
+
+  .payment-form {
+    width: 100%;
+
+    .card-input-element {
+      width: 500px;
+      margin: 12px 0 0 30px;
+    }
+
+    .button {
+      margin-top: 10px;
+    }
+
+    .StripeElement {
+      color: $colorFont;
+      background-color: $colorWhite;
+      height: 48px;
+      padding: 20px 0;
+      border-bottom: 1px solid $colorBlack50;
+
+      &:hover {
+        border-bottom: 2px solid $colorBlack80;
+      }
+    }
+
+    .StripeElement--focus {
+      border-bottom: 2px solid $colorPrimaryDark;
+    }
+
+    .StripeElement--invalid {
+      border-color: $colorRed;
+    }
+
+    .StripeElement--webkit-autofill {
+      background-color: $colorWhite !important;
+    }
+  }
+}
