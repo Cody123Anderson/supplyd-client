@@ -1,6 +1,8 @@
 import jwtDecode from 'jwt-decode';
 import moment from 'moment';
 
+import { getState } from '../reduxStore';
+
 export const isExpired = token => {
     const decoded = jwtDecode(token);
     const now = moment().format();
@@ -12,3 +14,7 @@ export const isExpired = token => {
 
     return true;
 };
+
+export const getToken = () => {
+  return getState().user.token;
+}

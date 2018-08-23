@@ -6,7 +6,7 @@ import _ from 'lodash';
 import * as Styled from './styled';
 import Input from '../ui-components/Input';
 import Button from '../ui-components/Button';
-import TopBar from '../TopBar';
+import TopBar from '../top-bar/TopBar';
 import routes from '../../constants/routes';
 import { isExpired } from '../../utils/jwtUtils';
 import { createBusiness, checkBusinessName } from '../../actions/businessActions';
@@ -135,7 +135,7 @@ class Register extends Component {
           <Styled.Title>Register a new business account</Styled.Title>
           <Styled.FormContainer>
             <Styled.Form onSubmit={this.onFormSubmit}>
-              <Input 
+              <Input
                 label={`Business Name${this.state.businessNameError}`}
                 error={this.state.businessNameError ? true : false}
                 required={true}

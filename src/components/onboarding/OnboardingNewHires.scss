@@ -1,0 +1,61 @@
+@import '../../styles/variables';
+
+.onboarding-new-hires {
+  text-align: center;
+
+  .onh-contain-logo {
+    margin-top: 50px;
+
+    .onh-logo {
+      height: 30px;
+    }
+  }
+
+  .onh-progress {
+    .onh-progress-circle {
+      border: 1px solid $colorBlack50;
+      border-radius: 50%;
+      display: inline-block;
+      height: 15px;
+      margin: 25px 3px 0;
+      width: 15px;
+
+      &.onh-filled {
+        background-color: $colorBlack50;
+      }
+    }
+  }
+
+  .onh-form {
+    box-sizing: border-box;
+    display: inline-block;
+    margin-top: 50px;
+    padding: 0 3px;
+    text-align: left;
+    width: 100%;
+
+    .onh-title {
+      font-size: $fontSizeLarge;
+      text-align: center;
+    }
+
+    .onh-contain-input {
+      margin-top: 50px;
+    }
+
+    .onh-contain-actions {
+      margin-top: 60px;
+
+      .onh-error-text {
+        color: $colorRed;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+    }
+
+    @media (min-width: $maxMobileWidth) {
+      // desktop
+      width: 500px;
+    }
+  }
+}

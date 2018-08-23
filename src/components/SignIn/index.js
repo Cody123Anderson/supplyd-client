@@ -6,7 +6,7 @@ import _ from 'lodash';
 import * as Styled from './styled';
 import Input from '../ui-components/Input';
 import Button from '../ui-components/Button';
-import TopBar from '../TopBar';
+import TopBar from '../top-bar/TopBar';
 import routes from '../../constants/routes';
 import { loginUser } from '../../actions/userActions';
 import { isExpired } from '../../utils/jwtUtils';
@@ -51,14 +51,14 @@ class SignIn extends Component {
     });
   }
 
-  onInputTextChange = (key, value) => {    
+  onInputTextChange = (key, value) => {
     this.setState({
       [key]: value,
       [`${key}Error`]: ''
     });
   }
 
-  validateForm = (cb) => {    
+  validateForm = (cb) => {
     let error = '';
 
     // Validate email
@@ -100,18 +100,18 @@ class SignIn extends Component {
           <Styled.Title>Sign in to your business account</Styled.Title>
           <Styled.FormContainer>
             <Styled.Form onSubmit={this.onFormSubmit}>
-              <Input 
-                label={`Email${this.state.emailError}`} 
-                error={this.state.emailError ? true : false} 
+              <Input
+                label={`Email${this.state.emailError}`}
+                error={this.state.emailError ? true : false}
                 required={true}
                 onChange={(e) => this.onInputTextChange('email', _.toLower(e.target.value))}
                 value={this.state.email}
               />
               <Styled.InputContainer>
-                <Input 
+                <Input
                   label={`Password${this.state.passwordError}`}
-                  type="password" 
-                  error={this.state.passwordError ? true : false} 
+                  type="password"
+                  error={this.state.passwordError ? true : false}
                   required={true}
                   onChange={(e) => this.onInputTextChange('password', e.target.value)}
                   value={this.state.password}
