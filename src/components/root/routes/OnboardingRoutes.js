@@ -5,7 +5,7 @@ import routes from '../../../constants/routes';
 import OnboardingNewHires from '../../onboarding/OnboardingNewHires';
 import OnboardingNumEmployees from '../../onboarding/OnboardingNumEmployees';
 
-export default class SwagRoutes extends Component {
+export default class OnboardingRoutes extends Component {
     render() {
         return (
             <Switch>
