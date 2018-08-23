@@ -1,12 +1,18 @@
 @import '../../styles/variables';
 
 .swag-profile {
+  box-sizing: border-box;
   display: inline-block;
   text-align: center;
   margin-top: 50px;
   max-width: 800px;
+  width: 100%;
 
-  .title {
+  div {
+    box-sizing: border-box;
+  }
+
+  .sp-title {
     font-size: $fontSizeLarge;
     font-weight: $fontWeightBold;
     margin-bottom: 10px;
@@ -21,10 +27,14 @@
   }
 
   .swag-profile-form {
+    display: inline-block;
     margin-bottom: 130px;
+    max-width: 600px;
+    padding: 0 3px;
+    width: 100%;
 
     .form-field {
-      margin: 50px 0 0;
+      margin-top: 50px;
 
       .label {
         background-color: $colorBlack80;
@@ -38,14 +48,8 @@
 
       .contain-input {
         margin-top: 20px;
-        padding: 0 3px;
       }
     }
-  }
-
-  .line {
-    border-color: $colorBlack5;
-    margin-top: 80px;
   }
 
   .contain-actions {

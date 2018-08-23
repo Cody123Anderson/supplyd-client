@@ -1,0 +1,43 @@
+@import '../../styles/variables';
+
+.button-select-one {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.bso-button {
+  align-items: center;
+  background-color: $colorBlack5;
+  border-radius: $borderRadius;
+  color: $colorFont;
+  cursor: pointer;
+  display: inline-flex;
+  height: 50px;
+  justify-content: center;
+  text-align: center;
+  margin: 5px 0;
+  width: 100%;
+
+
+  &:hover {
+    background-color: $colorBlack15;
+  }
+
+  &.active {
+    background-color: $colorBlack80;
+    color: $colorWhite;
+
+    &:hover {
+      background-color: $colorBlack80;
+    }
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.bso-error {
+  color: $colorRed;
+  margin-bottom: 20px;
+}

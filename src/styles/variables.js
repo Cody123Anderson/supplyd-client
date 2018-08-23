@@ -38,14 +38,14 @@ export const fontSizeXlarge = '28px';
 export const fontSizeJumbo = '32px';
 
 // Font Spacing
-export const fontSpacingBase = '1.0';
-export const fontSpacingMedium = '2.0';
-export const fontSpacingLarge = '3.0';
+export const letterSpacingBase = '1px';
+export const letterSpacingMedium = '2px';
+export const letterSpacingLarge = '3px';
 
 export default {
   // Borders
   borderRadius,
-  
+
   // Break Points
   leftNavWidth,
   maxMobileWidth,
@@ -81,7 +81,7 @@ export default {
   fontSizeJumbo,
 
   // Font Spacing
-  fontSpacingBase,
-  fontSpacingMedium,
-  fontSpacingLarge
+  letterSpacingBase,
+  letterSpacingMedium,
+  letterSpacingLarge
 }
