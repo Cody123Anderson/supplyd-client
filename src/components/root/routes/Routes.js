@@ -4,8 +4,8 @@ import { createBrowserHistory } from 'history';
 
 import routes from '../../../constants/routes';
 import LandingPage from '../../LandingPage';
-import Register from '../../Register';
-import SignIn from '../../SignIn';
+import Register from '../../auth/Register';
+import SignIn from '../../auth/SignIn';
 import SwagRoutes from './SwagRoutes';
 import DashboardRoutes from './dashboardRoutes/DashboardRoutes';
 import Contact from '../../Contact/Contact';

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import * as Styled from './styled';
+import './Register.scss';
 import Input from '../ui-components/Input';
 import Button from '../ui-components/Button';
 import TopBar from '../top-bar/TopBar';
@@ -11,7 +11,7 @@ import routes from '../../constants/routes';
 import { isExpired } from '../../utils/jwtUtils';
 import { createBusiness, checkBusinessName } from '../../actions/businessActions';
 import { registerUser, checkUserEmail } from '../../actions/userActions';
-import Footer from "../Footer/Footer";
+import Footer from '../Footer/Footer';
 import constants from "../../constants";
 
 class Register extends Component {
@@ -34,7 +34,7 @@ class Register extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.userToken) {
       this.props.history.push(routes.home); // Should be switched to dashboard once built
-    } else if (!prevProps.authError && this.props.authError) {
+    } else if (this.props.authError && prevProps.authErrorCount !== this.props.authErrorCount) {
       this.setState({ submitting: false });
     }
   }
@@ -120,9 +120,9 @@ class Register extends Component {
   renderErrors() {
     if (this.props.authError) {
       return (
-        <Styled.ErrorText>
+        <div className="r-error-text">
           {this.props.authError}
-        </Styled.ErrorText>
+        </div>
       );
     }
   }
@@ -131,10 +131,10 @@ class Register extends Component {
     return (
       <div>
         <TopBar />
-        <Styled.Register>
-          <Styled.Title>Register a new business account</Styled.Title>
-          <Styled.FormContainer>
-            <Styled.Form onSubmit={this.onFormSubmit}>
+        <div className="register">
+          <div className="r-title">Register a new business account</div>
+          <div className="r-form-container">
+            <form className="r-form" onSubmit={this.onFormSubmit}>
               <Input
                 label={`Business Name${this.state.businessNameError}`}
                 error={this.state.businessNameError ? true : false}
@@ -142,7 +142,7 @@ class Register extends Component {
                 onChange={(e) => this.onInputTextChange('businessName', e.target.value)}
                 value={this.state.businessName}
               />
-              <Styled.InputContainer>
+              <div className="r-input-container">
                 <Input
                   label={`Email${this.state.emailError}`}
                   error={this.state.emailError ? true : false}
@@ -150,8 +150,8 @@ class Register extends Component {
                   onChange={(e) => this.onInputTextChange('email', _.toLower(e.target.value))}
                   value={this.state.email}
                 />
-              </Styled.InputContainer>
-              <Styled.InputContainer>
+              </div>
+              <div className="r-input-container">
                 <Input
                   label={`Password${this.state.passwordError}`}
                   type="password"
@@ -160,21 +160,21 @@ class Register extends Component {
                   onChange={(e) => this.onInputTextChange('password', e.target.value)}
                   value={this.state.password}
                 />
-              </Styled.InputContainer>
-              <Styled.ContainActions>
+              </div>
+              <div className="r-contain-actions">
                 {this.renderErrors()}
                 <Button disabled={this.state.submitting} fullWidth={true} type="submit">Register</Button>
-              </Styled.ContainActions>
-            </Styled.Form>
-            <Styled.HaveAccount>
+              </div>
+            </form>
+            <div className="r-have-account">
               Already have an account?
-              <Styled.SignIn>
+              <span className="r-sign-in">
                 <Link to={routes.signIn}>Sign In</Link>
-              </Styled.SignIn>
-            </Styled.HaveAccount>
-          </Styled.FormContainer>
-        </Styled.Register>
-        <Footer links={constants.footerLinks}/>
+              </span>
+            </div>
+          </div>
+        </div>
+        <Footer links={constants.footerLinks} />
       </div>
     );
   }
@@ -183,6 +183,7 @@ class Register extends Component {
 function mapStateToProps(state) {
   return {
     authError: state.user.authError,
+    authErrorCount: state.user.authErrorCount,
     userToken: state.user.token
   };
 }

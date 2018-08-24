@@ -1,0 +1,59 @@
+@import '../../styles/variables';
+
+.sign-in {
+  text-align: center;
+  margin-top: 50px;
+  min-height: 100vh;
+
+  @media (min-width: #{$maxMobileWidth}) {
+    margin-top: 80px;
+  }
+
+  .si-title {
+    display: block;
+    font-size: $fontSizeLarge;
+    margin-bottom: 30px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .si-form-container {
+    display: inline-block;
+    width: 90%;
+
+    @media (min-width: #{$maxMobileWidth}) {
+      width: 450px
+    }
+
+    .si-form {
+      display: flex;
+      flex-wrap: wrap
+    }
+
+    .si-input-container {
+      display: flex;
+      margin-top: 20px;
+      width: 100%
+    }
+
+    .si-contain-actions {
+      margin-top: 40px;
+      width: 100%
+    }
+  }
+
+  .si-need-account {
+    margin-top: 30px;
+    text-align: left
+  }
+
+  .si-register {
+    margin-left: 5px;
+  }
+
+  .si-error-text {
+    color: $colorRed;
+    margin-bottom: 10px;
+    text-align: left
+  }
+}

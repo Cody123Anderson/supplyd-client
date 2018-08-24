@@ -1,0 +1,59 @@
+@import '../../styles/variables';
+
+.register {
+  text-align: center;
+  margin-top: 50px;
+  min-height: 100vh;
+
+  @media (min-width: #{$maxMobileWidth}) {
+    margin-top: 80px;
+  }
+}
+
+.r-title {
+  display: block;
+  font-size: $fontSizeLarge;
+  margin-bottom: 30px;
+  text-align: center;
+  width: 100%;
+}
+
+.r-form-container {
+  display: inline-block;
+  width: 90%;
+
+  @media (min-width: #{$maxMobileWidth}) {
+    width: 450px;
+  }
+
+  .r-form {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .r-input-container {
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .r-contain-actions {
+    margin-top: 40px;
+    width: 100%;
+  }
+}
+
+.r-have-account {
+  margin-top: 30px;
+  text-align: left;
+
+  .r-sign-in {
+    margin-left: 5px;
+  }
+}
+
+.r-error-text {
+  color: $colorRed;
+  margin-bottom: 10px;
+  text-align: left;
+}
