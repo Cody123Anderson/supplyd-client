@@ -1,0 +1,13 @@
+@import '../../styles/variables';
+
+.app {
+  color: $colorFont;
+  font-size: $fontSizeBase;
+  font-weight: $fontWeightLight;
+  letter-spacing: $letterSpacingBase;
+  text-align: center;
+
+  div {
+    box-sizing: border-box;
+  }
+}

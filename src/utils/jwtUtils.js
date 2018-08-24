@@ -16,5 +16,5 @@ export const isExpired = token => {
 };
 
 export const getToken = () => {
-    return getState().user.token;
+  return getState().user.token;
 }

@@ -122,7 +122,7 @@ class CreateEmployee extends Component {
     return (
       <div className="create-employee">
         <div className="create-employee-container">
-          <div className="title">Add a new employee</div>
+          <div className="cec-title">Add a new employee</div>
           <div className="form-container">
             <form className="form" onSubmit={this.onFormSubmit}>
               <div className="input-container">

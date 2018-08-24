@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import * as Styled from './styled';
+import './SignIn.scss';
 import Input from '../ui-components/Input';
 import Button from '../ui-components/Button';
-import TopBar from '../TopBar';
+import TopBar from '../top-bar/TopBar';
 import routes from '../../constants/routes';
 import { loginUser } from '../../actions/userActions';
 import { isExpired } from '../../utils/jwtUtils';
@@ -31,12 +31,14 @@ class SignIn extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.userToken) {
       this.props.history.push(routes.home); // Should be switched to dashboard once built
-    } else if (!prevProps.authError && this.props.authError) {
+    } else if (this.props.authError && prevProps.authErrorCount !== this.props.authErrorCount) {
       this.setState({ submitting: false });
     }
   }
 
-  onFormSubmit = () => {
+  onFormSubmit = (e) => {
+    e.preventDefault();
+
     if (this.state.submitting) return;
 
     this.setState({ submitting: true });
@@ -51,14 +53,14 @@ class SignIn extends Component {
     });
   }
 
-  onInputTextChange = (key, value) => {    
+  onInputTextChange = (key, value) => {
     this.setState({
       [key]: value,
       [`${key}Error`]: ''
     });
   }
 
-  validateForm = (cb) => {    
+  validateForm = (cb) => {
     let error = '';
 
     // Validate email
@@ -85,9 +87,9 @@ class SignIn extends Component {
   renderErrors() {
     if (this.props.authError) {
       return (
-        <Styled.ErrorText>
+        <div className="si-error-text">
           {this.props.authError}
-        </Styled.ErrorText>
+        </div>
       );
     }
   }
@@ -96,40 +98,46 @@ class SignIn extends Component {
     return (
       <div>
         <TopBar />
-        <Styled.SignIn>
-          <Styled.Title>Sign in to your business account</Styled.Title>
-          <Styled.FormContainer>
-            <Styled.Form onSubmit={this.onFormSubmit}>
-              <Input 
-                label={`Email${this.state.emailError}`} 
-                error={this.state.emailError ? true : false} 
+        <div className="sign-in">
+          <div className="si-title">Sign in to your business account</div>
+          <div className="si-form-container">
+            <form className="si-form" onSubmit={this.onFormSubmit}>
+              <Input
+                label={`Email${this.state.emailError}`}
+                error={this.state.emailError ? true : false}
                 required={true}
                 onChange={(e) => this.onInputTextChange('email', _.toLower(e.target.value))}
                 value={this.state.email}
               />
-              <Styled.InputContainer>
-                <Input 
+              <div className="si-input-container">
+                <Input
                   label={`Password${this.state.passwordError}`}
-                  type="password" 
-                  error={this.state.passwordError ? true : false} 
+                  type="password"
+                  error={this.state.passwordError ? true : false}
                   required={true}
                   onChange={(e) => this.onInputTextChange('password', e.target.value)}
                   value={this.state.password}
                 />
-              </Styled.InputContainer>
-              <Styled.ContainActions>
+              </div>
+              <div className="si-contain-actions">
                 {this.renderErrors()}
-                <Button disabled={this.state.submitting} fullWidth={true} onClick={this.onFormSubmit}>Sign In</Button>
-              </Styled.ContainActions>
-            </Styled.Form>
-            <Styled.NeedAccount>
+                <Button
+                  disabled={this.state.submitting}
+                  fullWidth={true}
+                  type="submit"
+                >
+                  Sign In
+                </Button>
+              </div>
+            </form>
+            <div className="si-need-account">
               Need an account?
-              <Styled.Register>
+              <span className="si-register">
                 <Link to={routes.register}>Register</Link>
-              </Styled.Register>
-            </Styled.NeedAccount>
-          </Styled.FormContainer>
-        </Styled.SignIn>
+              </span>
+            </div>
+          </div>
+        </div>
         <Footer links={constants.footerLinks}/>
       </div>
     );
@@ -139,6 +147,7 @@ class SignIn extends Component {
 function mapStateToProps(state) {
   return {
     authError: state.user.authError,
+    authErrorCount: state.user.authErrorCount,
     userToken: state.user.token
   };
 }

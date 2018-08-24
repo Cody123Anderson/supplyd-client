@@ -1,0 +1,61 @@
+@import '../../styles/variables';
+
+.onboarding-new-hires {
+  text-align: center;
+
+  .one-contain-logo {
+    margin-top: 50px;
+
+    .one-logo {
+      height: 30px;
+    }
+  }
+
+  .one-progress {
+    .one-progress-circle {
+      border: 1px solid $colorBlack80;
+      border-radius: 50%;
+      display: inline-block;
+      height: 15px;
+      margin: 25px 3px 0;
+      width: 15px;
+
+      &.one-filled {
+        background-color: $colorBlack80;
+      }
+    }
+  }
+
+  .one-form {
+    box-sizing: border-box;
+    display: inline-block;
+    margin-top: 50px;
+    padding: 0 3px;
+    text-align: left;
+    width: 100%;
+
+    .one-title {
+      font-size: $fontSizeLarge;
+      text-align: center;
+    }
+
+    .one-contain-input {
+      margin-top: 50px;
+    }
+
+    .one-contain-actions {
+      margin-top: 60px;
+
+      .one-error-text {
+        color: $colorRed;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+    }
+
+    @media (min-width: $maxMobileWidth) {
+      // desktop
+      width: 500px;
+    }
+  }
+}
