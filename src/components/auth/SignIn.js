@@ -31,7 +31,7 @@ class SignIn extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.userToken) {
       this.props.history.push(routes.home); // Should be switched to dashboard once built
-    } else if (!prevProps.authError && this.props.authError) {
+    } else if (this.props.authError && prevProps.authErrorCount !== this.props.authErrorCount) {
       this.setState({ submitting: false });
     }
   }
@@ -147,6 +147,7 @@ class SignIn extends Component {
 function mapStateToProps(state) {
   return {
     authError: state.user.authError,
+    authErrorCount: state.user.authErrorCount,
     userToken: state.user.token
   };
 }
