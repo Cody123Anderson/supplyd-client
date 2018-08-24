@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import * as Styled from './styled';
+import './SignIn.scss';
 import Input from '../ui-components/Input';
 import Button from '../ui-components/Button';
 import TopBar from '../top-bar/TopBar';
@@ -36,7 +36,9 @@ class SignIn extends Component {
     }
   }
 
-  onFormSubmit = () => {
+  onFormSubmit = (e) => {
+    e.preventDefault();
+
     if (this.state.submitting) return;
 
     this.setState({ submitting: true });
@@ -85,9 +87,9 @@ class SignIn extends Component {
   renderErrors() {
     if (this.props.authError) {
       return (
-        <Styled.ErrorText>
+        <div className="si-error-text">
           {this.props.authError}
-        </Styled.ErrorText>
+        </div>
       );
     }
   }
@@ -96,10 +98,10 @@ class SignIn extends Component {
     return (
       <div>
         <TopBar />
-        <Styled.SignIn>
-          <Styled.Title>Sign in to your business account</Styled.Title>
-          <Styled.FormContainer>
-            <Styled.Form onSubmit={this.onFormSubmit}>
+        <div className="sign-in">
+          <div className="si-title">Sign in to your business account</div>
+          <div className="si-form-container">
+            <form className="si-form" onSubmit={this.onFormSubmit}>
               <Input
                 label={`Email${this.state.emailError}`}
                 error={this.state.emailError ? true : false}
@@ -107,7 +109,7 @@ class SignIn extends Component {
                 onChange={(e) => this.onInputTextChange('email', _.toLower(e.target.value))}
                 value={this.state.email}
               />
-              <Styled.InputContainer>
+              <div className="si-input-container">
                 <Input
                   label={`Password${this.state.passwordError}`}
                   type="password"
@@ -116,20 +118,26 @@ class SignIn extends Component {
                   onChange={(e) => this.onInputTextChange('password', e.target.value)}
                   value={this.state.password}
                 />
-              </Styled.InputContainer>
-              <Styled.ContainActions>
+              </div>
+              <div className="si-contain-actions">
                 {this.renderErrors()}
-                <Button disabled={this.state.submitting} fullWidth={true} onClick={this.onFormSubmit}>Sign In</Button>
-              </Styled.ContainActions>
-            </Styled.Form>
-            <Styled.NeedAccount>
+                <Button
+                  disabled={this.state.submitting}
+                  fullWidth={true}
+                  type="submit"
+                >
+                  Sign In
+                </Button>
+              </div>
+            </form>
+            <div className="si-need-account">
               Need an account?
-              <Styled.Register>
+              <span className="si-register">
                 <Link to={routes.register}>Register</Link>
-              </Styled.Register>
-            </Styled.NeedAccount>
-          </Styled.FormContainer>
-        </Styled.SignIn>
+              </span>
+            </div>
+          </div>
+        </div>
         <Footer links={constants.footerLinks}/>
       </div>
     );
