@@ -157,7 +157,9 @@ class SwagProfile extends Component {
         return errors;
     }
 
-    onSubmit = () => {
+    onSubmit = (e) => {
+        e.preventDefault();
+
         // Don't allow multiple submissions
         if (this.state.submitting) return;
 
@@ -202,7 +204,7 @@ class SwagProfile extends Component {
                         <div>
                             <div className="sp-title">{employee.businessName} Swag Profile</div>
                             <div className="subtitle">Please fill out this form so we can get your swag created and sent out to you. Please note - some information may not be used in this round of swag, but could potentially be used in the future.</div>
-                            <form className="swag-profile-form">
+                            <form className="swag-profile-form" onSubmit={this.onSubmit}>
                                 <div className="form-field">
                                     <div className="label">Personal Information</div>
                                     <div className="contain-input">
@@ -356,7 +358,12 @@ class SwagProfile extends Component {
                                 </div>
                                 <div className="contain-actions">
                                     <div className="error-text">{this.state.errorText}</div>
-                                    <Button disabled={this.state.submitting} onClick={this.onSubmit}>Submit Information</Button>
+                                    <Button
+                                      disabled={this.state.submitting}
+                                      type="submit"
+                                    >
+                                      Submit Information
+                                    </Button>
                                 </div>
                             </form>
                         </div>
