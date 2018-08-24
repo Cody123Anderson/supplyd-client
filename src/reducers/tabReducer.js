@@ -1,4 +1,4 @@
-import { UPDATE_TAB } from '../actions/types';
+import { UPDATE_TAB, CLEAR_TAB } from '../actions/types';
 import constants from '../constants';
 
 const initialState = {
@@ -7,6 +7,8 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch(action.type) {
+    case CLEAR_TAB:
+      return initialState;
     case UPDATE_TAB:
       return { ...state, active: action.payload };
     default:

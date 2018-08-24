@@ -1,4 +1,5 @@
 import {
+    CLEAR_BUSINESS,
     SET_BUSINESS_INFO,
     BUSINESS_ERROR
 } from '../actions/types';
@@ -17,6 +18,8 @@ const initialState = {
 
 export default function (state = initialState, action) {
     switch(action.type) {
+        case CLEAR_BUSINESS:
+            return initialState;
         case SET_BUSINESS_INFO:
             return { ...state, ...action.payload, error: false };
         case BUSINESS_ERROR:
