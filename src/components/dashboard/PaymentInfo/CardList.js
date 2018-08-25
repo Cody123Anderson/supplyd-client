@@ -1,69 +1,88 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  CardNumberElement,
-  CardExpiryElement,
-  CardCVCElement,
-  PostalCodeElement,
-  injectStripe,
-} from 'react-stripe-elements';
 import Button from '../../ui-components/Button';
-import Input from '../../ui-components/Input';
+import { Dialog, DialogActions, DialogContent, DialogTitle } from '@material-ui/core';
 
-import './PaymentInfo.scss';
+import './CardList.scss';
 
-// stripe docs say you need inline styles for font styling
-// still finding other way to style this
-const stripeFontStyles = {
-  base: {
-      color: '#31325F',
-      fontWeight: 200,
-      fontSize: '16px',
-
-      '::placeholder': {
-          color: '#7f7f7f ',
-      }
-  }
-};
-
-class PaymentForm extends React.Component {
+class CardList extends Component {
   static propTypes = {
-    addCard: PropTypes.func.isRequired
-  }
-
-  state = { name: '' };
-
-  onInputTextChange = name => {
-    this.setState({ name });
+    cards: PropTypes.array.isRequired,
   };
 
-  submitCard = async () => {
-    let { token } = await this.props.stripe.createToken({ name: this.state.name });
+  state = { open: false };
 
-    console.log(token)
+  handleCancel = () => {
+    this.setState({ open: false });
+  };
 
-    this.props.addCard(token);
+  handleOk = () => {
+    const card = this.props.cards[0];
+
+    this.setState({ open: false });
+
+    this.props.deleteCard(card);
+  };
+
+  showConfirmation = () => {
+    this.setState({ open: true });
+  }
+
+  renderConfirmation = () => {
+    return (
+      <Dialog
+        disableBackdropClick
+        disableEscapeKeyDown
+        maxWidth="sm"
+        aria-labelledby="confirmation-dialog-title"
+        open={this.state.open}
+      >
+        <DialogTitle id="confirmation-dialog-title">Delete Card</DialogTitle>
+        <DialogContent>
+          <div>Are you sure that you want to delete this card from your account?</div>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={this.handleCancel} color="default">
+            Cancel
+          </Button>
+          <Button onClick={this.handleOk} color="secondary">
+            Delete
+          </Button>
+        </DialogActions>
+      </Dialog>
+    );
   };
 
   render() {
+    const card = this.props.cards[0];
+
     return (
-      <div className="payment-form">
-        <Input
-          className="card-input-element"
-          label="Name on card"
-          error={this.state.lastNameError ? true : false}
-          onChange={e => this.onInputTextChange(e.target.value)}
-          value={this.state.name}
-        />
-        <CardNumberElement className="card-input-element" style={stripeFontStyles} />
-        <CardExpiryElement className="card-input-element" style={stripeFontStyles} />
-        <CardCVCElement className="card-input-element" style={stripeFontStyles} />
-        <PostalCodeElement className="card-input-element" style={stripeFontStyles} />
-        <Button className="card-input-element" onClick={this.submitCard}>Add Card</Button>
+      <div className="cl-container">
+        {this.renderConfirmation()}
+        <div className="cl-element">
+          <div className="cl-card-brand">
+            <span className="cl-bold">{card.brand}</span> ending in
+            <span className="cl-bold"> {card.last4}</span>
+          </div>
+          <div className="cl-card-expire">
+            Expiring{' '}
+            <span className="cl-bold">
+              {card.exp_month}/{card.exp_year}
+            </span>
+          </div>
+        </div>
+        <div className="cl-buttons">
+          <Button className="cl-update-card" onClick={() => this.props.updateCard(card)}>
+            Update
+          </Button>
+          <Button className="cl-delete-card" onClick={this.showConfirmation}>
+            Delete
+          </Button>
+        </div>
       </div>
     );
   }
 }
 
-export default injectStripe(PaymentForm);
+export default CardList;

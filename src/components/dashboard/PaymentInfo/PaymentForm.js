@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -28,9 +28,14 @@ const stripeFontStyles = {
   },
 };
 
-class PaymentForm extends React.Component {
+class PaymentForm extends Component {
   static propTypes = {
     addCard: PropTypes.func.isRequired,
+    isCardUpdate: PropTypes.bool.isRequired,
+  };
+
+  static defaultProps = {
+    isCardUpdate: false,
   };
 
   state = { name: '', buttonDisabled: false };
@@ -56,6 +61,43 @@ class PaymentForm extends React.Component {
     });
   };
 
+  renderButtons = () => {
+    if (this.props.isCardUpdate) {
+      return (
+        <div className="card-update-buttons">
+          <Button
+            className="card-update-button"
+            type="submit"
+            onClick={this.submitCard}
+            disabled={this.state.buttonDisabled}
+          >
+            Update
+          </Button>
+          <Button
+            className="card-cancel-button"
+            onClick={this.props.cancelUpdate}
+            disabled={this.state.buttonDisabled}
+          >
+            Cancel
+          </Button>
+        </div>
+      );
+    }
+
+    return (
+      <div>
+        <Button
+          className="card-input-element"
+          type="submit"
+          onClick={this.submitCard}
+          disabled={this.state.buttonDisabled}
+        >
+          Add Card
+        </Button>
+      </div>
+    );
+  };
+
   render() {
     return (
       <div className="payment-form">
@@ -70,14 +112,7 @@ class PaymentForm extends React.Component {
         <CardExpiryElement className="card-input-element" style={stripeFontStyles} />
         <CardCVCElement className="card-input-element" style={stripeFontStyles} />
         <PostalCodeElement className="card-input-element" style={stripeFontStyles} />
-        <Button
-          className="card-input-element"
-          type="submit"
-          onClick={this.submitCard}
-          disabled={this.state.buttonDisabled}
-        >
-          Add Card
-        </Button>
+        {this.renderButtons()}
       </div>
     );
   }

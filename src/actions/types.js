@@ -2,7 +2,7 @@
 module.exports.CLEAR_BUSINESS = 'CLEAR_BUSINESS';
 module.exports.CREATE_BUSINESS = 'CREATE_BUSINESS';
 module.exports.SET_BUSINESS_INFO = 'SET_BUSINESS_INFO';
-module.exports.SET_STRIPE_INFO = 'SET_STRIPE_INFO';
+module.exports.SET_SAVED_CARDS = 'SET_SAVED_CARDS';
 module.exports.BUSINESS_ERROR = 'BUSINESS_ERROR';
 
 // Employee Actions

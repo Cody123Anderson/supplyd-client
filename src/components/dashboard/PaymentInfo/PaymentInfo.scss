@@ -11,6 +11,21 @@
       margin: 12px 0 0 30px;
     }
 
+    .card-update-buttons {
+      display: flex;
+      flex-direction: row;
+      margin: 12px 0 0 30px;
+
+      .card-update-button {
+        margin-right: 10px;
+      }
+
+      .card-cancel-button {
+        background: $colorPrimary65;
+        color: $colorBlack70;
+      }
+    }
+
     .button {
       margin-top: 10px;
     }
@@ -29,6 +44,10 @@
 
     .StripeElement--focus {
       border-bottom: 2px solid $colorPrimaryDark;
+
+      &:hover {
+        border-bottom: 2px solid $colorPrimaryDark;
+      }
     }
 
     .StripeElement--invalid {
