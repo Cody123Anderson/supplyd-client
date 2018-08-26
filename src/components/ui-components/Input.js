@@ -4,15 +4,20 @@ import { TextField } from '@material-ui/core';
 
 export default class TextInput extends Component {
   static propTypes = {
-    label: PropTypes.string.isRequired
-  }
+    label: PropTypes.string.isRequired,
+    fullWidth: PropTypes.bool
+  };
+
+  static defaultProps = {
+    fullWidth: true
+  };
 
   render() {
 
     return (
       <TextField
         aria-label={this.props.label}
-        fullWidth={true}
+        fullWidth={this.props.fullWidth}
         {...this.props}
       />
     );

@@ -122,3 +122,15 @@ export function updateUser(body, token) {
             });
     };
 }
+
+export async function requestPasswordChange(email) {
+    return await axios.post(`http://localhost:3000/forgot`, { email });
+}
+
+export async function resetPassword(newPassword, id, token) {
+    return await axios.post(`http://localhost:3000/reset`, {
+        newPassword,
+        token,
+        id
+    });
+}

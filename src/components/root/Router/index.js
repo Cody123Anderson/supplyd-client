@@ -8,6 +8,8 @@ import Register from '../../Register';
 import SignIn from '../../SignIn';
 import SwagRoutes from './SwagRoutes';
 import DashboardRoutes from './DashboardRoutes';
+import ForgotPassword from '../../ForgotPassword/ForgotPassword';
+import ResetPassword from '../../ResetPassword/ResetPassword';
 
 const history = createBrowserHistory()
 
@@ -20,7 +22,9 @@ export default class MyRouter extends Component {
           <Route path={routes.register} component={Register} />
           <Route path={routes.signIn} component={SignIn} />
           <Route path={routes.swag} component={SwagRoutes} />
-          <Route path={routes.dasboard} component={DashboardRoutes} />
+          <Route path={routes.dashboard} component={DashboardRoutes} />
+          <Route path={routes.forgotPassword} component={ForgotPassword} />
+          <Route path={routes.resetPassword} component={ResetPassword} />
         </Switch>
       </Router>
     );

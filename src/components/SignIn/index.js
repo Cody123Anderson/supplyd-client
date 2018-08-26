@@ -11,6 +11,8 @@ import routes from '../../constants/routes';
 import { loginUser } from '../../actions/userActions';
 import { isExpired } from '../../utils/jwtUtils';
 
+import './styles.scss';
+
 class SignIn extends Component {
   state = {
     password: '',
@@ -126,6 +128,9 @@ class SignIn extends Component {
                 <Link to={routes.register}>Register</Link>
               </Styled.Register>
             </Styled.NeedAccount>
+            <div className="sign-in-forgot-password">
+              <a href={routes.forgotPassword}>Forgot password?</a>
+            </div>
           </Styled.FormContainer>
         </Styled.SignIn>
       </div>
