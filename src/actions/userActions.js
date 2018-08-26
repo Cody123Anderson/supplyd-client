@@ -131,11 +131,11 @@ export function updateUser(body, token) {
 }
 
 export async function requestPasswordChange(email) {
-    return await axios.post(`http://localhost:3000/forgot`, { email });
+    return await axios.post(`${API_URL}/users/forgot`, { email });
 }
 
 export async function resetPassword(newPassword, id, token) {
-    return await axios.post(`http://localhost:3000/reset`, {
+    return await axios.post(`${API_URL}/users/reset`, {
         newPassword,
         token,
         id
