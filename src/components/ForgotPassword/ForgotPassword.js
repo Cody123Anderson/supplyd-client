@@ -56,7 +56,7 @@ class ForgotPassword extends React.Component {
         return (
           <div className="forgot-password-form">
             <h1>Reset your Supplyd Password</h1>
-            <p>Submit your email address and we'll send you a link to reset your password</p>
+            <p>Submit your email address and we will send you a link to reset your password</p>
             <Input
               error={error}
               required={true}
