@@ -1,4 +1,5 @@
 @import './styles/fonts';
+@import './styles/variables';
 
 html,
 body {
@@ -7,17 +8,17 @@ body {
   padding: 0;
   font-family: 'Roboto';
   width: 100%;
+}
 
-  div {
-    box-sizing: border-box;
-  }
+div {
+  box-sizing: border-box;
+}
 
-  a {
-    color: #6AD1B0;
-    text-decoration: none;
+a {
+  color: #6AD1B0;
+  text-decoration: none;
 
-    &:hover {
-      color: darken(#6AD1B0, 20);
-    }
+  &:hover {
+    color: darken(#6AD1B0, 20);
   }
 }

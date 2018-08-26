@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import './index.scss';
-import App from './components/root/App/index';
+import App from './components/root/App';
 import { AUTH_USER } from './actions/types';
 import { isExpired } from './utils/jwtUtils';
 import { getUser } from './actions/userActions';

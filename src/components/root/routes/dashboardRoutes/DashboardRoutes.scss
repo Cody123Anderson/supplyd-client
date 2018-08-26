@@ -1,0 +1,21 @@
+@import '../../../../styles/variables';
+
+.dashboard-routes {
+  align-items: stretch;
+  display: flex;
+  text-align: left;
+  min-height: 100vh;
+
+  .dashboard-container {
+    display: inline-block;
+    margin-top: 60px;
+    text-align: left;
+    width: 100vw;
+
+    @media (min-width: #{$maxMobileWidth}) {
+      // desktop
+      margin-top: 0;
+      width: calc(100vw - #{$leftNavWidth});
+    };
+  }
+}

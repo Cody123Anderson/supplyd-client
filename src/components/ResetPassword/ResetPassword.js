@@ -79,12 +79,14 @@ class ResetPassword extends React.Component {
           <div className="reset-password-form">
             <h1>Reset your Supplyd Password</h1>
             <Input
+              type="password"
               required={true}
               label="New Password"
               fullWidth={false}
               onChange={this.handleFirstPassword}/>
             <hr/>
             <Input
+              type="password"
               error={error}
               required={true}
               label={'New Password (again)'}

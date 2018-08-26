@@ -4,6 +4,9 @@ import { API_URL } from '../constants/env';
 import {
     AUTH_USER,
     AUTH_ERROR,
+    CLEAR_BUSINESS,
+    CLEAR_EMPLOYEE,
+    CLEAR_TAB,
     GET_USER,
     UNAUTH_USER,
     UPDATE_USER
@@ -85,7 +88,11 @@ export function authError(error) {
 export function logoutUser() {
     return (dispatch) => {
         localStorage.removeItem('token');
+        
         dispatch({ type: UNAUTH_USER });
+        dispatch({ type: CLEAR_BUSINESS });
+        dispatch({ type: CLEAR_EMPLOYEE });
+        dispatch({ type: CLEAR_TAB });
     }
 }
 

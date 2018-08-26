@@ -8,6 +8,8 @@ import Checkbox from '../../ui-components/Checkbox';
 import Button from '../../ui-components/Button';
 import routes from '../../../constants/routes';
 import { createEmployee } from '../../../actions/employeeActions';
+import Footer from "../../Footer/Footer";
+import constants from '../../../constants';
 
 class CreateEmployee extends Component {
   state = {
@@ -119,7 +121,8 @@ class CreateEmployee extends Component {
   render() {
     return (
       <div className="create-employee">
-          <div className="title">Add a new employee</div>
+        <div className="create-employee-container">
+          <div className="cec-title">Add a new employee</div>
           <div className="form-container">
             <form className="form" onSubmit={this.onFormSubmit}>
               <div className="input-container">
@@ -180,6 +183,8 @@ class CreateEmployee extends Component {
               </div>
             </form>
           </div>
+        </div>
+        <Footer links={constants.footerLinks} />
       </div>
     );
   }

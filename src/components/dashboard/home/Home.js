@@ -4,12 +4,13 @@ import { CreditCard, CardGiftcard } from '@material-ui/icons';
 
 import TitleBar from '../TitleBar';
 import constants from '../../../constants';
-import {setTab} from '../../../actions/tabActions';
-import {getBusiness} from '../../../actions/businessActions';
+import { setTab } from '../../../actions/tabActions';
+import { getBusiness } from '../../../actions/businessActions';
 import Card from '../../ui-components/Card/Card';
 import Button from '../../ui-components/Button';
 
 import './Home.scss'
+import Footer from "../../Footer/Footer";
 
 class Home extends React.Component {
   state = {
@@ -77,6 +78,7 @@ class Home extends React.Component {
           </div>
         </Card>
       </div>
+      <Footer links={constants.footerLinks}/>
     </div>
   );
 

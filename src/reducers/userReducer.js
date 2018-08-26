@@ -10,6 +10,7 @@ const initialState = {
   isLoggedIn: false,
   token: '',
   authError: '',
+  authErrorCount: 0,
   id: '',
   businessId: '',
   businessName: '',
@@ -29,7 +30,7 @@ export default function (state = initialState, action) {
     case UNAUTH_USER:
       return initialState;
     case AUTH_ERROR:
-      return { ...state, authError: action.payload };
+      return { ...state, authError: action.payload, authErrorCount: state.authErrorCount + 1 };
     case GET_USER:
       return { ...state, ...action.payload };
     case UPDATE_USER:
