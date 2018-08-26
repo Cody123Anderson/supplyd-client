@@ -2,6 +2,7 @@ import {
     CLEAR_BUSINESS,
     SET_BUSINESS_INFO,
     BUSINESS_ERROR,
+    DELETE_SAVED_CARDS,
     SET_SAVED_CARDS
 } from '../actions/types';
 
@@ -28,6 +29,8 @@ export default function (state = initialState, action) {
             return { ...state, errorCount: state.errorCount + 1, error: true }
         case SET_SAVED_CARDS:
             return { ...state, cards: action.payload.cards, stripeId: action.payload.stripeId };
+        case DELETE_SAVED_CARDS:
+            return { ...state, cards: action.payload.cards };
         default:
             return state;
     }

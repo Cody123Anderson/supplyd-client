@@ -2,7 +2,12 @@ import axios from 'axios';
 
 import { API_URL } from '../constants/env';
 
-import { SET_BUSINESS_INFO, BUSINESS_ERROR, SET_SAVED_CARDS } from "./types";
+import {
+    SET_BUSINESS_INFO,
+    BUSINESS_ERROR,
+    DELETE_SAVED_CARDS,
+    SET_SAVED_CARDS
+} from "./types";
 import { getToken } from '../utils/jwtUtils';
 
 export function createBusiness(businessName) {
@@ -24,17 +29,16 @@ export function createBusiness(businessName) {
     };
 }
 
-export function createStripeCustomer(cardInfo, user) {
+export function createStripeCustomer(card, user) {
     return (dispatch) => {
         const options = { headers: { Authorization: getToken() } };
         const url = `${API_URL}/businesses/stripe/create/${user.businessId}`;
-        const data = { card: { cardInfo }, email: user.email }
+        const data = { card, email: user.email }
 
         return axios.put(url, data, options)
         .then((response) => {
-            console.log('CREATESTRIPE: ', response)
             dispatch(setSavedCards({
-                cards: [cardInfo.card],
+                cards: [card.card],
                 stripeId: response.data.business.stripeId
             }));
         })
@@ -57,18 +61,14 @@ export function checkBusinessName(businessName) {
     });
 }
 
-export function deleteCreditCard(stripeId, cardId) {
+export function deleteCreditCard(stripeId, card) {
     return (dispatch) => {
         const url = `${API_URL}/businesses/stripe/card/delete`;
-        const data = { customerId: stripeId, cardId  }
+        const data = { customerId: stripeId, cardId: card.id  }
 
-        return axios.delete(url, data)
+        return axios.post(url, data)
         .then((response) => {
-            console.log('deletecreditcard: ', response)
-            dispatch(setSavedCards({
-                cards: [],
-                stripeId: response.data.id
-            }));
+            dispatch(deleteSavedCards({ cards: [] }));
         })
         .catch((err) => {
             console.error('error updating stripe customer: ', err.response);
@@ -80,7 +80,6 @@ export function getBusiness(id) {
     return (dispatch) => {
         return axios.get(`${API_URL}/businesses/${id}`)
             .then(response => {
-                console.log('get business: ', response)
                 dispatch(setBusiness(response.data.business));
                 if (response.data.stripeInfo.sources) {
                     dispatch(setSavedCards({
@@ -111,17 +110,16 @@ export function updateBusiness(body, id) {
     };
 }
 
-export function updateCreditCard(cardInfo, user) {
+export function updateCreditCard(card, stripeId) {
     return (dispatch) => {
         const url = `${API_URL}/businesses/stripe/card/update`;
-        const data = { card: { cardInfo }, customerId: user.stripeId }
+        const data = { card, customerId: stripeId }
 
         return axios.post(url, data)
         .then((response) => {
-            console.log('udpatestripe: ', response)
             dispatch(setSavedCards({
-                cards: response.data.sources.data,
-                stripeId: response.data.id
+                cards: response.data.updatedCard.sources.data,
+                stripeId: response.data.updatedCard.id
             }));
         })
         .catch((err) => {
@@ -130,9 +128,16 @@ export function updateCreditCard(cardInfo, user) {
     };
 }
 
-export function setSavedCards(data) {
+function setSavedCards(data) {
     return {
         type: SET_SAVED_CARDS,
+        payload: data
+    }
+}
+
+function deleteSavedCards(data) {
+    return {
+        type: DELETE_SAVED_CARDS,
         payload: data
     }
 }

@@ -56,9 +56,7 @@ class PaymentForm extends Component {
       return;
     }
 
-    this.props.addCard(token, () => {
-      this.setState({ buttonDisabled: false });
-    });
+    this.props.addCard(token);
   };
 
   renderButtons = () => {

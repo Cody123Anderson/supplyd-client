@@ -33,17 +33,17 @@ class PaymentInfo extends Component {
   };
 
   deleteCard = async card => {
-    await this.props.deleteCreditCard(this.props.user.stripeId, card.id);
+    await this.props.deleteCreditCard(this.props.business.stripeId, card);
   };
 
-  cardAdded = async (cardInfo, cb) => {
+  cardAdded = async (cardInfo) => {
     if (!this.props.business.stripeId) {
       await this.props.createStripeCustomer(cardInfo, this.props.user);
     } else {
-      await this.props.updateCreditCard(cardInfo, this.props.user);
+      await this.props.updateCreditCard(cardInfo, this.props.business.stripeId);
+      if (this.state.updateCard) this.updateCardToggle();
     }
-    cb();
-    this.updateCardToggle()
+
     return;
   };
 
@@ -84,7 +84,8 @@ class PaymentInfo extends Component {
   render() {
     const { business } = this.props;
 
-    console.log('STATE: ', this.state, business);
+    console.log('UPDATE STATE: ', this.state.updateCard)
+
     return (
       <div>
         <div className="payment-info-container">

@@ -46,7 +46,7 @@ class CardList extends Component {
           <Button onClick={this.handleCancel} color="default">
             Cancel
           </Button>
-          <Button onClick={this.handleOk} color="secondary">
+          <Button onClick={this.handleOk} style={{ backgroundColor: 'red' }}>
             Delete
           </Button>
         </DialogActions>
@@ -73,7 +73,7 @@ class CardList extends Component {
           </div>
         </div>
         <div className="cl-buttons">
-          <Button className="cl-update-card" onClick={() => this.props.updateCard(card)}>
+          <Button className="cl-update-card" onClick={this.props.updateCard}>
             Update
           </Button>
           <Button className="cl-delete-card" onClick={this.showConfirmation}>

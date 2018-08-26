@@ -4,6 +4,7 @@ module.exports.CREATE_BUSINESS = 'CREATE_BUSINESS';
 module.exports.SET_BUSINESS_INFO = 'SET_BUSINESS_INFO';
 module.exports.SET_SAVED_CARDS = 'SET_SAVED_CARDS';
 module.exports.BUSINESS_ERROR = 'BUSINESS_ERROR';
+module.exports.DELETE_SAVED_CARDS = 'DELETE_SAVED_CARDS';
 
 // Employee Actions
 module.exports.CLEAR_EMPLOYEE = 'CLEAR_EMPLOYEE';
