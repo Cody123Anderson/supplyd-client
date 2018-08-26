@@ -1,5 +1,5 @@
 import React from 'react';
-import queryString from 'query-string';
+import qs from 'querystringify';
 import Input from "../ui-components/Input";
 import Button from "../ui-components/Button";
 
@@ -52,12 +52,13 @@ class ResetPassword extends React.Component {
     }
   }
 
-  submitPasswordChange = () => {
+  submitPasswordChange = (e) => {
+    e.preventDefault();
     const { secondPassword, id, token } = this.state;
     if (this.validatePasswords()) {
       resetPassword(secondPassword, id, token)
         .then(() => this.setState({ request: COMPLETE }))
-        .catch((err) => console.log(err.response) || this.setState({
+        .catch((err) => this.setState({
           request: ERROR,
           errorMessage: err.response.data.statusText
         }));
@@ -76,7 +77,9 @@ class ResetPassword extends React.Component {
     switch (request) {
       case START:
         return (
-          <div className="reset-password-form">
+          <form
+            className="reset-password-form"
+            onSubmit={this.submitPasswordChange}>
             <h1>Reset your Supplyd Password</h1>
             <Input
               type="password"
@@ -95,10 +98,11 @@ class ResetPassword extends React.Component {
             />
             {this.renderError()}
             <hr/>
-            <Button onClick={this.submitPasswordChange}>
+            <Button
+              type="submit">
               Submit
             </Button>
-          </div>
+          </form>
         );
       case COMPLETE:
         return (
@@ -120,7 +124,7 @@ class ResetPassword extends React.Component {
   }
 
   componentDidMount() {
-    const { token, id } = queryString.parse(this.props.location.search);
+    const { token, id } = qs.parse(this.props.location.search);
     this.setState({ token, id });
   }
 

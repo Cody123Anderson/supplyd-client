@@ -35,7 +35,8 @@ class ForgotPassword extends React.Component {
     }
   }
 
-  submitPasswordChangeRequest = () => {
+  submitPasswordChangeRequest = (e) => {
+    e.preventDefault();
     const { email } = this.state;
     if (this.validateEmail(email)) {
       requestPasswordChange(email)
@@ -54,7 +55,9 @@ class ForgotPassword extends React.Component {
     switch (request) {
       case START:
         return (
-          <div className="forgot-password-form">
+          <form
+            className="forgot-password-form"
+            onSubmit={this.submitPasswordChangeRequest}>
             <h1>Reset your Supplyd Password</h1>
             <p>Submit your email address and we will send you a link to reset your password</p>
             <Input
@@ -64,10 +67,11 @@ class ForgotPassword extends React.Component {
               label={`Email Address ${error ? errorMessage: ''}`}
               fullWidth={false}/>
             <hr/>
-            <Button onClick={this.submitPasswordChangeRequest}>
+            <Button
+              type="submit">
               Submit
             </Button>
-          </div>
+          </form>
         );
       case COMPLETE:
         return (

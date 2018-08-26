@@ -136,7 +136,7 @@ class SignIn extends Component {
                 <Link to={routes.register}>Register</Link>
               </span>
               <div className="si-forgot-password">
-                <a href={routes.forgotPassword}>Forgot password?</a>
+                <Link to={routes.forgotPassword}>Forgot password?</Link>
               </div>
             </div>
           </div>
