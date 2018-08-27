@@ -9,6 +9,10 @@
     .card-input-element {
       width: 500px;
       margin: 12px 0 0 30px;
+
+      @media (max-width: #{$maxMobileWidth}) {
+        width: 80%;
+      }
     }
 
     .card-update-buttons {
