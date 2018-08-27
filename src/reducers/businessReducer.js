@@ -1,7 +1,9 @@
 import {
     CLEAR_BUSINESS,
     SET_BUSINESS_INFO,
-    BUSINESS_ERROR
+    BUSINESS_ERROR,
+    DELETE_SAVED_CARDS,
+    SET_SAVED_CARDS
 } from '../actions/types';
 
 const initialState = {
@@ -13,7 +15,8 @@ const initialState = {
     stripeId: '',
     websiteUrl: '',
     error: false,
-    errorCount: 0
+    errorCount: 0,
+    cards: [],
 };
 
 export default function (state = initialState, action) {
@@ -24,6 +27,10 @@ export default function (state = initialState, action) {
             return { ...state, ...action.payload, error: false };
         case BUSINESS_ERROR:
             return { ...state, errorCount: state.errorCount + 1, error: true }
+        case SET_SAVED_CARDS:
+            return { ...state, cards: action.payload.cards, stripeId: action.payload.stripeId };
+        case DELETE_SAVED_CARDS:
+            return { ...state, cards: action.payload.cards };
         default:
             return state;
     }

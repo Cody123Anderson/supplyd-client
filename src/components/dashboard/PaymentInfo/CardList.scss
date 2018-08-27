@@ -1,0 +1,45 @@
+@import '../../../styles/variables';
+
+.cl-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .cl-element {
+    display: flex;
+    flex-direction: row;
+    font-weight: $fontWeightLight;
+    font-size: 16px;
+    color: $colorFont;
+    background-color: $colorWhite;
+    border: 1px solid $colorBlack50;
+    height: 48px;
+    padding: 15px 15px;
+    width: 500px;
+    margin: 12px 0 0 30px;
+    border-radius: $borderRadius;
+    box-shadow: $boxShadow;
+
+    .cl-bold {
+      font-weight: $fontWeightRegular;
+    }
+
+    .cl-card-expire {
+      margin-left: 50px;
+    }
+  }
+
+  .cl-buttons {
+    display: flex;
+    flex-direction: row;
+    margin: 12px 0 0 30px;
+
+    .button {
+      margin-right: 10px;
+
+      .cl-delete-card {
+        background: $colorRed;
+      }
+    }
+  }
+}

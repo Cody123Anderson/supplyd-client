@@ -8,7 +8,7 @@ import MobileNav from '../../../Navigation/MobileNav';
 import LeftDashboardNav from '../../../Navigation/leftNav';
 import EmployeeRoutes from './EmployeeRoutes';
 import Home from '../../../dashboard/home/Home';
-// import PaymentInfo from '../../../dashboard/paymentInfo/PaymentInfo';
+import PaymentInfo from '../../../dashboard/PaymentInfo';
 // import AccountInfo from '../../../dashboard/accountInfo/AccountInfo';
 // import SupportCenter from '../../../dashboard/supportCenter/SupportCenter';
 import { getBusiness } from '../../../../actions/businessActions';
@@ -49,7 +49,7 @@ class DashboardRoutes extends Component {
                     <Switch>
                         <Route path={routes.employees} component={EmployeeRoutes} />
                         <Route exact path={routes.home} component={Home} />
-                          {/* <Route exact path={routes.paymentInfo} component={RequireAuth(PaymentInfo)}/> */}
+                        <Route exact path={routes.paymentInfo} component={PaymentInfo}/>
                           {/* <Route exact path={routes.accountInfo} component={RequireAuth(AccountInfo)}/> */}
                           {/* <Route exact path={routes.supportCenter} component={RequireAuth(SupportCenter)}/> */}
                     </Switch>
