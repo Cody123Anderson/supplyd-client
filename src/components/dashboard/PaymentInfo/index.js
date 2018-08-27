@@ -84,8 +84,6 @@ class PaymentInfo extends Component {
   render() {
     const { business } = this.props;
 
-    console.log('UPDATE STATE: ', this.state.updateCard)
-
     return (
       <div>
         <div className="payment-info-container">
