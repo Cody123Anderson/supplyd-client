@@ -9,4 +9,4 @@ const constants = {
   },
 };
 
-module.exports = constants[process.env.NODE_ENV || 'development'];
+module.exports = constants[process.env.REACT_APP_STAGE || 'development'];
