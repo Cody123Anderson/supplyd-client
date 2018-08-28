@@ -7,14 +7,14 @@
 # Don't allow use of netlify subdomain supplyd.netlify.com for SEO purposes
 [[redirects]]
   from = "https://supplyd.netlify.com/*"
-  to = "https://www.getsupplyd.com/:splat"
+  to = "https://supplyd.io/:splat"
   status = 301
   force = true
 
 # Don't allow use of netlify subdomain dev-supplyd.netlify.com for SEO purposes
 [[redirects]]
   from = "https://dev-supplyd.netlify.com/*"
-  to = "https://dev.getsupplyd.com/:splat"
+  to = "https://dev.supplyd.io/:splat"
   status = 301
   force = true
 

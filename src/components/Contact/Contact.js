@@ -9,7 +9,7 @@ class Contact extends React.Component {
     return (
       <div>
         <div className="supplyd-contact">
-          <div className="supplyd-contact-row">Email: <a href="mailto:support@getsupplyd.com">support@getsupplyd.com</a></div>
+          <div className="supplyd-contact-row">Email: <a href="mailto:support@supplyd.io">support@supplyd.io</a></div>
           <div className="supplyd-contact-row">Phone: (602) 541-7677 (text or call)</div>
         </div>
         <Footer links={constants.footerLinks}/>
