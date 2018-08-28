@@ -52,7 +52,7 @@ class Home extends React.Component {
             </div>
             <div className="home-row-right">
               <div className="home-action-button">
-                <Button to="/dashboard/paymentInfo">
+                <Button to="/dashboard/payment-info">
                   Add Payment Info
                 </Button>
               </div>
