@@ -1,5 +1,5 @@
 module.exports = {
-  resetPassword: '/reset',
+  resetPassword: '/reset-password',
   forgotPassword: '/forgot-password',
   contactUs: '/contact',
   accountInfo: '/dashboard/account-info',

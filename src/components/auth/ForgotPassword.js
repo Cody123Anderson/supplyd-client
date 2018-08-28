@@ -5,6 +5,7 @@ import Input from '../ui-components/Input';
 import Button from "../ui-components/Button";
 
 import routes from '../../constants/routes';
+import { isValidEmail } from '../../utils/utils';
 
 import './ForgotPassword.scss';
 
@@ -22,11 +23,10 @@ class ForgotPassword extends React.Component {
   state = { ...initialState };
 
   validateEmail(email) {
-    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!email.length) {
       this.setState({ error: true, errorMessage: '- Can not be empty'});
       return false;
-    } else if (!emailRegex.test(email)) {
+    } else if (!isValidEmail(email)) {
       this.setState({ error: true, errorMessage: '- Must be a valid email' });
       return false;
     } else {
