@@ -24,7 +24,7 @@ class ForgotPassword extends React.Component {
 
   validateEmail(email) {
     if (!email.length) {
-      this.setState({ error: true, errorMessage: '- Can not be empty'});
+      this.setState({ error: true, errorMessage: '- Cannot be empty'});
       return false;
     } else if (!isValidEmail(email)) {
       this.setState({ error: true, errorMessage: '- Must be a valid email' });
