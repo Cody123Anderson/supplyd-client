@@ -32,11 +32,12 @@ class Employees extends Component {
     this.props.history.push(routes.createEmployee);
   }
 
-  render() {    
+  render() {
     return (
       <div className="employees">
         <div className="employees-container">
           <TitleBar title="Manage your employees" subtitle="Add a new employee to send them a new hire box" />
+         {this.props.employees.length <= 0 && <div className="employees-zero-state">No employees</div>}
           <div className="contain-actions">
             <span className="create-button" onClick={this.onCreateClick}>
               <span className="create-employee-text">Add Employee</span>
