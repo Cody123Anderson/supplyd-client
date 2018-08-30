@@ -78,6 +78,12 @@ export function registerUser(email, password, businessId, businessName) {
     };
 }
 
+export function clearAuthErrors() {
+    return (dispatch) => {
+        dispatch(authError(''));
+    };
+}
+
 export function authError(error) {
     return {
         type: AUTH_ERROR,
@@ -128,4 +134,16 @@ export function updateUser(body, token) {
                 console.error('error updating the user: ', err.response);
             });
     };
+}
+
+export async function requestPasswordChange(email) {
+    return await axios.post(`${API_URL}/users/forgot`, { email });
+}
+
+export async function resetPassword(newPassword, id, token) {
+    return await axios.post(`${API_URL}/users/reset`, {
+        newPassword,
+        token,
+        id
+    });
 }

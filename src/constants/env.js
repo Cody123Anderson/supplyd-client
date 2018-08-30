@@ -1,4 +1,7 @@
 const constants = {
+  local: {
+    API_URL: 'http://localhost:3001'
+  },
   development: {
     API_URL: 'https://dev-api.supplyd.io',
     REACT_APP_STRIPE_API_KEY: process.env.REACT_APP_STRIPE_API_KEY,

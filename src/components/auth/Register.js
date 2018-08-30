@@ -10,7 +10,7 @@ import TopBar from '../top-bar/TopBar';
 import routes from '../../constants/routes';
 import { isExpired } from '../../utils/jwtUtils';
 import { createBusiness, checkBusinessName } from '../../actions/businessActions';
-import { registerUser, checkUserEmail } from '../../actions/userActions';
+import { registerUser, checkUserEmail, clearAuthErrors } from '../../actions/userActions';
 import Footer from '../Footer/Footer';
 import constants from "../../constants";
 
@@ -26,6 +26,7 @@ class Register extends Component {
   }
 
   componentDidMount() {
+    this.props.clearAuthErrors();
     if (this.props.userToken && !isExpired(this.props.userToken)) {
       this.props.history.push(routes.home); // Should be switched to dashboard once built
     }
@@ -188,4 +189,9 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { createBusiness, registerUser })(Register);
+export default connect(
+  mapStateToProps, {
+    createBusiness,
+    registerUser,
+    clearAuthErrors
+  })(Register);
