@@ -7,21 +7,24 @@ import TitleBar from '../TitleBar';
 import Table from '../../ui-components/Table';
 import { getEmployees } from '../../../actions/employeeActions';
 import routes from '../../../constants/routes';
-import Footer from "../../Footer/Footer";
+import Footer from '../../Footer/Footer';
 import constants from '../../../constants';
 
 const columns = [
   {
     id: 'name',
     Header: 'Name',
-    accessor: d => `${d.firstName} ${d.lastName || ''}`
-  }, {
+    accessor: d => `${d.firstName} ${d.lastName || ''}`,
+  },
+  {
     Header: 'Work Email',
     accessor: 'workEmail',
-  }, {
+  },
+  {
     Header: 'Status',
-    accessor: 'status'
-  }];
+    accessor: 'status',
+  },
+];
 
 class Employees extends Component {
   componentDidMount() {
@@ -30,26 +33,45 @@ class Employees extends Component {
 
   onCreateClick = () => {
     this.props.history.push(routes.createEmployee);
-  }
+  };
 
   render() {
     return (
       <div className="employees">
         <div className="employees-container">
-          <TitleBar title="Manage your employees" subtitle="Add a new employee to send them a new hire box" />
-         {this.props.employees.length <= 0 && <div className="employees-zero-state">No employees</div>}
-          <div className="contain-actions">
-            <span className="create-button" onClick={this.onCreateClick}>
-              <span className="create-employee-text">Add Employee</span>
-              <MdAddCircle />
-            </span>
-          </div>
-          <div className="employees-table">
-            <Table data={this.props.employees} columns={columns} />
-          </div>
-          <div className="total-row">Total Employees: {this.props.employees.length}</div>
+          <TitleBar
+            title="Manage your employees"
+            subtitle="Add a new employee to send them a new hire box"
+          />
+          {this.props.employees.length <= 0 && (
+            <div className="employees-zero-state">
+              <div className="employees-zs-text">
+                You haven't added any employees to send swag to yet! Start adding employees by clicking
+                on the add button.
+              </div>
+              <div className="contain-zero-state-actions">
+                <span className="create-button" onClick={this.onCreateClick}>
+                  <MdAddCircle />
+                </span>
+              </div>
+            </div>
+          )}
+          {this.props.employees.length > 0 && (
+            <div>
+              <div className="contain-actions">
+                <span className="create-button" onClick={this.onCreateClick}>
+                  <span className="create-employee-text">Add Employee</span>
+                  <MdAddCircle />
+                </span>
+              </div>
+              <div className="employees-table">
+                <Table data={this.props.employees} columns={columns} />
+              </div>
+              <div className="total-row">Total Employees: {this.props.employees.length}</div>
+            </div>
+          )}
         </div>
-        <Footer links={constants.footerLinks}/>
+        <Footer links={constants.footerLinks} />
       </div>
     );
   }
@@ -58,8 +80,11 @@ class Employees extends Component {
 function mapStateToProps(state) {
   return {
     employees: state.employees.all,
-    businessId: state.user.businessId
+    businessId: state.user.businessId,
   };
 }
 
-export default connect(mapStateToProps, { getEmployees })(Employees);
+export default connect(
+  mapStateToProps,
+  { getEmployees }
+)(Employees);
