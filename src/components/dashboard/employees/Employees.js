@@ -34,12 +34,19 @@ class Employees extends Component {
     this.props.getEmployees(this.props.businessId);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.employees === null && this.props.employees !== null) {
+      this.setState({ loading: false });
+    }
+  }
+
   onCreateClick = () => {
     this.props.history.push(routes.createEmployee);
   };
 
   render() {
     const { employees } = this.props;
+    const { loading } = this.state;
 
     return (
       <div className="employees">
@@ -48,7 +55,7 @@ class Employees extends Component {
             title="Manage your employees"
             subtitle="Add a new employee to send them a new hire box"
           />
-          {employees !== null &&
+          {!loading &&
             employees.length <= 0 && (
               <div className="employees-zero-state">
                 <div className="employees-zs-text">
@@ -62,7 +69,7 @@ class Employees extends Component {
                 </div>
               </div>
             )}
-          {employees !== null &&
+          {!loading &&
             employees.length > 0 && (
               <div>
                 <div className="contain-actions">
@@ -77,7 +84,7 @@ class Employees extends Component {
                 <div className="total-row">Total Employees: {this.props.employees.length}</div>
               </div>
             )}
-          {employees === null && <Loader />}
+          {loading && <Loader />}
         </div>
         <Footer links={constants.footerLinks} />
       </div>
