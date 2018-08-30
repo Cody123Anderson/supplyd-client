@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import routes from '../../../constants/routes';
+import Loader from '../../ui-components/Loader';
 
 export default function(ComposedComponent) {
   class Authentication extends Component {
@@ -19,7 +20,7 @@ export default function(ComposedComponent) {
 
     render() {
       if (!this.props.isFetched) {
-        return <div>Loading...</div>;
+        return <Loader />;
       }
 
       return <ComposedComponent {...this.props} />;

@@ -9,6 +9,7 @@ import { getEmployees } from '../../../actions/employeeActions';
 import routes from '../../../constants/routes';
 import Footer from '../../Footer/Footer';
 import constants from '../../../constants';
+import Loader from '../../ui-components/Loader';
 
 const columns = [
   {
@@ -27,6 +28,8 @@ const columns = [
 ];
 
 class Employees extends Component {
+  state = { loading: true };
+
   componentDidMount() {
     this.props.getEmployees(this.props.businessId);
   }
@@ -36,6 +39,8 @@ class Employees extends Component {
   };
 
   render() {
+    const { employees } = this.props;
+
     return (
       <div className="employees">
         <div className="employees-container">
@@ -43,33 +48,36 @@ class Employees extends Component {
             title="Manage your employees"
             subtitle="Add a new employee to send them a new hire box"
           />
-          {this.props.employees.length <= 0 && (
-            <div className="employees-zero-state">
-              <div className="employees-zs-text">
-                You haven't added any employees to send swag to yet! Start adding employees by clicking
-                on the add button.
+          {employees !== null &&
+            employees.length <= 0 && (
+              <div className="employees-zero-state">
+                <div className="employees-zs-text">
+                  {`You haven\'t added any employees to send swag to yet! Start adding employees by
+                  clicking on the add button.`}
+                </div>
+                <div className="contain-zero-state-actions">
+                  <span className="create-button" onClick={this.onCreateClick}>
+                    <MdAddCircle />
+                  </span>
+                </div>
               </div>
-              <div className="contain-zero-state-actions">
-                <span className="create-button" onClick={this.onCreateClick}>
-                  <MdAddCircle />
-                </span>
+            )}
+          {employees !== null &&
+            employees.length > 0 && (
+              <div>
+                <div className="contain-actions">
+                  <span className="create-button" onClick={this.onCreateClick}>
+                    <span className="create-employee-text">Add Employee</span>
+                    <MdAddCircle />
+                  </span>
+                </div>
+                <div className="employees-table">
+                  <Table data={this.props.employees} columns={columns} />
+                </div>
+                <div className="total-row">Total Employees: {this.props.employees.length}</div>
               </div>
-            </div>
-          )}
-          {this.props.employees.length > 0 && (
-            <div>
-              <div className="contain-actions">
-                <span className="create-button" onClick={this.onCreateClick}>
-                  <span className="create-employee-text">Add Employee</span>
-                  <MdAddCircle />
-                </span>
-              </div>
-              <div className="employees-table">
-                <Table data={this.props.employees} columns={columns} />
-              </div>
-              <div className="total-row">Total Employees: {this.props.employees.length}</div>
-            </div>
-          )}
+            )}
+          {employees === null && <Loader />}
         </div>
         <Footer links={constants.footerLinks} />
       </div>
