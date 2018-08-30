@@ -78,6 +78,12 @@ export function registerUser(email, password, businessId, businessName) {
     };
 }
 
+export function clearAuthErrors() {
+    return (dispatch) => {
+        dispatch(authError(''));
+    };
+}
+
 export function authError(error) {
     return {
         type: AUTH_ERROR,
