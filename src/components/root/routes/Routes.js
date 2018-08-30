@@ -7,6 +7,8 @@ import LandingPage from '../../LandingPage';
 import Register from '../../auth/Register';
 import SignIn from '../../auth/SignIn';
 import SwagRoutes from './SwagRoutes';
+import ForgotPassword from '../../auth/ForgotPassword';
+import ResetPassword from '../../auth/ResetPassword';
 import DashboardRoutes from './dashboardRoutes/DashboardRoutes';
 import Contact from '../../Contact/Contact';
 import OnboardingRoutes from './OnboardingRoutes';
@@ -23,6 +25,8 @@ export default class MyRouter extends Component {
           <Route path={routes.register} component={Register} />
           <Route path={routes.signIn} component={SignIn} />
           <Route path={routes.swag} component={SwagRoutes} />
+          <Route path={routes.forgotPassword} component={ForgotPassword} />
+          <Route path={routes.resetPassword} component={ResetPassword} />
           <Route path={routes.contactUs} component={Contact} />
           <Route path={routes.onboarding} component={RequireAuth(OnboardingRoutes)} />
           <Route path={routes.dashboard} component={RequireAuth(DashboardRoutes)} />

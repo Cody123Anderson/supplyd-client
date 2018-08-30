@@ -1,4 +1,6 @@
 module.exports = {
+  resetPassword: '/reset-password',
+  forgotPassword: '/forgot-password',
   contactUs: '/contact',
   accountInfo: '/dashboard/account-info',
   paymentInfo: '/dashboard/payment-info',
