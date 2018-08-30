@@ -8,7 +8,10 @@ import Input from '../ui-components/Input';
 import Button from '../ui-components/Button';
 import TopBar from '../top-bar/TopBar';
 import routes from '../../constants/routes';
-import { loginUser } from '../../actions/userActions';
+import {
+  loginUser,
+  clearAuthErrors
+} from '../../actions/userActions';
 import { isExpired } from '../../utils/jwtUtils';
 import Footer from "../Footer/Footer";
 import constants from "../../constants";
@@ -23,6 +26,7 @@ class SignIn extends Component {
   }
 
   componentDidMount() {
+    this.props.clearAuthErrors();
     if (this.props.userToken && !isExpired(this.props.userToken)) {
       this.props.history.push(routes.home); // Should be switched to dashboard once built
     }
@@ -155,4 +159,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { loginUser })(SignIn);
+export default connect(mapStateToProps, { loginUser, clearAuthErrors })(SignIn);
