@@ -60,6 +60,9 @@ export function getEmployees(busId) {
             })
             .catch((err) => {
                 console.error('error getting the employees: ', err.response);
+
+                // stop loading state
+                dispatch({ type: GET_EMPLOYEES, payload: [] });
             });
     };
 }

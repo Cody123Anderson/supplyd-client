@@ -11,6 +11,7 @@ import Home from '../../../dashboard/home/Home';
 import PaymentInfo from '../../../dashboard/PaymentInfo';
 // import AccountInfo from '../../../dashboard/accountInfo/AccountInfo';
 // import SupportCenter from '../../../dashboard/supportCenter/SupportCenter';
+import Loader from '../../../ui-components/Loader';
 import { getBusiness } from '../../../../actions/businessActions';
 
 class DashboardRoutes extends Component {
@@ -38,7 +39,7 @@ class DashboardRoutes extends Component {
 
     render() {
         if (!this.state.loaded) {
-            return <div className="dashboard-routes">Loading...</div>
+            return <div className="dashboard-routes-loading"><Loader /></div>
         }
 
         return (
