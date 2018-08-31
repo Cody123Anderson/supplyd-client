@@ -82,9 +82,9 @@ class Employees extends Component {
                   </span>
                 </div>
                 <div className="employees-table">
-                  <Table data={this.props.employees} columns={columns} />
+                  <Table data={employees} columns={columns} />
                 </div>
-                <div className="total-row">Total Employees: {this.props.employees.length}</div>
+                <div className="total-row">Total Employees: {employees.length}</div>
               </div>
             )}
           {loading && <Loader />}

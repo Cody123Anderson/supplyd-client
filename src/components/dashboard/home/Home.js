@@ -25,7 +25,30 @@ class Home extends React.Component {
 
   renderStats() {
     return (
-      <div>Stats</div>
+      <div>
+      <TitleBar title="Welcome to Supplyd Dashboard!"/>
+      <div className="home-card-container">
+        <Card className="home-card">
+          <div className="home-row-light">
+            <div className="home-row-left">
+              <div className="home-action-icon-section">
+                <CardGiftcard />
+              </div>
+              <div className="home-action-description">
+                <div className="home-action-description-title">
+                  As long as you keep adding employees, we'll keep sending them awesome swag!
+                </div>
+              </div>
+            </div>
+            <div className="home-row-right">
+              <div className="home-action-button">
+              </div>
+            </div>
+          </div>
+        </Card>
+      </div>
+      <Footer links={constants.footerLinks}/>
+    </div>
     )
   }
 
