@@ -60,15 +60,18 @@ export function getEmployees(busId) {
             })
             .catch((err) => {
                 console.error('error getting the employees: ', err.response);
+
+                // stop loading state
+                dispatch({ type: GET_EMPLOYEES, payload: [] });
             });
     };
 }
 
-export function updateEmployee(body) {
+export function updateEmployee(body, busId) {
     return (dispatch) => {
         const options = getOptions();
 
-        axios.put(`${API_URL}/employees`, body, options)
+        axios.put(`${API_URL}/employees/${busId}`, body, options)
             .then((response) => {
                 const { employee } = response.data;
 
