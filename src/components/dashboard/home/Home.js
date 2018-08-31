@@ -36,7 +36,7 @@ class Home extends React.Component {
               </div>
               <div className="home-action-description">
                 <div className="home-action-description-title">
-                  As long as you keep adding employees, we'll keep sending them awesome swag!
+                  As long as you keep adding employees, we'll keep sending them awesome new hire boxes!
                 </div>
               </div>
             </div>
