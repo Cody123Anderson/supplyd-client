@@ -40,10 +40,6 @@ class Home extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="home-row-right">
-              <div className="home-action-button">
-              </div>
-            </div>
           </div>
         </Card>
       </div>
