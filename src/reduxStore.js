@@ -4,10 +4,17 @@ import thunk from 'redux-thunk';
 import './index.scss';
 import rootReducer from './reducers';
 
+const reduxDevTools = () => {
+  if (process.env.REACT_APP_STAGE === 'development') {
+    return window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+  }
+  return;
+};
+
 // Create and export Redux Store
 export const store = createStore(
   rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  reduxDevTools(),
   applyMiddleware(thunk)
 );
 
