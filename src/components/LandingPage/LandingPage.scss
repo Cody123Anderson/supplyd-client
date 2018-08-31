@@ -1,0 +1,115 @@
+@import '../../styles/variables';
+
+.landing-page {
+  padding-bottom: 150px;
+  min-height: 100vh;
+}
+
+.lp-main-section {
+  align-items: center;
+  background-color: $colorBlack5;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 75px 20px 100px;
+  text-align: center;
+
+  .lp-image-half {
+    display: inline-block;
+    margin-bottom: 50px;
+    width: 100%;
+
+    .lp-box-image {
+      display: inline-block;
+      height: 188px;
+      width: 274px;
+
+      @media (min-width: #{$maxMobileWidth}) {
+        // desktop
+        height: 375px;
+        width: 548px;
+      }
+    }
+
+    @media (min-width: #{$maxMobileWidth}) {
+      // desktop
+      margin-bottom: 0;
+      width: 50%;
+    }
+  }
+
+  @media (min-width: #{$maxMobileWidth}) {
+    // desktop
+    padding: 175px 20px;
+  }
+}
+
+.lp-cta-half {
+  display: inline-block;
+  width: 100%;
+
+  .lp-cta-text-title {
+    font-size: $fontSizeJumbo;
+  }
+
+  .lp-cta-text {
+    display: inline-block;
+    font-size: $fontSizeLarge;
+    margin-top: 30px;
+    max-width: 475px;
+  }
+
+  .lp-cta-button {
+    margin-top: 50px;
+
+    @media (min-width: #{$maxMobileWidth}) {
+      // desktop
+      margin-top: 30px;
+    }
+  }
+
+  @media (min-width: #{$maxMobileWidth}) {
+    // desktop
+    width: 50%
+  }
+}
+
+.lp-how-title {
+  font-size: $fontSizeJumbo;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.lp-how-subtitle {
+  font-size: $fontSizeLarge;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.lp-how-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 75px;
+}
+
+.lp-step {
+  margin-top: 75px;
+  text-align: center;
+  max-width: 314px;
+
+  .lp-step-title {
+    font-size: $fontSizeLarge;
+    font-weight: $fontWeightRegular;
+    margin-bottom: 15px;
+  }
+
+  .lp-step-body {
+    font-size: $fontSizeMedium;
+  }
+}
+
+.lp-how-button-container {
+  margin-top: 100px;
+  text-align: center;
+}
