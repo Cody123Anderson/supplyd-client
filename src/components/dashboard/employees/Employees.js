@@ -59,8 +59,7 @@ class Employees extends Component {
             employees.length <= 0 && (
               <div className="employees-zero-state">
                 <div className="employees-zs-text">
-                  {`You haven\'t added any employees to send swag to yet! Start adding employees by
-                  clicking on the add button.`}
+                  {'You haven\'t added any employees to send swag to yet! Start adding employees by clicking on the add button.'}
                 </div>
                 <div className="contain-zero-state-actions">
                   <span className="create-button" onClick={this.onCreateClick}>
