@@ -34,7 +34,7 @@ export function getEmployee(id) {
     return (dispatch) => {
         const options = getOptions();
 
-        axios.get(`${API_URL}/employees/${id}`, options)
+        return axios.get(`${API_URL}/employees/${id}`, options)
             .then((response) => {
                 const { employee } = response.data;
 
@@ -51,7 +51,7 @@ export function getEmployees(busId) {
     return (dispatch) => {
         const options = getOptions();
 
-        axios.get(`${API_URL}/employees/business/${busId}`, options)
+        return axios.get(`${API_URL}/employees/business/${busId}`, options)
             .then((response) => {
                 const { employees } = response.data;
 
@@ -60,9 +60,6 @@ export function getEmployees(busId) {
             })
             .catch((err) => {
                 console.error('error getting the employees: ', err.response);
-
-                // stop loading state
-                dispatch({ type: GET_EMPLOYEES, payload: [] });
             });
     };
 }
