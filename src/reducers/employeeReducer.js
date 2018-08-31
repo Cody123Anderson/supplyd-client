@@ -7,7 +7,7 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  all: null,
+  all: [],
   current: {}
 };
 

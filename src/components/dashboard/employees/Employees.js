@@ -31,16 +31,8 @@ class Employees extends Component {
   state = { loading: true };
 
   componentDidMount() {
-    this.props.getEmployees(this.props.businessId);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (
-      (prevProps.employees === null && this.props.employees !== null) ||
-      (this.state.loading && this.props.employees !== null)
-    ) {
-      this.setState({ loading: false });
-    }
+    this.props.getEmployees(this.props.businessId)
+      .then(() => this.setState({ loading: false }));
   }
 
   onCreateClick = () => {
@@ -62,7 +54,9 @@ class Employees extends Component {
             employees.length <= 0 && (
               <div className="employees-zero-state">
                 <div className="employees-zs-text">
-                  {'You haven\'t added any employees to send swag to yet! Start adding employees by clicking on the add button.'}
+                  {
+                    "You haven't added any employees to send swag to yet! Start adding employees by clicking on the add button."
+                  }
                 </div>
                 <div className="contain-zero-state-actions">
                   <span className="create-button" onClick={this.onCreateClick}>
