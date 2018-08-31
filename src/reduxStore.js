@@ -5,7 +5,7 @@ import './index.scss';
 import rootReducer from './reducers';
 
 const reduxDevTools = () => {
-  if (process.env.REACT_APP_STAGE === 'production') {
+  if (process.env.REACT_APP_STAGE === 'development') {
     return window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
   }
   return;
