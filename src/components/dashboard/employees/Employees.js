@@ -35,7 +35,10 @@ class Employees extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.employees === null && this.props.employees !== null) {
+    if (
+      (prevProps.employees === null && this.props.employees !== null) ||
+      (this.state.loading && this.props.employees !== null)
+    ) {
       this.setState({ loading: false });
     }
   }
