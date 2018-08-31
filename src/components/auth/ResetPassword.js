@@ -60,7 +60,7 @@ class ResetPassword extends React.Component {
         .then(() => this.setState({ request: COMPLETE }))
         .catch((err) => this.setState({
           request: ERROR,
-          errorMessage: err.response.data.statusText
+          errorMessage: err.response.data.error
         }));
     }
   };
