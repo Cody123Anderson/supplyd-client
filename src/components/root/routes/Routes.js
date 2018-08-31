@@ -3,7 +3,7 @@ import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 import routes from '../../../constants/routes';
-import LandingPage from '../../LandingPage';
+import LandingPage from '../../LandingPage/LandingPage';
 import Register from '../../auth/Register';
 import SignIn from '../../auth/SignIn';
 import SwagRoutes from './SwagRoutes';
