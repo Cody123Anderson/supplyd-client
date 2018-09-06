@@ -12,7 +12,7 @@ import {
 export function createEmployee(employee) {
     return (dispatch) => {
         return new Promise((resolve, reject) => {
-            axios.post(`${API_URL}/employees`, employee)
+            axios.post(`${API_URL}/employees/newHire`, employee)
                 .then((response) => {
                     const { employee } = response.data;
 

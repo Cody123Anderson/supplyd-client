@@ -16,12 +16,19 @@ module.exports = {
   register: '/register',
   signIn: '/sign-in',
   swag: '/swag',
-  swagProfile: (busName, id, token) => {
+  swagProfileNewHire: (busName, id, token) => {
     if (!busName || !id || !token) {
       return '/swag/:businessName/employee/:employeeId/token/:token';
     }
 
     return `/swag/${busName}/employee/${id}/token/${token}`;
+  },
+  swagProfile: (busName, busId) => {
+    if (!busName || !busId) {
+      return '/swag/employee/:businessName/:businessId';
+    }
+
+    return `/swag/employee/${busName}/${busId}`;
   },
   swagProfileComplete: (busName) => {
     if (!busName) {
