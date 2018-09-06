@@ -13,11 +13,9 @@ import Input from '../ui-components/Input';
 import Button from '../ui-components/Button';
 import routes from '../../constants/routes';
 
-class SwagProfile extends Component {
+class SwagProfileNewHire extends Component {
   state = {
     employee: {
-      businessName: '',
-      businessId: '',
       firstName: '',
       lastName: '',
       workEmail: '',
@@ -43,7 +41,6 @@ class SwagProfile extends Component {
     personalEmailError: false,
     phoneError: false,
     birthdayErrorText: '',
-    startDateErrorText: '',
     addressError: false,
     cityError: false,
     stateError: false,
@@ -57,15 +54,16 @@ class SwagProfile extends Component {
   };
 
   componentDidMount() {
-    const { businessId, businessName } = this.props.match.params;
-
-    this.setState(prevState => ({
-      employee: {
-        ...prevState.employee,
-        businessName,
-        businessId,
-      },
-    }));
+    axios
+      .get(`${API_URL}/employees/${this.props.match.params.employeeId}`)
+      .then(results => {
+        this.setState(prevState => ({
+          employee: { ...prevState.employee, ...results.data.employee },
+        }));
+      })
+      .catch(err => {
+        console.error('error fetching employee information: ', err);
+      });
   }
 
   onInputTextChange = (key, value) => {
@@ -141,7 +139,6 @@ class SwagProfile extends Component {
       'personalEmail',
       'phone',
       'birthday',
-      'startDate',
       'address',
       'city',
       'state',
@@ -167,8 +164,12 @@ class SwagProfile extends Component {
 
     if (employee.birthday) {
       const year = _.first(employee.birthday.split('-'));
-      const yearMinus100 = moment().subtract(100, 'years').format('YYYY');
-      const yearMinus12 = moment().subtract(12, 'years').format('YYYY'); // Maybe a company uses underage children
+      const yearMinus100 = moment()
+        .subtract(100, 'years')
+        .format('YYYY');
+      const yearMinus12 = moment()
+        .subtract(12, 'years')
+        .format('YYYY'); // Maybe a company uses underage children
 
       if (year < yearMinus100 || year > yearMinus12) {
         this.setState({ birthdayError: true, birthdayErrorText: 'Please enter a valid year' });
@@ -189,7 +190,7 @@ class SwagProfile extends Component {
 
     this.setState({ submitting: true });
 
-    // Check for form errors
+    // Check for form erros
     const errors = this.validateFields();
 
     if (errors.length) {
@@ -203,10 +204,14 @@ class SwagProfile extends Component {
 
     // Modify the data to update necessary fields
     const data = _.cloneDeep(this.state.employee);
+    delete data.businessId;
+    delete data.id;
+    delete data.createdAt;
+    delete data.updatedAt;
     data.status = 'Active';
 
     // Submit data to server
-    axios.post(`${API_URL}/employees`, data)
+    axios.put(`${API_URL}/employees/${this.props.match.params.employeeId}`, data)
       .then(results => {
         // Redirect to success page
         this.props.history.push(routes.swagProfileComplete(this.state.employee.businessName));
@@ -254,11 +259,7 @@ class SwagProfile extends Component {
                     />
                   </div>
                   <div className="contain-input">
-                    <Input
-                      label="Work Email"
-                      value={employee.workEmail}
-                      disabled={true}
-                    />
+                    <Input label="Work Email" value={employee.workEmail} disabled={true} />
                   </div>
                   <div className="contain-input">
                     <Input
@@ -293,11 +294,10 @@ class SwagProfile extends Component {
                   </div>
                   <div className="contain-input">
                     <Input
-                      label="Employment Start Date *"
+                      label="Employment Start Date"
                       value={employee.startDate}
                       helperText={this.state.startDateErrorText}
                       InputLabelProps={{ shrink: true }}
-                      error={this.state.startDateError}
                       type="date"
                       onChange={e => this.onInputTextChange('startDate', e.target.value)}
                     />
@@ -413,4 +413,4 @@ class SwagProfile extends Component {
   }
 }
 
-export default autofill(SwagProfile);
+export default autofill(SwagProfileNewHire);

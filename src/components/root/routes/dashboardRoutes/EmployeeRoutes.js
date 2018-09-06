@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import routes from '../../../../constants/routes';
 import Employees from '../../../dashboard/employees/Employees';
+import CreateEmployee from '../../../dashboard/employees/CreateEmployee';
 import { setTab } from '../../../../actions/tabActions';
 import constants from '../../../../constants';
 
@@ -16,6 +17,7 @@ class EmployeeRoutes extends Component {
         return (
             <Switch>
                 <Route exact path={routes.employees} component={Employees} />
+                <Route exact path={routes.createEmployee} component={CreateEmployee} />
             </Switch>
         );
     }

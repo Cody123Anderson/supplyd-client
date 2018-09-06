@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import MdAddCircle from 'react-icons/lib/md/add-circle';
 
 import './Employees.scss';
 import TitleBar from '../TitleBar';
+import routes from '../../../constants/routes';
 import Table from '../../ui-components/Table';
 import { getEmployees } from '../../../actions/employeeActions';
 import Footer from '../../Footer/Footer';
@@ -34,16 +36,10 @@ class Employees extends Component {
     this.props.getEmployees(this.props.businessId).then(() => this.setState({ loading: false }));
   }
 
-  addNewEmployeeUrl = () => {
-    const { business } = this.props;
-
-    return encodeURI(`${DOMAIN_URL}/swag/new/${business.name}/${business.id}`);
-  };
-
   addExistingEmployeeUrl = () => {
     const { business } = this.props;
 
-    return encodeURI(`${DOMAIN_URL}/swag/existing/${business.name}/${business.id}`);
+    return encodeURI(`${DOMAIN_URL}/swag/employee/${business.name}/${business.id}`);
   };
 
   onCopyLink = copiedUrl => {
@@ -54,11 +50,14 @@ class Employees extends Component {
     }, 2000);
   };
 
+  onCreateClick = () => {
+    this.props.history.push(routes.createEmployee);
+  };
+
   render() {
     const { employees } = this.props;
     const { loading } = this.state;
 
-    const newEmployeeURL = this.addNewEmployeeUrl();
     const existingEmployeeURL = this.addExistingEmployeeUrl();
 
     return (
@@ -72,13 +71,29 @@ class Employees extends Component {
             employees.length <= 0 && (
               <div className="employees-zero-state">
                 <div className="employees-zs-text">
-                  {'No employees have been added to send swag to yet!'}
+                  {
+                    'No employees have been added to send swag to yet! Add a new hire by clicking this add button.'
+                  }
+                </div>
+                <div className="contain-zero-state-actions">
+                  <span className="create-button" onClick={this.onCreateClick}>
+                    <MdAddCircle />
+                  </span>
+                </div>
+                <div className="employees-zs-text">
+                  {'Or copy the link in the section below and send it to your existing employees.'}
                 </div>
               </div>
             )}
           {!loading &&
             employees.length > 0 && (
               <div>
+                <div className="contain-actions">
+                  <span className="create-button" onClick={this.onCreateClick}>
+                    <span className="create-employee-text">Add a New Hire</span>
+                    <MdAddCircle />
+                  </span>
+                </div>
                 <div className="employees-table">
                   <Table data={employees} columns={columns} />
                 </div>
@@ -88,27 +103,13 @@ class Employees extends Component {
           {loading && <Loader />}
           <div className="employees-links-container">
             <div className="e-links-header">
-              Copy one of the two links below and send them to your employees. Once the employee
-              fills out the form, their swag will be on its way!
+              Copy the link below and send it to your existing employees. Once the employee fills
+              out the form, their swag will be on its way!
             </div>
             <div className="employees-links">
               <div className="e-link">
-                {this.state.copiedNew ? (
-                  <div className="copied-text">Url copied to clipboard.</div>
-                ) : (
-                  <CopyToClipboard
-                    text={newEmployeeURL}
-                    onCopy={() => this.onCopyLink('copiedNew')}
-                  >
-                    <div>
-                      <span id="e-link-description">New hires:</span> {newEmployeeURL}
-                    </div>
-                  </CopyToClipboard>
-                )}
-              </div>
-              <div className="e-link">
                 {this.state.copiedExisting ? (
-                  <div className="copied-text">Url copied to clipboard.</div>
+                  <div className="copied-text">URL copied to clipboard.</div>
                 ) : (
                   <CopyToClipboard
                     text={existingEmployeeURL}

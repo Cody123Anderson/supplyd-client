@@ -1,0 +1,57 @@
+@import '../../../styles/variables';
+
+.create-employee {
+  margin-top: 50px;
+  text-align: center;
+
+  .create-employee-container {
+    min-height: 100vh;
+
+    .cec-title {
+      display: block;
+      font-size: $fontSizeLarge;
+      margin-bottom: 30px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .form-container {
+      display: inline-block;
+      width: 90%;
+
+      .form {
+        display: flex;
+        flex-wrap: wrap;
+
+        .input-container {
+          display: flex;
+          margin-top: 20px;
+          width: 100%;
+
+          &:first-of-type {
+            margin-top: 0;
+          }
+        }
+
+        .container-actions {
+          margin-top: 40px;
+          width: 100%;
+
+          .error-text {
+            color: $colorRed;
+            margin-bottom: 10px;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: $maxMobileWidth) {
+    margin-top: 80px;
+
+    .form-container {
+      width: 450px;
+    }
+  }
+}

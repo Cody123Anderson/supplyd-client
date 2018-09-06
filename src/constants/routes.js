@@ -8,6 +8,7 @@ module.exports = {
   dashboard: '/dashboard',
   employees: '/dashboard/employees',
   home: '/dashboard/home',
+  createEmployee: '/dashboard/employees/create',
   landingPage: '/',
   onboarding: '/onboarding',
   onboardingNumEmployees: '/onboarding/employees',
@@ -15,12 +16,19 @@ module.exports = {
   register: '/register',
   signIn: '/sign-in',
   swag: '/swag',
-  swagProfile: (employeeStatus, busName, busId) => {
-    if (!busName || !busId || !employeeStatus) {
-      return '/swag/:employeeStatus/:businessName/:businessId';
+  swagProfileNewHire: (busName, id, token) => {
+    if (!busName || !id || !token) {
+      return '/swag/:businessName/employee/:employeeId/token/:token';
     }
 
-    return `/swag/${employeeStatus}/${busName}/${busId}`;
+    return `/swag/${busName}/employee/${id}/token/${token}`;
+  },
+  swagProfile: (busName, busId) => {
+    if (!busName || !busId) {
+      return '/swag/employee/:businessName/:businessId';
+    }
+
+    return `/swag/employee/${busName}/${busId}`;
   },
   swagProfileComplete: (busName) => {
     if (!busName) {

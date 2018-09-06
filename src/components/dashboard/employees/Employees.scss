@@ -8,15 +8,14 @@
 
     .employees-zero-state {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       margin: 24px;
-      width: fit-content;
+      box-shadow: $boxShadow;
+      align-items: center;
+      padding: 10px;
       font-size: $fontSizeBase;
       font-weight: $fontWeightRegular;
 
-      .employees-zs-text {
-        padding: 12px 10px 0;
-      }
       .contain-zero-state-actions {
         text-align: right;
 
@@ -24,6 +23,7 @@
           align-items: center;
           cursor: pointer;
           display: inline-flex;
+          margin-top: 5px;
 
           svg {
             color: $colorPrimary;
@@ -37,6 +37,10 @@
             }
           }
         }
+      }
+
+      .employees-zs-text {
+        padding: 12px 10px 0;
       }
     }
 
@@ -79,7 +83,7 @@
 
       .e-links-header {
         padding: 0 0 14px;
-        font-size: 16px;
+        font-size: $fontSizeBase;
         font-weight: $fontWeightRegular;
       }
 
