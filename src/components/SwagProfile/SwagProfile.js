@@ -40,6 +40,7 @@ class SwagProfile extends Component {
     errorText: '',
     firstNameError: false,
     lastNameError: false,
+    workEmailError: false,
     personalEmailError: false,
     phoneError: false,
     birthdayErrorText: '',
@@ -138,6 +139,7 @@ class SwagProfile extends Component {
     const fields = [
       'firstName',
       'lastName',
+      'workEmail',
       'personalEmail',
       'phone',
       'birthday',
@@ -255,9 +257,12 @@ class SwagProfile extends Component {
                   </div>
                   <div className="contain-input">
                     <Input
-                      label="Work Email"
+                      label="Work Email *"
+                      error={this.state.workEmailError}
                       value={employee.workEmail}
-                      disabled={true}
+                      onChange={e =>
+                        this.onInputTextChange('workEmail', _.toLower(e.target.value))
+                      }
                     />
                   </div>
                   <div className="contain-input">

@@ -259,7 +259,7 @@ class SwagProfileNewHire extends Component {
                     />
                   </div>
                   <div className="contain-input">
-                    <Input label="Work Email" value={employee.workEmail} disabled={true} />
+                    <Input label="Work Email" value={employee.workEmail} />
                   </div>
                   <div className="contain-input">
                     <Input
