@@ -18,7 +18,6 @@ class CreateEmployee extends Component {
     lastName: '',
     lastNameError: '',
     workEmail: '',
-    workEmailError: '',
     personalEmail: '',
     personalEmailError: '',
     phone: '',
@@ -87,15 +86,6 @@ class CreateEmployee extends Component {
       this.setState({ firstNameError: '' });
     }
 
-    // Validate workEmail
-    const workEmail = this.state.workEmail;
-    if (!workEmail) {
-      error = ' - this field is required';
-      this.setState({ workEmailError: error });
-    } else {
-      this.setState({ workEmailError: '' });
-    }
-
     // Validate personalEmail
     const personalEmail = this.state.personalEmail;
     if (!personalEmail) {
@@ -144,9 +134,7 @@ class CreateEmployee extends Component {
               </div>
               <div className="input-container">
                 <Input
-                  label={`Work Email${this.state.workEmailError}`}
-                  error={this.state.workEmailError ? true : false}
-                  required={true}
+                  label={`Work Email`}
                   onChange={(e) => this.onInputTextChange('workEmail', _.toLower(e.target.value))}
                   value={this.state.workEmail}
                 />

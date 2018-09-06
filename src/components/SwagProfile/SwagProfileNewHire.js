@@ -294,7 +294,7 @@ class SwagProfileNewHire extends Component {
                   </div>
                   <div className="contain-input">
                     <Input
-                      label="Employment Start Date"
+                      label="Estimated Employment Start Date"
                       value={employee.startDate}
                       helperText={this.state.startDateErrorText}
                       InputLabelProps={{ shrink: true }}
