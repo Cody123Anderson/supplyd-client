@@ -1,0 +1,63 @@
+@import '../../styles/variables';
+
+.swag-profile-new-hire {
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
+  margin-top: 50px;
+  max-width: 800px;
+  width: 100%;
+
+  div {
+    box-sizing: border-box;
+  }
+
+  .spnh-title {
+    font-size: $fontSizeLarge;
+    font-weight: $fontWeightBold;
+    margin-bottom: 10px;
+    padding: 3px 15px;
+    text-align: center;
+  }
+
+  .subtitle {
+    margin-bottom: 30px;
+    padding: 3px 15px;
+    text-align: center;
+  }
+
+  .swag-profile-new-hire-form {
+    display: inline-block;
+    margin-bottom: 130px;
+    max-width: 600px;
+    padding: 0 3px;
+    width: 100%;
+
+    .form-field {
+      margin-top: 50px;
+
+      .label {
+        background-color: $colorBlack80;
+        border-radius: $borderRadius;
+        color: $colorWhite;
+        display: inline-block;
+        font-size: $fontSizeMedium;
+        margin: 10px 0;
+        padding: 3px 15px;
+      }
+
+      .contain-input {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .contain-actions {
+    margin-top: 80px;
+
+    .error-text {
+      color: $colorRed;
+      margin-bottom: 20px;
+    }
+  }
+}
