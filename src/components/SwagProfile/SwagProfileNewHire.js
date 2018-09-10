@@ -30,9 +30,6 @@ class SwagProfileNewHire extends Component {
       zip: '',
       country: '',
       shirtSize: null,
-      sweatshirtSize: null,
-      hatSize: null,
-      pantSize: null,
       gender: null,
     },
     errorText: '',
@@ -47,9 +44,6 @@ class SwagProfileNewHire extends Component {
     zipError: false,
     countryError: false,
     shirtSizeError: false,
-    sweatshirtSizeError: false,
-    hatSizeError: false,
-    pantSizeError: false,
     genderError: false,
   };
 
@@ -88,39 +82,6 @@ class SwagProfileNewHire extends Component {
     });
   };
 
-  onSweatshirtSizeClick = value => {
-    this.setState(prevState => {
-      return {
-        employee: {
-          ...prevState.employee,
-          sweatshirtSize: value,
-        },
-      };
-    });
-  };
-
-  onHatSizeClick = value => {
-    this.setState(prevState => {
-      return {
-        employee: {
-          ...prevState.employee,
-          hatSize: value,
-        },
-      };
-    });
-  };
-
-  onPantSizeClick = value => {
-    this.setState(prevState => {
-      return {
-        employee: {
-          ...prevState.employee,
-          pantSize: value,
-        },
-      };
-    });
-  };
-
   onGenderClick = value => {
     this.setState(prevState => {
       return {
@@ -145,9 +106,6 @@ class SwagProfileNewHire extends Component {
       'zip',
       'country',
       'shirtSize',
-      'sweatshirtSize',
-      'hatSize',
-      'pantSize',
       'gender',
     ];
     const { employee } = this.state;
@@ -360,33 +318,6 @@ class SwagProfileNewHire extends Component {
                     selected={employee.shirtSize}
                     onClick={this.onShirtSizeClick}
                     error={this.state.shirtSizeError}
-                  />
-                </div>
-                <div className="form-field">
-                  <div className="label">Sweatshirt Size</div>
-                  <ButtonSelectOne
-                    values={constants.sweatshirtSizes}
-                    selected={employee.sweatshirtSize}
-                    onClick={this.onSweatshirtSizeClick}
-                    error={this.state.sweatshirtSizeError}
-                  />
-                </div>
-                <div className="form-field">
-                  <div className="label">Hat Size</div>
-                  <ButtonSelectOne
-                    values={constants.hatSizes}
-                    selected={employee.hatSize}
-                    onClick={this.onHatSizeClick}
-                    error={this.state.hatSizeError}
-                  />
-                </div>
-                <div className="form-field">
-                  <div className="label">Pant Size</div>
-                  <ButtonSelectOne
-                    values={constants.pantSizes}
-                    selected={employee.pantSize}
-                    onClick={this.onPantSizeClick}
-                    error={this.state.pantSizeError}
                   />
                 </div>
                 <div className="form-field">
