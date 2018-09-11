@@ -1,24 +1,33 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const styles = theme => ({
-  progress: {
-    margin: theme.spacing.unit * 2,
-  },
-});
+import v from '../../styles/variables';
 
-class Loader extends Component {
+export default class Loader extends Component {
   static propTypes = {
-    classes: PropTypes.object.isRequired,
+    color: PropTypes.string.isRequired,
+    margin: PropTypes.number.isRequired,
+    size: PropTypes.number.isRequired
   };
 
-  render() {
-    const { classes } = this.props;
+  static defaultProps = {
+    color: v.colorPrimary,
+    margin: 16,
+    size: 50
+  }
 
-    return <CircularProgress className={classes.progress} size={50} color="primary" />;
+  render() {
+    const style = {
+      color: this.props.color,
+      margin: this.props.margin
+    };
+
+    return (
+      <CircularProgress
+        size={this.props.size}
+        style={style}
+      />
+    );
   }
 }
-
-export default withStyles(styles)(Loader);

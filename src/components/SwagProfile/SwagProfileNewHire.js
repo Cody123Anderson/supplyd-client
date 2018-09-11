@@ -331,7 +331,11 @@ class SwagProfileNewHire extends Component {
                 </div>
                 <div className="contain-actions">
                   <div className="error-text">{this.state.errorText}</div>
-                  <Button disabled={this.state.submitting} type="submit">
+                  <Button
+                    disabled={this.state.submitting}
+                    type="submit"
+                    loading={this.state.submitting}
+                  >
                     Submit Information
                   </Button>
                 </div>
