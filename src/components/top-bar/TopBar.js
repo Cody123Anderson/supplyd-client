@@ -23,9 +23,14 @@ class TopBar extends Component {
     return (
       <div className="top-bar">
         <UIBoundary>
-          <div className="container">
-            <span className="title" onClick={this.onTitleClick}>SUPPLYD</span>
-
+          <div className="tb-container">
+            <span className="tb-left-links">
+              <span className="tb-title" onClick={this.onTitleClick}>SUPPLYD</span>
+              <span className="tb-desktop-only">
+                <a className="tb-link" href={`${routes.landingPage}#howitworks`}>How it Works</a>
+                <a className="tb-link" href={`${routes.landingPage}#pricing`}>Pricing</a>
+              </span>
+            </span>
             <Button
               variant="flat"
               color="secondary"
