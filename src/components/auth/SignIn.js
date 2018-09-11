@@ -127,6 +127,7 @@ class SignIn extends Component {
                 {this.renderErrors()}
                 <Button
                   disabled={this.state.submitting}
+                  loading={this.state.submitting}
                   fullWidth={true}
                   type="submit"
                 >

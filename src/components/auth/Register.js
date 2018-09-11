@@ -185,7 +185,14 @@ class Register extends Component {
               </div>
               <div className="r-contain-actions">
                 {this.renderErrors()}
-                <Button disabled={this.state.submitting} fullWidth={true} type="submit">Register</Button>
+                <Button
+                  disabled={this.state.submitting}
+                  fullWidth={true}
+                  type="submit"
+                  loading={this.state.submitting}
+                >
+                  Register
+                </Button>
               </div>
             </form>
             <div className="r-have-account">
