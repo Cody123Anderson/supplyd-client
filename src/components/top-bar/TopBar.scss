@@ -27,6 +27,12 @@
         font-weight: $fontWeightRegular;
       }
 
+      .tb-desktop-only {
+        @media (max-width: $maxMobileWidth) {
+          display: none;
+        }
+      }
+
       .tb-link {
         color: $colorFont;
         display: inline-block;
