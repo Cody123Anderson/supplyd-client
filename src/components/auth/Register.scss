@@ -29,6 +29,12 @@
   .r-form {
     display: flex;
     flex-wrap: wrap;
+
+    .r-password-validation {
+      text-align: left;
+      padding-bottom: 10px;
+      font-size: 10px;
+    }
   }
 
   .r-input-container {
