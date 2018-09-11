@@ -13,14 +13,13 @@ const START = 'START';
 const COMPLETE = 'COMPLETE';
 const ERROR = 'ERROR';
 
-const initialState = {
-  request: START,
-  email: '',
-  error: false,
-};
-
 class ForgotPassword extends React.Component {
-  state = { ...initialState };
+  state = {
+    request: START,
+    email: '',
+    error: false,
+    submitting: false
+  };
 
   validateEmail(email) {
     if (!email.length) {
@@ -37,11 +36,17 @@ class ForgotPassword extends React.Component {
 
   submitPasswordChangeRequest = (e) => {
     e.preventDefault();
+
+    if (this.state.submitting) return;
+
+    this.setState({ submitting: true });
+
     const { email } = this.state;
+
     if (this.validateEmail(email)) {
       requestPasswordChange(email)
-        .then(() => this.setState({ request: COMPLETE }))
-        .catch(() => this.setState({ request: ERROR }));
+        .then(() => this.setState({ request: COMPLETE, submitting: false }))
+        .catch(() => this.setState({ request: ERROR, submitting: false }));
     }
   };
 
@@ -68,7 +73,10 @@ class ForgotPassword extends React.Component {
               fullWidth={false}/>
             <hr/>
             <Button
-              type="submit">
+              type="submit"
+              disabled={this.state.submitting}
+              loading={this.state.submitting}
+            >
               Submit
             </Button>
           </form>
