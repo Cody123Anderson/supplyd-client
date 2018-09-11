@@ -22,29 +22,33 @@
     width: 90%;
 
     @media (min-width: #{$maxMobileWidth}) {
-      width: 450px
+      width: 450px;
     }
 
     .si-form {
       display: flex;
-      flex-wrap: wrap
+      flex-wrap: wrap;
     }
 
     .si-input-container {
       display: flex;
       margin-top: 20px;
-      width: 100%
+      width: 100%;
     }
 
     .si-contain-actions {
       margin-top: 40px;
-      width: 100%
+      width: 100%;
     }
   }
 
   .si-need-account {
     margin-top: 30px;
-    text-align: left
+    text-align: left;
+
+    .si-forgot-password {
+      margin-top: 10px;
+    }
   }
 
   .si-register {
@@ -54,6 +58,6 @@
   .si-error-text {
     color: $colorRed;
     margin-bottom: 10px;
-    text-align: left
+    text-align: left;
   }
 }

@@ -68,6 +68,7 @@ class PaymentForm extends Component {
             type="submit"
             onClick={this.submitCard}
             disabled={this.state.buttonDisabled}
+            loading={this.state.buttonDisabled}
           >
             Update
           </Button>

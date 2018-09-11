@@ -167,7 +167,14 @@ class CreateEmployee extends Component {
               </div>
               <div className="container-actions">
                 {this.renderErrors()}
-                <Button disabled={this.state.submitting} fullWidth={true} onClick={this.onFormSubmit}>Add Employee</Button>
+                <Button
+                  disabled={this.state.submitting}
+                  loading={this.state.submitting}
+                  fullWidth={true}
+                  onClick={this.onFormSubmit}
+                >
+                  Add Employee
+                </Button>
               </div>
             </form>
           </div>
