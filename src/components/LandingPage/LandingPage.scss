@@ -1,7 +1,6 @@
 @import '../../styles/variables';
 
 .landing-page {
-  padding-bottom: 150px;
   min-height: 100vh;
 }
 
@@ -74,38 +73,86 @@
   }
 }
 
-.lp-how-title {
-  font-size: $fontSizeJumbo;
-  margin-top: 100px;
-  text-align: center;
-}
+.lp-section {
+  padding: 100px 5px;
 
-.lp-how-subtitle {
-  font-size: $fontSizeLarge;
-  margin-top: 30px;
-  text-align: center;
-}
-
-.lp-how-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-bottom: 75px;
-}
-
-.lp-step {
-  margin-top: 75px;
-  text-align: center;
-  max-width: 314px;
-
-  .lp-step-title {
-    font-size: $fontSizeLarge;
-    font-weight: $fontWeightRegular;
-    margin-bottom: 15px;
+  &.lp-section-dark {
+    background-color: $colorBlack5;
   }
 
-  .lp-step-body {
-    font-size: $fontSizeMedium;
+  .lp-section-title {
+    font-size: $fontSizeJumbo;
+    text-align: center;
+  }
+
+  .lp-section-subtitle {
+    font-size: $fontSizeLarge;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .lp-section-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 75px;
+
+    .lp-section-col {
+      margin-top: 75px;
+      text-align: center;
+      max-width: 314px;
+
+      .lp-price-box {
+        display: inline-block;
+        margin-bottom: 30px;
+
+        &.lp-price-box-basic {
+          height: 157.92px;
+          width: 230.16px;
+        }
+
+        &.lp-price-box-standard {
+          height: 145.49px;
+          width: 231.50px;
+        }
+
+        &.lp-price-box-premium {
+          height: 157.92px;
+          width: 230.16px;
+        }
+      }
+
+      .lp-col-title {
+        font-size: $fontSizeLarge;
+        font-weight: $fontWeightRegular;
+        margin-bottom: 15px;
+      }
+
+      .lp-col-pricing {
+        font-size: $fontSizeLarge;
+        font-weight: $fontWeightRegular;
+      }
+
+      .lp-col-body {
+        font-size: $fontSizeMedium;
+
+        .lp-swag-list {
+          text-align: left;
+
+          li {
+            margin-top: 10px;
+
+            &:first-of-type {
+              margin-top: 50px;
+            }
+
+            &.lp-added {
+              color: $colorGold;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
