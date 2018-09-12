@@ -47,7 +47,6 @@
     "raf": "3.4.0",
     "react": "^16.4.2",
     "react-autofill": "^1.1.4",
-    "react-copy-to-clipboard": "^5.0.1",
     "react-dev-utils": "^5.0.0",
     "react-dom": "^16.4.2",
     "react-icons": "^2.2.7",
