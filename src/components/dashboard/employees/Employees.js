@@ -118,7 +118,7 @@ class Employees extends Component {
         TransitionComponent={Transition}
         fullWidth
         maxWidth="md"
-        PaperProps={{style: {margin: 15}}}
+        PaperProps={{ style: { margin: 15 } }}
         aria-labelledby="add-new-employee-modal"
         open={this.state.modalOpen}
       >
@@ -133,14 +133,14 @@ class Employees extends Component {
             <DialogContent style={{ textAlign: 'center' }}>
               Copy the link below and send it to your existing employees. Once the employee fills
               out the form, their swag will be on its way!
-              <DialogContentText style={{ marginTop: 25 }}>{link}</DialogContentText>
+              <DialogContentText style={{ marginTop: 25, overflowWrap: 'break-word' }}>
+                {link}
+              </DialogContentText>
             </DialogContent>
 
             <DialogActions>
               <MuiThemeProvider theme={theme}>
-                <MuiButton onClick={this.handleBack}>
-                  Go Back
-                </MuiButton>
+                <MuiButton onClick={this.handleBack}>Go Back</MuiButton>
               </MuiThemeProvider>
               <Button onClick={this.handleClose} color="primary">
                 Done
