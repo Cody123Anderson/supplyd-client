@@ -15,6 +15,14 @@
       }
     }
 
+    #stripe-img {
+      margin: 20px 410px 0;
+
+      @media (max-width: #{$maxMobileWidth}) {
+        margin-left: calc(80% - 90px);
+      }
+    }
+
     .card-update-buttons {
       display: flex;
       flex-direction: row;
