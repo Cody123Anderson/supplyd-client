@@ -11,18 +11,18 @@ import './ResetPassword.scss';
 const START = 'START';
 const COMPLETE = 'COMPLETE';
 const ERROR = 'ERROR';
-const initialState = {
-  request: START,
-  error: false,
-  errorMessage: null,
-  token: null,
-  id: null,
-  firstPassword: '',
-  secondPassword: ''
-};
 
 class ResetPassword extends React.Component {
-  state = { ...initialState };
+  state = {
+    request: START,
+    error: false,
+    errorMessage: null,
+    token: null,
+    id: null,
+    firstPassword: '',
+    secondPassword: '',
+    submitting: false
+  };
 
   handleFirstPassword = (e) => this.setState({
     firstPassword: e.target.value,
@@ -54,13 +54,20 @@ class ResetPassword extends React.Component {
 
   submitPasswordChange = (e) => {
     e.preventDefault();
+
+    if (this.state.submitting) return;
+
+    this.setState({ submitting: true });
+
     const { secondPassword, id, token } = this.state;
+
     if (this.validatePasswords()) {
       resetPassword(secondPassword, id, token)
-        .then(() => this.setState({ request: COMPLETE }))
+        .then(() => this.setState({ request: COMPLETE, submitting: false }))
         .catch((err) => this.setState({
           request: ERROR,
-          errorMessage: err.response.data.error
+          errorMessage: err.response.data.error,
+          submitting: false
         }));
     }
   };
@@ -99,7 +106,10 @@ class ResetPassword extends React.Component {
             {this.renderError()}
             <hr/>
             <Button
-              type="submit">
+              type="submit"
+              disabled={this.state.submitting}
+              loading={this.state.submitting}
+            >
               Submit
             </Button>
           </form>

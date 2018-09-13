@@ -11,6 +11,7 @@ import {
 import Button from '../../ui-components/Button';
 import Input from '../../ui-components/Input';
 import v from '../../../styles/variables';
+import StripeImg from '../../../images/stripe-outline.svg';
 
 import './PaymentInfo.scss';
 
@@ -68,6 +69,7 @@ class PaymentForm extends Component {
             type="submit"
             onClick={this.submitCard}
             disabled={this.state.buttonDisabled}
+            loading={this.state.buttonDisabled}
           >
             Update
           </Button>
@@ -111,6 +113,7 @@ class PaymentForm extends Component {
         <CardCVCElement className="card-input-element" style={stripeFontStyles} />
         <PostalCodeElement className="card-input-element" style={stripeFontStyles} />
         {this.renderButtons()}
+        <img id="stripe-img" src={StripeImg} alt="Powered by Stripe" />
       </div>
     );
   }

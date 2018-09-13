@@ -9,6 +9,7 @@ import Button from '../ui-components/Button';
 import TopBar from '../top-bar/TopBar';
 import routes from '../../constants/routes';
 import { isExpired } from '../../utils/jwtUtils';
+import { isValidPassword, isValidEmail } from '../../utils/utils';
 import { createBusiness, checkBusinessName } from '../../actions/businessActions';
 import { registerUser, checkUserEmail, clearAuthErrors } from '../../actions/userActions';
 import Footer from '../Footer/Footer';
@@ -22,8 +23,9 @@ class Register extends Component {
     passwordError: '',
     email: '',
     emailError: '',
+    formError: '',
     submitting: false
-  }
+  };
 
   componentDidMount() {
     this.props.clearAuthErrors();
@@ -69,41 +71,19 @@ class Register extends Component {
       [key]: value,
       [`${key}Error`]: ''
     });
-  }
+  };
 
   validateForm = async (cb) => {
     let error = '';
 
-    // Validate businessName
-    const businessName = this.state.businessName;
-    if (!businessName) {
-      error = ' - this field is required';
-      this.setState({ businessNameError: error });
-    } else {
-      const isUnique = await checkBusinessName(businessName);
-
-      if (!isUnique) {
-        error = ' - account for this name already exists';
-        this.setState({ businessNameError: error });
-      } else {
-        this.setState({ businessNameError: '' });
-      }
-    }
-
     // Validate email
     const email = this.state.email;
-    if (!email) {
-      error = ' - this field is required';
+    if (!isValidEmail(email)) {
+      error = ' - invalid email';
       this.setState({ emailError: error });
+      return cb(error)
     } else {
-      const isUnique = await checkUserEmail(email);
-
-      if (!isUnique) {
-        error = ' - account with this email already exists';
-        this.setState({ emailError: error });
-      } else {
-        this.setState({ emailError: '' });
-      }
+      this.setState({ emailError: '' });
     }
 
     // Validate password
@@ -111,11 +91,45 @@ class Register extends Component {
     if (!password) {
       error = ' - this field is required';
       this.setState({ passwordError: error });
+      return cb(error)
+    } else if (!isValidPassword(password)) {
+      error = ' - invalid password';
+      this.setState({ passwordError: error });
+      return cb(error)
     } else {
       this.setState({ passwordError: '' });
     }
 
-    cb(error);
+    const isUnique = await checkUserEmail(email);
+
+    if (!isUnique) {
+      error = ' - account with this email already exists';
+      this.setState({ emailError: error });
+      return cb(error);
+    } else {
+      this.setState({ emailError: '' });
+    }
+
+    // Validate businessName
+    const businessName = this.state.businessName;
+    if (!businessName) {
+      error = ' - this field is required';
+      this.setState({ businessNameError: error });
+      return cb(error);
+    } else {
+      const isUnique = await checkBusinessName(businessName);
+
+      if (!isUnique) {
+        error = ' - account for this name already exists';
+        this.setState({ businessNameError: error });
+        return cb(error)
+      } else {
+        this.setState({ businessNameError: '' });
+      }
+    }
+
+
+    return error;
   }
 
   renderErrors() {
@@ -125,6 +139,13 @@ class Register extends Component {
           {this.props.authError}
         </div>
       );
+    }
+    if (this.state.passwordError) {
+      return (
+        <div className="r-password-validation">
+          * Password must be at least eight characters long, contain at least one lowercase letter, one uppercase letter, one number, and one special character (!@#$%^&)
+        </div>
+      )
     }
   }
 
@@ -138,7 +159,7 @@ class Register extends Component {
             <form className="r-form" onSubmit={this.onFormSubmit}>
               <Input
                 label={`Business Name${this.state.businessNameError}`}
-                error={this.state.businessNameError ? true : false}
+                error={!!this.state.businessNameError}
                 required={true}
                 onChange={(e) => this.onInputTextChange('businessName', e.target.value)}
                 value={this.state.businessName}
@@ -146,7 +167,7 @@ class Register extends Component {
               <div className="r-input-container">
                 <Input
                   label={`Email${this.state.emailError}`}
-                  error={this.state.emailError ? true : false}
+                  error={!!this.state.emailError}
                   required={true}
                   onChange={(e) => this.onInputTextChange('email', _.toLower(e.target.value))}
                   value={this.state.email}
@@ -156,7 +177,7 @@ class Register extends Component {
                 <Input
                   label={`Password${this.state.passwordError}`}
                   type="password"
-                  error={this.state.passwordError ? true : false}
+                  error={!!this.state.passwordError}
                   required={true}
                   onChange={(e) => this.onInputTextChange('password', e.target.value)}
                   value={this.state.password}
@@ -164,7 +185,14 @@ class Register extends Component {
               </div>
               <div className="r-contain-actions">
                 {this.renderErrors()}
-                <Button disabled={this.state.submitting} fullWidth={true} type="submit">Register</Button>
+                <Button
+                  disabled={this.state.submitting}
+                  fullWidth={true}
+                  type="submit"
+                  loading={this.state.submitting}
+                >
+                  Register
+                </Button>
               </div>
             </form>
             <div className="r-have-account">

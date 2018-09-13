@@ -75,32 +75,6 @@
         }
       }
     }
-
-    .employees-links-container {
-      box-shadow: $boxShadow;
-      padding: 10px;
-      margin: 24px;
-
-      .e-links-header {
-        padding: 0 0 14px;
-        font-size: $fontSizeBase;
-        font-weight: $fontWeightRegular;
-      }
-
-      .employees-links {
-        .e-link {
-          padding: 0 0 20px;
-          cursor: pointer;
-          color: $colorPrimary;
-          overflow-wrap: break-word;
-
-          #e-link-description {
-            color: $colorBlack80;
-            font-weight: $fontWeightRegular;
-          }
-        }
-      }
-    }
   }
 
   .employees-table {
